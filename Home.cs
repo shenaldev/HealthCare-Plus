@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthCare_Plus.Forms.Auth;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,20 @@ namespace HealthCare_Plus
         public Home()
         {
             InitializeComponent();
+        }
+
+        private void register_btn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.Show();
+        }
+
+        private void login_btn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            PatientLoginForm patientLoginForm = new PatientLoginForm();
+            patientLoginForm.Show();
         }
     }
 }
