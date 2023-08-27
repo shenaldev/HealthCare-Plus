@@ -18,18 +18,11 @@ namespace HealthCare_Plus
             InitializeComponent();
         }
 
-        private void register_btn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            RegisterForm registerForm = new RegisterForm();
-            registerForm.Show();
-        }
-
         private void login_btn_Click(object sender, EventArgs e)
         {
+            StaffLoginForm staffLoginForm = new StaffLoginForm();
             this.Hide();
-            PatientLoginForm patientLoginForm = new PatientLoginForm();
-            patientLoginForm.Show();
+            staffLoginForm.ShowDialog();
         }
     }
 }

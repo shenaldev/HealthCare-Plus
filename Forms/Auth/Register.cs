@@ -13,6 +13,7 @@ namespace HealthCare_Plus.Forms.Auth
 {
     public partial class RegisterForm : Form
     {
+        private User patient = null;
         public RegisterForm()
         {
             InitializeComponent();
@@ -32,8 +33,8 @@ namespace HealthCare_Plus.Forms.Auth
 
         private void register_btn_Click(object sender, EventArgs e)
         {
-            Patient patient = new Patient(first_name_input.Text, last_name_input.Text, email_input.Text, phone_no_input.Text, password_input.Text, address_input.Text);
-            Console.WriteLine("name is " + patient.first_name);
+            patient = new User(first_name_input.Text, last_name_input.Text, email_input.Text, phone_no_input.Text, password_input.Text, address_input.Text, "staff");
+            Console.WriteLine("name is " + patient.FirstName);
         }
     }
 }

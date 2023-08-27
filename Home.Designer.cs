@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.welcome_text = new System.Windows.Forms.Label();
             this.login_btn = new System.Windows.Forms.Button();
-            this.register_btn = new System.Windows.Forms.Button();
             this.admin_login_btn = new System.Windows.Forms.Button();
             this.welcome_image = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.welcome_image)).BeginInit();
@@ -55,42 +54,28 @@
             this.login_btn.FlatAppearance.BorderSize = 0;
             this.login_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.login_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.login_btn.Location = new System.Drawing.Point(255, 334);
+            this.login_btn.Location = new System.Drawing.Point(255, 345);
             this.login_btn.Name = "login_btn";
             this.login_btn.Size = new System.Drawing.Size(130, 38);
             this.login_btn.TabIndex = 2;
-            this.login_btn.Text = "Patient Login";
+            this.login_btn.Text = "Staff Login";
             this.login_btn.UseVisualStyleBackColor = false;
             this.login_btn.Click += new System.EventHandler(this.login_btn_Click);
             // 
-            // register_btn
-            // 
-            this.register_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(208)))), ((int)(((byte)(104)))));
-            this.register_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.register_btn.FlatAppearance.BorderSize = 0;
-            this.register_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.register_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.register_btn.Location = new System.Drawing.Point(400, 334);
-            this.register_btn.Name = "register_btn";
-            this.register_btn.Size = new System.Drawing.Size(140, 38);
-            this.register_btn.TabIndex = 2;
-            this.register_btn.Text = "Patient Register";
-            this.register_btn.UseVisualStyleBackColor = false;
-            this.register_btn.Click += new System.EventHandler(this.register_btn_Click);
-            // 
             // admin_login_btn
             // 
-            this.admin_login_btn.BackColor = System.Drawing.Color.SlateBlue;
+            this.admin_login_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(208)))), ((int)(((byte)(104)))));
             this.admin_login_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.admin_login_btn.FlatAppearance.BorderSize = 0;
             this.admin_login_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.admin_login_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admin_login_btn.Location = new System.Drawing.Point(312, 398);
+            this.admin_login_btn.Location = new System.Drawing.Point(391, 345);
             this.admin_login_btn.Name = "admin_login_btn";
-            this.admin_login_btn.Size = new System.Drawing.Size(176, 40);
-            this.admin_login_btn.TabIndex = 3;
+            this.admin_login_btn.Size = new System.Drawing.Size(140, 38);
+            this.admin_login_btn.TabIndex = 2;
             this.admin_login_btn.Text = "Admin Login";
             this.admin_login_btn.UseVisualStyleBackColor = false;
+            this.admin_login_btn.Click += new System.EventHandler(this.login_btn_Click);
             // 
             // welcome_image
             // 
@@ -110,7 +95,6 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.admin_login_btn);
-            this.Controls.Add(this.register_btn);
             this.Controls.Add(this.login_btn);
             this.Controls.Add(this.welcome_image);
             this.Controls.Add(this.welcome_text);
@@ -129,7 +113,6 @@
         private System.Windows.Forms.Label welcome_text;
         private System.Windows.Forms.PictureBox welcome_image;
         private System.Windows.Forms.Button login_btn;
-        private System.Windows.Forms.Button register_btn;
         private System.Windows.Forms.Button admin_login_btn;
     }
 }
