@@ -10,9 +10,11 @@ namespace HealthCare_Plus.Models
     {
         private static AuthUser instance = null;
         private string email;
+        private string firstName;
         public string role;
 
         public string Email { get =>  email; set => email = value; }
+        public string FirstName { get  => firstName; set => firstName = value; }
         private AuthUser() { }
 
         public static AuthUser Instance

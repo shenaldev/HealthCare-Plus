@@ -75,7 +75,7 @@
             this.admin_login_btn.TabIndex = 2;
             this.admin_login_btn.Text = "Admin Login";
             this.admin_login_btn.UseVisualStyleBackColor = false;
-            this.admin_login_btn.Click += new System.EventHandler(this.login_btn_Click);
+            this.admin_login_btn.Click += new System.EventHandler(this.admin_login_btn_Click);
             // 
             // welcome_image
             // 

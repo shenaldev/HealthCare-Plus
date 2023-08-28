@@ -1,4 +1,5 @@
 ﻿using HealthCare_Plus.Forms.Dashboard;
+using HealthCare_Plus.Forms.Dashboard.Admin;
 using HealthCare_Plus.Models;
 using HealthCare_Plus.Utils;
 using System;
@@ -8,21 +9,14 @@ using System.Windows.Forms;
 
 namespace HealthCare_Plus.Forms.Auth
 {
-    public partial class StaffLoginForm : Form
+    public partial class AdminLoginForm : Form
     {
         private string EmailAddress = null;
         private string Password = null;
 
-        public StaffLoginForm()
+        public AdminLoginForm()
         {
             InitializeComponent();
-        }
-
-        private void back_to_home_lable_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Home home = new Home();
-            home.Show();
         }
 
         private void login_btn_Click(object sender, EventArgs e)
@@ -45,7 +39,8 @@ namespace HealthCare_Plus.Forms.Auth
                 try
                 {
                     sqlCon.Open();
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show("Server Error Try Again Later", "Error", default, MessageBoxIcon.Error);
                     return;
@@ -65,8 +60,7 @@ namespace HealthCare_Plus.Forms.Auth
                     bool isValid = passwordHash.VerifyPassword(Password, dbpassword);
 
                     //CHECK FOR AUTHORIZTION {ROLE}
-                    Console.WriteLine(role);
-                    if(role != "admin" && role != "staff")
+                    if (role != "admin")
                     {
                         MessageBox.Show("You don't have access!", "Unauthorized", default, MessageBoxIcon.Error);
                         return;
@@ -81,9 +75,9 @@ namespace HealthCare_Plus.Forms.Auth
                         authUser.role = role;
 
                         //SHOW STAFF DASHBOARD ON LOGIN SUCCESS
-                        StaffDashboard staffDashboard = new StaffDashboard();
+                        AdminDashboard adminDashboard = new AdminDashboard();
                         this.Hide();
-                        staffDashboard.Show();
+                        adminDashboard.Show();
                     }
                     else
                     {
@@ -95,6 +89,13 @@ namespace HealthCare_Plus.Forms.Auth
                     MessageBox.Show("Invalid Credentials", "Login Faild", default, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void back_to_home_lable_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home home = new Home();
+            home.Show();
         }
 
         //VALIDATE LOGIN FORM INPUTS
