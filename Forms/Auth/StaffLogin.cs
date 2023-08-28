@@ -1,9 +1,11 @@
 ﻿using HealthCare_Plus.Forms.Dashboard;
 using HealthCare_Plus.Models;
+using HealthCare_Plus.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
@@ -40,33 +42,78 @@ namespace HealthCare_Plus.Forms.Auth
             string validation = FormValidate(EmailAddress, Password);
             if (validation != "valid")
             {
-                MessageBox.Show(validation, "Error",default, MessageBoxIcon.Error);
+                MessageBox.Show(validation, "Error", default, MessageBoxIcon.Error);
             }
 
-            if(validation == "valid")
+            if (validation == "valid")
             {
-                var authUser = AuthUser.Instance;
-                authUser.Email = EmailAddress;
-                authUser.role = "staff";
+                //DB CONECTION
+                DBCon dBCon = new DBCon();
+                SqlConnection sqlCon = dBCon.SqlConnection;
+                try
+                {
+                    sqlCon.Open();
+                }catch (Exception ex)
+                {
+                    MessageBox.Show("Server Error Try Again Later", "Error", default, MessageBoxIcon.Error);
+                    return;
+                }
 
-                //SHOW STAFF DASHBOARD ON LOGIN SUCCESS
-                Console.WriteLine("login");
-                StaffDashboard staffDashboard = new StaffDashboard();
-                this.Hide();
-                staffDashboard.Show();
+                //SEARCH USER
+                string query = "SELECT email,password,role FROM Users WHERE email=@email";
+                SqlCommand cmd = new SqlCommand(query, sqlCon);
+                cmd.Parameters.AddWithValue("@email", EmailAddress);
+                SqlDataReader dataReader = cmd.ExecuteReader();
+
+                if (dataReader.Read())
+                {
+                    string dbpassword = dataReader["password"].ToString();
+                    string role = dataReader["role"].ToString();
+                    Hash passwordHash = new Hash();
+                    bool isValid = passwordHash.VerifyPassword(Password, dbpassword);
+
+                    //CHECK FOR AUTHORIZTION {ROLE}
+                    if(role != "admin" || role != "staff")
+                    {
+                        MessageBox.Show("You don't have access!", "Unauthorized", default, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (isValid)
+                    {
+                        // SAVE AUTH MODAL
+                        var authUser = AuthUser.Instance;
+                        authUser.Email = EmailAddress;
+                        authUser.role = role;
+
+                        //SHOW STAFF DASHBOARD ON LOGIN SUCCESS
+                        StaffDashboard staffDashboard = new StaffDashboard();
+                        this.Hide();
+                        staffDashboard.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Credentials", "Login Faild", default, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Credentials", "Login Faild", default, MessageBoxIcon.Error);
+                }
             }
         }
 
         //VALIDATE LOGIN FORM INPUTS
         private string FormValidate(string email, string password)
         {
-            if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password)) {
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            {
                 return "Email and password is required";
             }
 
             string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             Regex regex = new Regex(emailPattern);
-            if(!regex.IsMatch(email))
+            if (!regex.IsMatch(email))
             {
                 return "Invalid email address";
             }
