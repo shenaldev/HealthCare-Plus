@@ -101,6 +101,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home Page";
             ((System.ComponentModel.ISupportInitialize)(this.welcome_image)).EndInit();
             this.ResumeLayout(false);

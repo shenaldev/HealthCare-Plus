@@ -134,6 +134,7 @@
             this.Controls.Add(this.back_to_home_lable);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StaffLoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Staff Login";
             this.ResumeLayout(false);
             this.PerformLayout();

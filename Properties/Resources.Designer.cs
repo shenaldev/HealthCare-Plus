@@ -63,6 +63,16 @@ namespace HealthCare_Plus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap medicine {
+            get {
+                object obj = ResourceManager.GetObject("medicine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap receptionist {
             get {
                 object obj = ResourceManager.GetObject("receptionist", resourceCulture);
@@ -76,6 +86,16 @@ namespace HealthCare_Plus.Properties {
         internal static System.Drawing.Bitmap user {
             get {
                 object obj = ResourceManager.GetObject("user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_doctor_solid {
+            get {
+                object obj = ResourceManager.GetObject("user-doctor-solid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

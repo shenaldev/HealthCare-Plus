@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HealthCare_Plus.Models
 {
@@ -27,6 +28,18 @@ namespace HealthCare_Plus.Models
                 }
                 return instance;
             }
+        }
+
+        //LOGOUT METHOD
+        public void Logout()
+        {
+            instance = null;
+            Email = null;
+            FirstName = null;
+            role = null;
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            MessageBox.Show("Logged Out Successfull!", "Success", default, MessageBoxIcon.Information);
         }
 
     }

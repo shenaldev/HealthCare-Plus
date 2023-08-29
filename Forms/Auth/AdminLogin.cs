@@ -17,6 +17,8 @@ namespace HealthCare_Plus.Forms.Auth
         public AdminLoginForm()
         {
             InitializeComponent();
+            email_input.Text = "admin@healthplus.com";
+            password_input.Text = "password";
         }
 
         private void login_btn_Click(object sender, EventArgs e)
