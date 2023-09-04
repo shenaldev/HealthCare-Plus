@@ -101,6 +101,7 @@
             this.update_doc_btn.TabIndex = 25;
             this.update_doc_btn.Text = "Update";
             this.update_doc_btn.UseVisualStyleBackColor = false;
+            this.update_doc_btn.Click += new System.EventHandler(this.update_doc_btn_Click);
             // 
             // add_doc_btn
             // 
