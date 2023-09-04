@@ -46,11 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DoctorUserDataset.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DoctorUserDataset.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Auth\AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +95,7 @@
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AuthUser.cs" />
+    <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,6 +106,7 @@
     </Compile>
     <Compile Include="Utils\DBCon.cs" />
     <Compile Include="Utils\Hash.cs" />
+    <Compile Include="Utils\InputValidator.cs" />
     <EmbeddedResource Include="Forms\Auth\AdminLogin.resx">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,17 +136,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="DoctorUserDataset.xsc">
-      <DependentUpon>DoctorUserDataset.xsd</DependentUpon>
-    </None>
-    <None Include="DoctorUserDataset.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DoctorUserDataset.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DoctorUserDataset.xss">
-      <DependentUpon>DoctorUserDataset.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

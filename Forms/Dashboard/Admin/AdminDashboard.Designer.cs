@@ -33,23 +33,23 @@
             this.username_label = new System.Windows.Forms.Label();
             this.logout_btn = new System.Windows.Forms.Button();
             this.navigationPanel = new System.Windows.Forms.Panel();
+            this.logoPanel = new System.Windows.Forms.Panel();
+            this.headerPanel = new System.Windows.Forms.Panel();
+            this.app_name_label = new System.Windows.Forms.Label();
+            this.bodyPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.invoiceBtn = new System.Windows.Forms.Button();
             this.reportsBtn = new System.Windows.Forms.Button();
             this.appoinmentsBtn = new System.Windows.Forms.Button();
             this.staffBtn = new System.Windows.Forms.Button();
             this.patientsBtn = new System.Windows.Forms.Button();
             this.doctorsBtn = new System.Windows.Forms.Button();
-            this.logoPanel = new System.Windows.Forms.Panel();
             this.logoImage = new System.Windows.Forms.PictureBox();
-            this.headerPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.app_name_label = new System.Windows.Forms.Label();
-            this.bodyPanel = new System.Windows.Forms.Panel();
             this.navigationPanel.SuspendLayout();
             this.logoPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoImage)).BeginInit();
             this.headerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoImage)).BeginInit();
             this.SuspendLayout();
             // 
             // welcome_text
@@ -108,6 +108,60 @@
             this.navigationPanel.Name = "navigationPanel";
             this.navigationPanel.Size = new System.Drawing.Size(200, 611);
             this.navigationPanel.TabIndex = 15;
+            // 
+            // logoPanel
+            // 
+            this.logoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(23)))), ((int)(((byte)(49)))));
+            this.logoPanel.Controls.Add(this.app_name_label);
+            this.logoPanel.Controls.Add(this.logoImage);
+            this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.logoPanel.Location = new System.Drawing.Point(0, 0);
+            this.logoPanel.Name = "logoPanel";
+            this.logoPanel.Size = new System.Drawing.Size(200, 128);
+            this.logoPanel.TabIndex = 0;
+            // 
+            // headerPanel
+            // 
+            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(90)))));
+            this.headerPanel.Controls.Add(this.pictureBox1);
+            this.headerPanel.Controls.Add(this.username_label);
+            this.headerPanel.Controls.Add(this.welcome_text);
+            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.headerPanel.Location = new System.Drawing.Point(200, 0);
+            this.headerPanel.Name = "headerPanel";
+            this.headerPanel.Size = new System.Drawing.Size(884, 69);
+            this.headerPanel.TabIndex = 16;
+            // 
+            // app_name_label
+            // 
+            this.app_name_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.app_name_label.AutoSize = true;
+            this.app_name_label.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.app_name_label.ForeColor = System.Drawing.Color.White;
+            this.app_name_label.Location = new System.Drawing.Point(27, 83);
+            this.app_name_label.Name = "app_name_label";
+            this.app_name_label.Size = new System.Drawing.Size(147, 21);
+            this.app_name_label.TabIndex = 17;
+            this.app_name_label.Text = "HealthCare Plus";
+            // 
+            // bodyPanel
+            // 
+            this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bodyPanel.Location = new System.Drawing.Point(200, 69);
+            this.bodyPanel.Name = "bodyPanel";
+            this.bodyPanel.Size = new System.Drawing.Size(884, 542);
+            this.bodyPanel.TabIndex = 17;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::HealthCare_Plus.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(822, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(38, 35);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
             // 
             // invoiceBtn
             // 
@@ -236,17 +290,6 @@
             this.doctorsBtn.UseVisualStyleBackColor = false;
             this.doctorsBtn.Click += new System.EventHandler(this.doctorsBtn_Click);
             // 
-            // logoPanel
-            // 
-            this.logoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(23)))), ((int)(((byte)(49)))));
-            this.logoPanel.Controls.Add(this.app_name_label);
-            this.logoPanel.Controls.Add(this.logoImage);
-            this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.logoPanel.Location = new System.Drawing.Point(0, 0);
-            this.logoPanel.Name = "logoPanel";
-            this.logoPanel.Size = new System.Drawing.Size(200, 128);
-            this.logoPanel.TabIndex = 0;
-            // 
             // logoImage
             // 
             this.logoImage.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -257,49 +300,6 @@
             this.logoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoImage.TabIndex = 0;
             this.logoImage.TabStop = false;
-            // 
-            // headerPanel
-            // 
-            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(90)))));
-            this.headerPanel.Controls.Add(this.pictureBox1);
-            this.headerPanel.Controls.Add(this.username_label);
-            this.headerPanel.Controls.Add(this.welcome_text);
-            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.headerPanel.Location = new System.Drawing.Point(200, 0);
-            this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(884, 69);
-            this.headerPanel.TabIndex = 16;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::HealthCare_Plus.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(822, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(38, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            // 
-            // app_name_label
-            // 
-            this.app_name_label.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.app_name_label.AutoSize = true;
-            this.app_name_label.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.app_name_label.ForeColor = System.Drawing.Color.White;
-            this.app_name_label.Location = new System.Drawing.Point(27, 83);
-            this.app_name_label.Name = "app_name_label";
-            this.app_name_label.Size = new System.Drawing.Size(147, 21);
-            this.app_name_label.TabIndex = 17;
-            this.app_name_label.Text = "HealthCare Plus";
-            // 
-            // bodyPanel
-            // 
-            this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bodyPanel.Location = new System.Drawing.Point(200, 69);
-            this.bodyPanel.Name = "bodyPanel";
-            this.bodyPanel.Size = new System.Drawing.Size(884, 542);
-            this.bodyPanel.TabIndex = 17;
             // 
             // AdminDashboard
             // 
@@ -312,14 +312,15 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminDashboard";
             this.Text = "Admin Dashboard";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
             this.navigationPanel.ResumeLayout(false);
             this.logoPanel.ResumeLayout(false);
             this.logoPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoImage)).EndInit();
             this.headerPanel.ResumeLayout(false);
             this.headerPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoImage)).EndInit();
             this.ResumeLayout(false);
 
         }
