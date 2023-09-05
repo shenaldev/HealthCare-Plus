@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.crudPanel = new System.Windows.Forms.Panel();
+            this.reset_btn = new System.Windows.Forms.Button();
+            this.delete_btn = new System.Windows.Forms.Button();
             this.update_doc_btn = new System.Windows.Forms.Button();
             this.add_doc_btn = new System.Windows.Forms.Button();
             this.location_input = new System.Windows.Forms.ComboBox();
@@ -60,6 +63,8 @@
             // 
             // crudPanel
             // 
+            this.crudPanel.Controls.Add(this.reset_btn);
+            this.crudPanel.Controls.Add(this.delete_btn);
             this.crudPanel.Controls.Add(this.update_doc_btn);
             this.crudPanel.Controls.Add(this.add_doc_btn);
             this.crudPanel.Controls.Add(this.location_input);
@@ -85,8 +90,39 @@
             this.crudPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.crudPanel.Location = new System.Drawing.Point(0, 0);
             this.crudPanel.Name = "crudPanel";
-            this.crudPanel.Size = new System.Drawing.Size(800, 247);
+            this.crudPanel.Size = new System.Drawing.Size(800, 260);
             this.crudPanel.TabIndex = 0;
+            // 
+            // reset_btn
+            // 
+            this.reset_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.reset_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.reset_btn.FlatAppearance.BorderSize = 0;
+            this.reset_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reset_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reset_btn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.reset_btn.Location = new System.Drawing.Point(669, 184);
+            this.reset_btn.Name = "reset_btn";
+            this.reset_btn.Size = new System.Drawing.Size(119, 38);
+            this.reset_btn.TabIndex = 27;
+            this.reset_btn.Text = "Reset";
+            this.reset_btn.UseVisualStyleBackColor = false;
+            this.reset_btn.Click += new System.EventHandler(this.Reset_btn_ClickHandler);
+            // 
+            // delete_btn
+            // 
+            this.delete_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(90)))));
+            this.delete_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.delete_btn.FlatAppearance.BorderSize = 0;
+            this.delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delete_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_btn.Location = new System.Drawing.Point(530, 184);
+            this.delete_btn.Name = "delete_btn";
+            this.delete_btn.Size = new System.Drawing.Size(119, 38);
+            this.delete_btn.TabIndex = 26;
+            this.delete_btn.Text = "Delete";
+            this.delete_btn.UseVisualStyleBackColor = false;
+            this.delete_btn.Click += new System.EventHandler(this.Delete_btn_Click);
             // 
             // update_doc_btn
             // 
@@ -101,7 +137,7 @@
             this.update_doc_btn.TabIndex = 25;
             this.update_doc_btn.Text = "Update";
             this.update_doc_btn.UseVisualStyleBackColor = false;
-            this.update_doc_btn.Click += new System.EventHandler(this.update_doc_btn_Click);
+            this.update_doc_btn.Click += new System.EventHandler(this.Update_doc_btn_Click);
             // 
             // add_doc_btn
             // 
@@ -116,7 +152,7 @@
             this.add_doc_btn.TabIndex = 24;
             this.add_doc_btn.Text = "Add Doctor";
             this.add_doc_btn.UseVisualStyleBackColor = false;
-            this.add_doc_btn.Click += new System.EventHandler(this.add_doc_btn_Click);
+            this.add_doc_btn.Click += new System.EventHandler(this.Add_doc_btn_Click);
             // 
             // location_input
             // 
@@ -349,9 +385,9 @@
             // 
             this.dataPanel.Controls.Add(this.doctorsDataGridView);
             this.dataPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataPanel.Location = new System.Drawing.Point(0, 247);
+            this.dataPanel.Location = new System.Drawing.Point(0, 260);
             this.dataPanel.Name = "dataPanel";
-            this.dataPanel.Size = new System.Drawing.Size(800, 203);
+            this.dataPanel.Size = new System.Drawing.Size(800, 190);
             this.dataPanel.TabIndex = 1;
             // 
             // doctorsDataGridView
@@ -359,15 +395,27 @@
             this.doctorsDataGridView.AllowUserToAddRows = false;
             this.doctorsDataGridView.AllowUserToDeleteRows = false;
             this.doctorsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.doctorsDataGridView.BackgroundColor = System.Drawing.Color.LightGray;
+            this.doctorsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(211)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.doctorsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.doctorsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.doctorsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.doctorsDataGridView.EnableHeadersVisualStyles = false;
             this.doctorsDataGridView.Location = new System.Drawing.Point(0, 0);
             this.doctorsDataGridView.MultiSelect = false;
             this.doctorsDataGridView.Name = "doctorsDataGridView";
             this.doctorsDataGridView.ReadOnly = true;
-            this.doctorsDataGridView.Size = new System.Drawing.Size(800, 203);
+            this.doctorsDataGridView.Size = new System.Drawing.Size(800, 190);
             this.doctorsDataGridView.TabIndex = 0;
-            this.doctorsDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onCellDoubleClick);
+            this.doctorsDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnCellDoubleClick);
             // 
             // DoctorsForm
             // 
@@ -414,5 +462,7 @@
         private System.Windows.Forms.Button update_doc_btn;
         private System.Windows.Forms.Button add_doc_btn;
         private System.Windows.Forms.DataGridView doctorsDataGridView;
+        private System.Windows.Forms.Button reset_btn;
+        private System.Windows.Forms.Button delete_btn;
     }
 }

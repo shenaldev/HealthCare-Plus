@@ -13,6 +13,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         //VARIABLES
         Doctor doctor;
         Int64 selectedUserID;
+        bool isSelectedUser = false;
 
         public DoctorsForm()
         {
@@ -23,6 +24,8 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         private void DoctorsForm_Load(object sender, EventArgs e)
         {
             LoadDoctorDataFromDB();
+            update_doc_btn.Enabled = false;
+            delete_btn.Enabled = false;
         }
 
         //LOAD DOCTOR DATA INTO DATAGRIDVIEW
@@ -48,8 +51,15 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         }
 
         //DATA GRID VIEW CELL DOUBLE CLICK
-        private void onCellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void OnCellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            isSelectedUser = true;
+            //ENABLE UPDATE AND DELETE BUTTONS
+            update_doc_btn.Enabled = true;
+            delete_btn.Enabled = true;
+
+            if(e.RowIndex == -1) return;
+
             DataGridViewRow selectedRow = doctorsDataGridView.Rows[e.RowIndex];
             selectedUserID = Int64.Parse(selectedRow.Cells[0].Value.ToString());
             first_name_input.Text = selectedRow.Cells[1].Value.ToString();
@@ -66,7 +76,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         }
 
         //HANDLE ADD DOCTOR BUTTON CLICK
-        private void add_doc_btn_Click(object sender, EventArgs e)
+        private void Add_doc_btn_Click(object sender, EventArgs e)
         {
             //DOCTOR OBJECT
             doctor = new Doctor(first_name_input.Text, last_name_input.Text, email_input.Text, phone_no_input.Text, password_input.Text, home_address_input.Text, "doctor", hospital_address_input.Text, expertise_input.Text, qualification_input.Text, location_input.Text);
@@ -89,7 +99,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         }
 
         //UPDATE BUTTON CLICK HANDLER
-        private void update_doc_btn_Click(object sender, EventArgs e)
+        private void Update_doc_btn_Click(object sender, EventArgs e)
         {
             //DOCTOR OBJECT WITHOUT PASSWORD
             doctor = new Doctor(first_name_input.Text, last_name_input.Text, email_input.Text, phone_no_input.Text, "none", home_address_input.Text, "doctor", hospital_address_input.Text, expertise_input.Text, qualification_input.Text, location_input.Text);
@@ -102,6 +112,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
                 {
                     MessageBox.Show("Doctor Update Successfully", "Success", default, MessageBoxIcon.Information);
                     LoadDoctorDataFromDB(); // REFRESH DATA GRID VIEW
+                    isSelectedUser = false;
                     ResetInputs();
                 }
                 else
@@ -109,6 +120,35 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
                     MessageBox.Show("Something Went Wrong", "Server Error", default, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        //DELETE BUTTON CLICK HANDLER
+        private void Delete_btn_Click(object sender, EventArgs e)
+        {
+            if (isSelectedUser)
+            {
+                var confirmation = MessageBox.Show("Are You Sure You Want To Delete This Doctor?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirmation == DialogResult.Yes)
+                {
+                    bool sqlQueryStatus = DBDeleteQuery(selectedUserID);
+                    if (sqlQueryStatus)
+                    {
+                        MessageBox.Show("Doctor Deleted Successfully", "Success", default, MessageBoxIcon.Information);
+                        LoadDoctorDataFromDB(); // REFRESH DATA GRID VIEW
+                        isSelectedUser = false;
+                        ResetInputs();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something Went Wrong", "Server Error", default, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void Reset_btn_ClickHandler(object sender, EventArgs e)
+        {
+            ResetInputs();
         }
 
         //INSERT AND UPDATE QUERY
@@ -222,6 +262,27 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             return true;
         }
 
+        //DELETE QUERY
+        private bool DBDeleteQuery(Int64 id)
+        {
+            try
+            {
+                DBCon dBCon = new DBCon();
+                SqlConnection sqlConnection = dBCon.SqlConnection;
+                sqlConnection.Open();
+
+                string query = "DELETE FROM Users WHERE id = @userID";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@userID", id);
+                sqlCommand.ExecuteNonQuery();
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
         //FORM VALIDATION
         private bool Validation(string operation = "INSERT")
         {
@@ -270,6 +331,8 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             location_input.SelectedItem = null;
             password_input.Enabled = true;
             add_doc_btn.Enabled = true;
+            update_doc_btn.Enabled = false;
+            delete_btn.Enabled = false;
         }
     }
 }

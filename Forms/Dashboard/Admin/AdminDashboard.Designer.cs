@@ -33,23 +33,23 @@
             this.username_label = new System.Windows.Forms.Label();
             this.logout_btn = new System.Windows.Forms.Button();
             this.navigationPanel = new System.Windows.Forms.Panel();
-            this.logoPanel = new System.Windows.Forms.Panel();
-            this.headerPanel = new System.Windows.Forms.Panel();
-            this.app_name_label = new System.Windows.Forms.Label();
-            this.bodyPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.invoiceBtn = new System.Windows.Forms.Button();
             this.reportsBtn = new System.Windows.Forms.Button();
-            this.appoinmentsBtn = new System.Windows.Forms.Button();
+            this.appointmentBtn = new System.Windows.Forms.Button();
             this.staffBtn = new System.Windows.Forms.Button();
             this.patientsBtn = new System.Windows.Forms.Button();
             this.doctorsBtn = new System.Windows.Forms.Button();
+            this.logoPanel = new System.Windows.Forms.Panel();
+            this.app_name_label = new System.Windows.Forms.Label();
             this.logoImage = new System.Windows.Forms.PictureBox();
+            this.headerPanel = new System.Windows.Forms.Panel();
+            this.avatarImage = new System.Windows.Forms.PictureBox();
+            this.bodyPanel = new System.Windows.Forms.Panel();
             this.navigationPanel.SuspendLayout();
             this.logoPanel.SuspendLayout();
-            this.headerPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoImage)).BeginInit();
+            this.headerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarImage)).BeginInit();
             this.SuspendLayout();
             // 
             // welcome_text
@@ -98,7 +98,7 @@
             this.navigationPanel.Controls.Add(this.invoiceBtn);
             this.navigationPanel.Controls.Add(this.reportsBtn);
             this.navigationPanel.Controls.Add(this.logout_btn);
-            this.navigationPanel.Controls.Add(this.appoinmentsBtn);
+            this.navigationPanel.Controls.Add(this.appointmentBtn);
             this.navigationPanel.Controls.Add(this.staffBtn);
             this.navigationPanel.Controls.Add(this.patientsBtn);
             this.navigationPanel.Controls.Add(this.doctorsBtn);
@@ -109,63 +109,10 @@
             this.navigationPanel.Size = new System.Drawing.Size(200, 611);
             this.navigationPanel.TabIndex = 15;
             // 
-            // logoPanel
-            // 
-            this.logoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(23)))), ((int)(((byte)(49)))));
-            this.logoPanel.Controls.Add(this.app_name_label);
-            this.logoPanel.Controls.Add(this.logoImage);
-            this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.logoPanel.Location = new System.Drawing.Point(0, 0);
-            this.logoPanel.Name = "logoPanel";
-            this.logoPanel.Size = new System.Drawing.Size(200, 128);
-            this.logoPanel.TabIndex = 0;
-            // 
-            // headerPanel
-            // 
-            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(90)))));
-            this.headerPanel.Controls.Add(this.pictureBox1);
-            this.headerPanel.Controls.Add(this.username_label);
-            this.headerPanel.Controls.Add(this.welcome_text);
-            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.headerPanel.Location = new System.Drawing.Point(200, 0);
-            this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(884, 69);
-            this.headerPanel.TabIndex = 16;
-            // 
-            // app_name_label
-            // 
-            this.app_name_label.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.app_name_label.AutoSize = true;
-            this.app_name_label.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.app_name_label.ForeColor = System.Drawing.Color.White;
-            this.app_name_label.Location = new System.Drawing.Point(27, 83);
-            this.app_name_label.Name = "app_name_label";
-            this.app_name_label.Size = new System.Drawing.Size(147, 21);
-            this.app_name_label.TabIndex = 17;
-            this.app_name_label.Text = "HealthCare Plus";
-            // 
-            // bodyPanel
-            // 
-            this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bodyPanel.Location = new System.Drawing.Point(200, 69);
-            this.bodyPanel.Name = "bodyPanel";
-            this.bodyPanel.Size = new System.Drawing.Size(884, 542);
-            this.bodyPanel.TabIndex = 17;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::HealthCare_Plus.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(822, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(38, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            // 
             // invoiceBtn
             // 
             this.invoiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(36)))), ((int)(((byte)(77)))));
+            this.invoiceBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.invoiceBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.invoiceBtn.FlatAppearance.BorderSize = 0;
             this.invoiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -187,6 +134,7 @@
             // reportsBtn
             // 
             this.reportsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(36)))), ((int)(((byte)(77)))));
+            this.reportsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.reportsBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.reportsBtn.FlatAppearance.BorderSize = 0;
             this.reportsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -205,36 +153,38 @@
             this.reportsBtn.UseVisualStyleBackColor = false;
             this.reportsBtn.Click += new System.EventHandler(this.reportsBtn_Click);
             // 
-            // appoinmentsBtn
+            // appointmentBtn
             // 
-            this.appoinmentsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(36)))), ((int)(((byte)(77)))));
-            this.appoinmentsBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.appoinmentsBtn.FlatAppearance.BorderSize = 0;
-            this.appoinmentsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.appoinmentsBtn.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appoinmentsBtn.ForeColor = System.Drawing.Color.White;
-            this.appoinmentsBtn.Image = ((System.Drawing.Image)(resources.GetObject("appoinmentsBtn.Image")));
-            this.appoinmentsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.appoinmentsBtn.Location = new System.Drawing.Point(0, 308);
-            this.appoinmentsBtn.Name = "appoinmentsBtn";
-            this.appoinmentsBtn.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.appoinmentsBtn.Size = new System.Drawing.Size(200, 60);
-            this.appoinmentsBtn.TabIndex = 4;
-            this.appoinmentsBtn.Text = "Appoinments";
-            this.appoinmentsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.appoinmentsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.appoinmentsBtn.UseVisualStyleBackColor = false;
-            this.appoinmentsBtn.Click += new System.EventHandler(this.appoinmentsBtn_Click);
+            this.appointmentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(36)))), ((int)(((byte)(77)))));
+            this.appointmentBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.appointmentBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.appointmentBtn.FlatAppearance.BorderSize = 0;
+            this.appointmentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.appointmentBtn.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appointmentBtn.ForeColor = System.Drawing.Color.White;
+            this.appointmentBtn.Image = ((System.Drawing.Image)(resources.GetObject("appointmentBtn.Image")));
+            this.appointmentBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.appointmentBtn.Location = new System.Drawing.Point(0, 308);
+            this.appointmentBtn.Name = "appointmentBtn";
+            this.appointmentBtn.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.appointmentBtn.Size = new System.Drawing.Size(200, 60);
+            this.appointmentBtn.TabIndex = 4;
+            this.appointmentBtn.Text = "Appointment";
+            this.appointmentBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.appointmentBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.appointmentBtn.UseVisualStyleBackColor = false;
+            this.appointmentBtn.Click += new System.EventHandler(this.appoinmentsBtn_Click);
             // 
             // staffBtn
             // 
             this.staffBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(36)))), ((int)(((byte)(77)))));
+            this.staffBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.staffBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.staffBtn.FlatAppearance.BorderSize = 0;
             this.staffBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.staffBtn.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.staffBtn.ForeColor = System.Drawing.Color.White;
-            this.staffBtn.Image = ((System.Drawing.Image)(resources.GetObject("staffBtn.Image")));
+            this.staffBtn.Image = global::HealthCare_Plus.Properties.Resources.staff_icon;
             this.staffBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.staffBtn.Location = new System.Drawing.Point(0, 248);
             this.staffBtn.Name = "staffBtn";
@@ -250,12 +200,13 @@
             // patientsBtn
             // 
             this.patientsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(36)))), ((int)(((byte)(77)))));
+            this.patientsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.patientsBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.patientsBtn.FlatAppearance.BorderSize = 0;
             this.patientsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.patientsBtn.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientsBtn.ForeColor = System.Drawing.Color.White;
-            this.patientsBtn.Image = ((System.Drawing.Image)(resources.GetObject("patientsBtn.Image")));
+            this.patientsBtn.Image = global::HealthCare_Plus.Properties.Resources.patient_icon;
             this.patientsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.patientsBtn.Location = new System.Drawing.Point(0, 188);
             this.patientsBtn.Name = "patientsBtn";
@@ -272,6 +223,7 @@
             // 
             this.doctorsBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.doctorsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(36)))), ((int)(((byte)(77)))));
+            this.doctorsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.doctorsBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.doctorsBtn.FlatAppearance.BorderSize = 0;
             this.doctorsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -290,6 +242,29 @@
             this.doctorsBtn.UseVisualStyleBackColor = false;
             this.doctorsBtn.Click += new System.EventHandler(this.doctorsBtn_Click);
             // 
+            // logoPanel
+            // 
+            this.logoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(23)))), ((int)(((byte)(49)))));
+            this.logoPanel.Controls.Add(this.app_name_label);
+            this.logoPanel.Controls.Add(this.logoImage);
+            this.logoPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.logoPanel.Location = new System.Drawing.Point(0, 0);
+            this.logoPanel.Name = "logoPanel";
+            this.logoPanel.Size = new System.Drawing.Size(200, 128);
+            this.logoPanel.TabIndex = 0;
+            // 
+            // app_name_label
+            // 
+            this.app_name_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.app_name_label.AutoSize = true;
+            this.app_name_label.Font = new System.Drawing.Font("Montserrat Medium", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.app_name_label.ForeColor = System.Drawing.Color.White;
+            this.app_name_label.Location = new System.Drawing.Point(27, 83);
+            this.app_name_label.Name = "app_name_label";
+            this.app_name_label.Size = new System.Drawing.Size(147, 21);
+            this.app_name_label.TabIndex = 17;
+            this.app_name_label.Text = "HealthCare Plus";
+            // 
             // logoImage
             // 
             this.logoImage.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -300,6 +275,37 @@
             this.logoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoImage.TabIndex = 0;
             this.logoImage.TabStop = false;
+            // 
+            // headerPanel
+            // 
+            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(156)))), ((int)(((byte)(90)))));
+            this.headerPanel.Controls.Add(this.avatarImage);
+            this.headerPanel.Controls.Add(this.username_label);
+            this.headerPanel.Controls.Add(this.welcome_text);
+            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.headerPanel.Location = new System.Drawing.Point(200, 0);
+            this.headerPanel.Name = "headerPanel";
+            this.headerPanel.Size = new System.Drawing.Size(884, 69);
+            this.headerPanel.TabIndex = 16;
+            // 
+            // avatarImage
+            // 
+            this.avatarImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.avatarImage.Image = global::HealthCare_Plus.Properties.Resources.user;
+            this.avatarImage.Location = new System.Drawing.Point(822, 10);
+            this.avatarImage.Name = "avatarImage";
+            this.avatarImage.Size = new System.Drawing.Size(38, 35);
+            this.avatarImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.avatarImage.TabIndex = 12;
+            this.avatarImage.TabStop = false;
+            // 
+            // bodyPanel
+            // 
+            this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bodyPanel.Location = new System.Drawing.Point(200, 69);
+            this.bodyPanel.Name = "bodyPanel";
+            this.bodyPanel.Size = new System.Drawing.Size(884, 542);
+            this.bodyPanel.TabIndex = 17;
             // 
             // AdminDashboard
             // 
@@ -317,10 +323,10 @@
             this.navigationPanel.ResumeLayout(false);
             this.logoPanel.ResumeLayout(false);
             this.logoPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoImage)).EndInit();
             this.headerPanel.ResumeLayout(false);
             this.headerPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avatarImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -328,7 +334,7 @@
         #endregion
 
         private System.Windows.Forms.Label welcome_text;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox avatarImage;
         private System.Windows.Forms.Label username_label;
         private System.Windows.Forms.Button logout_btn;
         private System.Windows.Forms.Panel navigationPanel;
@@ -338,7 +344,7 @@
         private System.Windows.Forms.Button doctorsBtn;
         private System.Windows.Forms.Button invoiceBtn;
         private System.Windows.Forms.Button reportsBtn;
-        private System.Windows.Forms.Button appoinmentsBtn;
+        private System.Windows.Forms.Button appointmentBtn;
         private System.Windows.Forms.Button staffBtn;
         private System.Windows.Forms.Button patientsBtn;
         private System.Windows.Forms.Label app_name_label;
