@@ -53,12 +53,12 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         //DATA GRID VIEW CELL DOUBLE CLICK
         private void OnCellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if(e.RowIndex == -1) return; // RETURN IF HEADER CLICKED
+
             isSelectedUser = true;
             //ENABLE UPDATE AND DELETE BUTTONS
             update_doc_btn.Enabled = true;
             delete_btn.Enabled = true;
-
-            if(e.RowIndex == -1) return;
 
             DataGridViewRow selectedRow = doctorsDataGridView.Rows[e.RowIndex];
             selectedUserID = Int64.Parse(selectedRow.Cells[0].Value.ToString());

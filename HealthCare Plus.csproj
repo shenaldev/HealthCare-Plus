@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="Models\AuthUser.cs" />
     <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

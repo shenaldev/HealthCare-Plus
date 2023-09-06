@@ -31,9 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataPanel = new System.Windows.Forms.Panel();
             this.PatientDataGridView = new System.Windows.Forms.DataGridView();
-            this.reset_btn = new System.Windows.Forms.Button();
-            this.delete_btn = new System.Windows.Forms.Button();
-            this.update_doc_btn = new System.Windows.Forms.Button();
+            this.Reset_btn = new System.Windows.Forms.Button();
+            this.Delete_btn = new System.Windows.Forms.Button();
+            this.Update_btn = new System.Windows.Forms.Button();
             this.Add_btn = new System.Windows.Forms.Button();
             this.Last_name_input = new System.Windows.Forms.TextBox();
             this.Address_input = new System.Windows.Forms.TextBox();
@@ -87,49 +87,53 @@
             this.PatientDataGridView.ReadOnly = true;
             this.PatientDataGridView.Size = new System.Drawing.Size(800, 190);
             this.PatientDataGridView.TabIndex = 0;
+            this.PatientDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnCellDoubleClick);
             // 
-            // reset_btn
+            // Reset_btn
             // 
-            this.reset_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.reset_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reset_btn.FlatAppearance.BorderSize = 0;
-            this.reset_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reset_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reset_btn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.reset_btn.Location = new System.Drawing.Point(369, 196);
-            this.reset_btn.Name = "reset_btn";
-            this.reset_btn.Size = new System.Drawing.Size(119, 38);
-            this.reset_btn.TabIndex = 27;
-            this.reset_btn.Text = "Reset";
-            this.reset_btn.UseVisualStyleBackColor = false;
+            this.Reset_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Reset_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Reset_btn.FlatAppearance.BorderSize = 0;
+            this.Reset_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Reset_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Reset_btn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Reset_btn.Location = new System.Drawing.Point(369, 196);
+            this.Reset_btn.Name = "Reset_btn";
+            this.Reset_btn.Size = new System.Drawing.Size(119, 38);
+            this.Reset_btn.TabIndex = 23;
+            this.Reset_btn.Text = "Reset";
+            this.Reset_btn.UseVisualStyleBackColor = false;
+            this.Reset_btn.Click += new System.EventHandler(this.Reset_btn_Click);
             // 
-            // delete_btn
+            // Delete_btn
             // 
-            this.delete_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(90)))));
-            this.delete_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.delete_btn.FlatAppearance.BorderSize = 0;
-            this.delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.delete_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delete_btn.Location = new System.Drawing.Point(244, 196);
-            this.delete_btn.Name = "delete_btn";
-            this.delete_btn.Size = new System.Drawing.Size(119, 38);
-            this.delete_btn.TabIndex = 26;
-            this.delete_btn.Text = "Delete";
-            this.delete_btn.UseVisualStyleBackColor = false;
+            this.Delete_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(90)))));
+            this.Delete_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Delete_btn.FlatAppearance.BorderSize = 0;
+            this.Delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Delete_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Delete_btn.Location = new System.Drawing.Point(244, 196);
+            this.Delete_btn.Name = "Delete_btn";
+            this.Delete_btn.Size = new System.Drawing.Size(119, 38);
+            this.Delete_btn.TabIndex = 22;
+            this.Delete_btn.Text = "Delete";
+            this.Delete_btn.UseVisualStyleBackColor = false;
+            this.Delete_btn.Click += new System.EventHandler(this.Delete_btn_Click);
             // 
-            // update_doc_btn
+            // Update_btn
             // 
-            this.update_doc_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(255)))), ((int)(((byte)(81)))));
-            this.update_doc_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.update_doc_btn.FlatAppearance.BorderSize = 0;
-            this.update_doc_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.update_doc_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.update_doc_btn.Location = new System.Drawing.Point(119, 196);
-            this.update_doc_btn.Name = "update_doc_btn";
-            this.update_doc_btn.Size = new System.Drawing.Size(119, 38);
-            this.update_doc_btn.TabIndex = 25;
-            this.update_doc_btn.Text = "Update";
-            this.update_doc_btn.UseVisualStyleBackColor = false;
+            this.Update_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(255)))), ((int)(((byte)(81)))));
+            this.Update_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Update_btn.FlatAppearance.BorderSize = 0;
+            this.Update_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Update_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Update_btn.Location = new System.Drawing.Point(119, 196);
+            this.Update_btn.Name = "Update_btn";
+            this.Update_btn.Size = new System.Drawing.Size(119, 38);
+            this.Update_btn.TabIndex = 21;
+            this.Update_btn.Text = "Update";
+            this.Update_btn.UseVisualStyleBackColor = false;
+            this.Update_btn.Click += new System.EventHandler(this.Update_btn_Click);
             // 
             // Add_btn
             // 
@@ -141,9 +145,10 @@
             this.Add_btn.Location = new System.Drawing.Point(16, 196);
             this.Add_btn.Name = "Add_btn";
             this.Add_btn.Size = new System.Drawing.Size(97, 38);
-            this.Add_btn.TabIndex = 24;
+            this.Add_btn.TabIndex = 20;
             this.Add_btn.Text = "Add";
             this.Add_btn.UseVisualStyleBackColor = false;
+            this.Add_btn.Click += new System.EventHandler(this.Add_btn_Click);
             // 
             // Last_name_input
             // 
@@ -259,9 +264,9 @@
             // 
             this.crudPanel.Controls.Add(this.Disease_input);
             this.crudPanel.Controls.Add(this.Diseases_label);
-            this.crudPanel.Controls.Add(this.reset_btn);
-            this.crudPanel.Controls.Add(this.delete_btn);
-            this.crudPanel.Controls.Add(this.update_doc_btn);
+            this.crudPanel.Controls.Add(this.Reset_btn);
+            this.crudPanel.Controls.Add(this.Delete_btn);
+            this.crudPanel.Controls.Add(this.Update_btn);
             this.crudPanel.Controls.Add(this.Add_btn);
             this.crudPanel.Controls.Add(this.Last_name_input);
             this.crudPanel.Controls.Add(this.Address_input);
@@ -288,7 +293,7 @@
             this.Disease_input.MinimumSize = new System.Drawing.Size(2, 21);
             this.Disease_input.Name = "Disease_input";
             this.Disease_input.Size = new System.Drawing.Size(222, 21);
-            this.Disease_input.TabIndex = 29;
+            this.Disease_input.TabIndex = 19;
             // 
             // Diseases_label
             // 
@@ -323,9 +328,9 @@
 
         private System.Windows.Forms.Panel dataPanel;
         private System.Windows.Forms.DataGridView PatientDataGridView;
-        private System.Windows.Forms.Button reset_btn;
-        private System.Windows.Forms.Button delete_btn;
-        private System.Windows.Forms.Button update_doc_btn;
+        private System.Windows.Forms.Button Reset_btn;
+        private System.Windows.Forms.Button Delete_btn;
+        private System.Windows.Forms.Button Update_btn;
         private System.Windows.Forms.Button Add_btn;
         private System.Windows.Forms.TextBox Last_name_input;
         private System.Windows.Forms.TextBox Address_input;

@@ -286,7 +286,7 @@
             this.headerPanel.Location = new System.Drawing.Point(200, 0);
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Size = new System.Drawing.Size(884, 69);
-            this.headerPanel.TabIndex = 16;
+            this.headerPanel.TabIndex = 0;
             // 
             // avatarImage
             // 
@@ -305,7 +305,7 @@
             this.bodyPanel.Location = new System.Drawing.Point(200, 69);
             this.bodyPanel.Name = "bodyPanel";
             this.bodyPanel.Size = new System.Drawing.Size(884, 542);
-            this.bodyPanel.TabIndex = 17;
+            this.bodyPanel.TabIndex = 0;
             // 
             // AdminDashboard
             // 
