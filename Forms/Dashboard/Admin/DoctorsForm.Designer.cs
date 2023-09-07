@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.crudPanel = new System.Windows.Forms.Panel();
             this.reset_btn = new System.Windows.Forms.Button();
             this.delete_btn = new System.Windows.Forms.Button();
             this.update_doc_btn = new System.Windows.Forms.Button();
             this.add_doc_btn = new System.Windows.Forms.Button();
             this.location_input = new System.Windows.Forms.ComboBox();
-            this.expertise_input = new System.Windows.Forms.TextBox();
-            this.expertise_label = new System.Windows.Forms.Label();
+            this.Specialization_label = new System.Windows.Forms.Label();
             this.qualification_input = new System.Windows.Forms.ComboBox();
             this.qualification_label = new System.Windows.Forms.Label();
             this.last_name_input = new System.Windows.Forms.TextBox();
@@ -56,6 +55,7 @@
             this.first_name_label = new System.Windows.Forms.Label();
             this.dataPanel = new System.Windows.Forms.Panel();
             this.doctorsDataGridView = new System.Windows.Forms.DataGridView();
+            this.Specialization_combobox = new System.Windows.Forms.ComboBox();
             this.crudPanel.SuspendLayout();
             this.dataPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doctorsDataGridView)).BeginInit();
@@ -63,13 +63,13 @@
             // 
             // crudPanel
             // 
+            this.crudPanel.Controls.Add(this.Specialization_combobox);
             this.crudPanel.Controls.Add(this.reset_btn);
             this.crudPanel.Controls.Add(this.delete_btn);
             this.crudPanel.Controls.Add(this.update_doc_btn);
             this.crudPanel.Controls.Add(this.add_doc_btn);
             this.crudPanel.Controls.Add(this.location_input);
-            this.crudPanel.Controls.Add(this.expertise_input);
-            this.crudPanel.Controls.Add(this.expertise_label);
+            this.crudPanel.Controls.Add(this.Specialization_label);
             this.crudPanel.Controls.Add(this.qualification_input);
             this.crudPanel.Controls.Add(this.qualification_label);
             this.crudPanel.Controls.Add(this.last_name_input);
@@ -156,6 +156,7 @@
             // 
             // location_input
             // 
+            this.location_input.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.location_input.FormattingEnabled = true;
             this.location_input.Items.AddRange(new object[] {
             "Kandy",
@@ -165,31 +166,22 @@
             this.location_input.Size = new System.Drawing.Size(152, 21);
             this.location_input.TabIndex = 23;
             // 
-            // expertise_input
+            // Specialization_label
             // 
-            this.expertise_input.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.expertise_input.Font = new System.Drawing.Font("Montserrat Medium", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.expertise_input.Location = new System.Drawing.Point(271, 207);
-            this.expertise_input.MaxLength = 300;
-            this.expertise_input.MinimumSize = new System.Drawing.Size(2, 21);
-            this.expertise_input.Name = "expertise_input";
-            this.expertise_input.Size = new System.Drawing.Size(222, 21);
-            this.expertise_input.TabIndex = 22;
-            // 
-            // expertise_label
-            // 
-            this.expertise_label.AutoSize = true;
-            this.expertise_label.Cursor = System.Windows.Forms.Cursors.Default;
-            this.expertise_label.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.expertise_label.Location = new System.Drawing.Point(267, 184);
-            this.expertise_label.Name = "expertise_label";
-            this.expertise_label.Size = new System.Drawing.Size(77, 20);
-            this.expertise_label.TabIndex = 21;
-            this.expertise_label.Text = "Expertise";
-            this.expertise_label.UseMnemonic = false;
+            this.Specialization_label.AutoSize = true;
+            this.Specialization_label.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Specialization_label.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Specialization_label.Location = new System.Drawing.Point(267, 184);
+            this.Specialization_label.Name = "Specialization_label";
+            this.Specialization_label.Size = new System.Drawing.Size(109, 20);
+            this.Specialization_label.TabIndex = 21;
+            this.Specialization_label.Text = "Specialization";
+            this.Specialization_label.UseMnemonic = false;
             // 
             // qualification_input
             // 
+            this.qualification_input.BackColor = System.Drawing.Color.White;
+            this.qualification_input.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.qualification_input.FormattingEnabled = true;
             this.qualification_input.Items.AddRange(new object[] {
             "SRN",
@@ -397,15 +389,15 @@
             this.doctorsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.doctorsDataGridView.BackgroundColor = System.Drawing.Color.LightGray;
             this.doctorsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(211)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.doctorsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(211)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.doctorsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.doctorsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.doctorsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.doctorsDataGridView.EnableHeadersVisualStyles = false;
@@ -416,6 +408,26 @@
             this.doctorsDataGridView.Size = new System.Drawing.Size(800, 190);
             this.doctorsDataGridView.TabIndex = 0;
             this.doctorsDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnCellDoubleClick);
+            // 
+            // Specialization_combobox
+            // 
+            this.Specialization_combobox.BackColor = System.Drawing.Color.White;
+            this.Specialization_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Specialization_combobox.FormattingEnabled = true;
+            this.Specialization_combobox.Items.AddRange(new object[] {
+            "Neurology",
+            "Urology",
+            "Family Medicine",
+            "Psychiatry",
+            "Dermatology",
+            "Orthopedics",
+            "Cardiology",
+            "Gastroenterology",
+            "Neurosurgery"});
+            this.Specialization_combobox.Location = new System.Drawing.Point(271, 207);
+            this.Specialization_combobox.Name = "Specialization_combobox";
+            this.Specialization_combobox.Size = new System.Drawing.Size(143, 21);
+            this.Specialization_combobox.TabIndex = 19;
             // 
             // DoctorsForm
             // 
@@ -453,8 +465,7 @@
         private System.Windows.Forms.Label first_name_label;
         private System.Windows.Forms.ComboBox qualification_input;
         private System.Windows.Forms.Label qualification_label;
-        private System.Windows.Forms.TextBox expertise_input;
-        private System.Windows.Forms.Label expertise_label;
+        private System.Windows.Forms.Label Specialization_label;
         private System.Windows.Forms.TextBox hospital_address_input;
         private System.Windows.Forms.Label hospital_address_label;
         private System.Windows.Forms.ComboBox location_input;
@@ -464,5 +475,6 @@
         private System.Windows.Forms.DataGridView doctorsDataGridView;
         private System.Windows.Forms.Button reset_btn;
         private System.Windows.Forms.Button delete_btn;
+        private System.Windows.Forms.ComboBox Specialization_combobox;
     }
 }

@@ -35,7 +35,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             {
                 DBCon dBCon = new DBCon();
                 SqlConnection sqlCon = dBCon.SqlConnection;
-                string query = "SELECT Users.id, Users.first_name, Users.last_name, Users.email, DoctorProfiles.qualification, DoctorProfiles.experties, DoctorProfiles.contact_no, DoctorProfiles.location, DoctorProfiles.home_address,DoctorProfiles.hospital_address FROM Users INNER JOIN DoctorProfiles ON Users.id = DoctorProfiles.user_id";
+                string query = "SELECT Users.id, Users.first_name, Users.last_name, Users.email, DoctorProfiles.qualification, DoctorProfiles.specialization, DoctorProfiles.contact_no, DoctorProfiles.location, DoctorProfiles.home_address,DoctorProfiles.hospital_address FROM Users INNER JOIN DoctorProfiles ON Users.id = DoctorProfiles.user_id";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, sqlCon);
                 DataTable dataTabel = new DataTable();
                 adapter.Fill(dataTabel);
@@ -66,7 +66,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             last_name_input.Text = selectedRow.Cells[2].Value.ToString();
             email_input.Text = selectedRow.Cells[3].Value.ToString();
             qualification_input.Text = selectedRow.Cells[4].Value.ToString();
-            expertise_input.Text = selectedRow.Cells[5].Value.ToString();
+            Specialization_combobox.Text = selectedRow.Cells[5].Value.ToString();
             phone_no_input.Text = selectedRow.Cells[6].Value.ToString();
             location_input.Text = selectedRow.Cells[7].Value.ToString();
             home_address_input.Text = selectedRow.Cells[8].Value.ToString();
@@ -79,7 +79,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         private void Add_doc_btn_Click(object sender, EventArgs e)
         {
             //DOCTOR OBJECT
-            doctor = new Doctor(first_name_input.Text, last_name_input.Text, email_input.Text, phone_no_input.Text, password_input.Text, home_address_input.Text, "doctor", hospital_address_input.Text, expertise_input.Text, qualification_input.Text, location_input.Text);
+            doctor = new Doctor(first_name_input.Text, last_name_input.Text, email_input.Text, phone_no_input.Text, password_input.Text, home_address_input.Text, "doctor", hospital_address_input.Text, Specialization_combobox.Text, qualification_input.Text, location_input.Text);
 
             bool isValidationPassed = Validation();
             if (isValidationPassed)
@@ -102,7 +102,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         private void Update_doc_btn_Click(object sender, EventArgs e)
         {
             //DOCTOR OBJECT WITHOUT PASSWORD
-            doctor = new Doctor(first_name_input.Text, last_name_input.Text, email_input.Text, phone_no_input.Text, "none", home_address_input.Text, "doctor", hospital_address_input.Text, expertise_input.Text, qualification_input.Text, location_input.Text);
+            doctor = new Doctor(first_name_input.Text, last_name_input.Text, email_input.Text, phone_no_input.Text, "none", home_address_input.Text, "doctor", hospital_address_input.Text, Specialization_combobox.Text, qualification_input.Text, location_input.Text);
 
             bool isValidationPassed = Validation("UPDATE");
             if (isValidationPassed)
@@ -158,35 +158,6 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             SqlConnection sqlCon = null;
             SqlTransaction sqlTransaction = null;
 
-            //QUERIES
-            string query = "INSERT INTO Users " +
-                "(first_name, last_name, email, password, role) " +
-                "output INSERTED.ID " +
-                "VALUES (@first_name, @last_name, @email, @password, @role)";
-
-            string query2 = "INSERT INTO DoctorProfiles " +
-                "(qualification, experties, contact_no, location, home_address, hospital_address, user_id) " +
-                "VALUES (@qualification, @experties, @contact_no, @location, @home_address, @hospital_address, @user_id)";
-
-            //UPDATE QUERY FOR OPERTION UPDATE
-            if(operationType == "UPDATE")
-            {
-                query = "UPDATE Users SET " +
-                    "first_name = @first_name, " +
-                    "last_name = @last_name, " +
-                    "email = @email " +
-                    "WHERE id = @userID";
-
-                query2 = "UPDATE DoctorProfiles SET " +
-                    "qualification = @qualification, " +
-                    "experties = @experties, " +
-                    "contact_no = @contact_no, " +
-                    "location = @location, " +
-                    "home_address = @home_address, " +
-                    "hospital_address = @hospital_address " +
-                    "WHERE user_id = @userID";
-            }
-
             try
             {
                 DBCon dBCon = new DBCon();
@@ -194,44 +165,23 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
                 sqlCon.Open();
                 sqlTransaction = sqlCon.BeginTransaction(); // TRANSACTION START
 
-                SqlCommand cmd = new SqlCommand(query, sqlCon);
-                cmd.Transaction = sqlTransaction;
-                SqlCommand cmd2 = new SqlCommand(query2, sqlCon);
-                cmd2.Transaction = sqlTransaction;
+                //INSERT AND UPDATE USER TABLE QUERY
+                SqlCommand userTableCmd = doctor.GetInsertCommand(sqlCon);
+                if(operationType == "UPDATE")
+                {
+                    userTableCmd = doctor.GetUpdateCommand(sqlCon, updateID);
+                }
+                userTableCmd.Transaction = sqlTransaction;
+                Int64 userID = Convert.ToInt64(userTableCmd.ExecuteScalar()); //EXICUTE CMD
 
-                //QUERY 1 VALUES
-                Hash passwordHash = new Hash();
-                string hashedPassword = passwordHash.HashPassword(doctor.Password); //HASHED PASSWORD
-                cmd.Parameters.AddWithValue("@first_name", doctor.FirstName);
-                cmd.Parameters.AddWithValue("@last_name", doctor.LastName);
-                cmd.Parameters.AddWithValue("@email", doctor.Email);
-                if (operationType == "INSERT")
+                //INSERT AND UPDATE DOCTOR TABLE QUERY
+                SqlCommand doctorTableCmd = doctor.GetDocInsertCmd(sqlCon, userID);
+                if(operationType == "UPDATE")
                 {
-                    cmd.Parameters.AddWithValue("@password", hashedPassword);
-                    cmd.Parameters.AddWithValue("@role", doctor.Role);
+                    doctorTableCmd = doctor.GetDocUpdateCmd(sqlCon, updateID);
                 }
-                else
-                {
-                    cmd.Parameters.AddWithValue("@userID", updateID); //UPDATE USER ID
-                }
-                Int64 userID = Convert.ToInt64(cmd.ExecuteScalar());
-
-                //QUERY 2 VALUES
-                cmd2.Parameters.AddWithValue("@qualification", doctor.Qualification);
-                cmd2.Parameters.AddWithValue("@experties", doctor.Experties);
-                cmd2.Parameters.AddWithValue("@contact_no", doctor.PhoneNumber);
-                cmd2.Parameters.AddWithValue("@location", doctor.Location);
-                cmd2.Parameters.AddWithValue("@home_address", doctor.Address);
-                cmd2.Parameters.AddWithValue("@hospital_address", doctor.HospitalAddress);
-                if (operationType == "INSERT") 
-                {
-                    cmd2.Parameters.AddWithValue("@user_id", userID);
-                }
-                else
-                {
-                    cmd2.Parameters.AddWithValue("@userID", updateID); //UPDATE USER ID
-                }
-                cmd2.ExecuteNonQuery();
+                doctorTableCmd.Transaction = sqlTransaction;
+                doctorTableCmd.ExecuteNonQuery();
                 sqlTransaction.Commit(); //COMMIT
             }
             catch (Exception ex)
@@ -271,10 +221,11 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
                 SqlConnection sqlConnection = dBCon.SqlConnection;
                 sqlConnection.Open();
 
-                string query = "DELETE FROM Users WHERE id = @userID";
-                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
-                sqlCommand.Parameters.AddWithValue("@userID", id);
-                sqlCommand.ExecuteNonQuery();
+                Doctor doctor = new Doctor();
+                SqlCommand deleteDoctor = doctor.GetDocDeleteCmd(sqlConnection,id);
+                SqlCommand deleteUser = doctor.GetDeleteCommand(sqlConnection, id);
+                deleteDoctor.ExecuteNonQuery();
+                deleteUser.ExecuteNonQuery();
             }catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -294,7 +245,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
                 InputValidator.PhoneValidation(doctor.PhoneNumber),
                 InputValidator.TextValidate(doctor.Address, "Home Address"),
                 InputValidator.TextValidate(doctor.HospitalAddress, "Hospital Address"),
-                InputValidator.TextValidate(doctor.Experties, "Experties"),
+                InputValidator.TextValidate(doctor.Specialization, "Specialization"),
                 InputValidator.TextValidate(doctor.Qualification, "Qualification"),
                 InputValidator.TextValidate(doctor.Location, "Location")
             };
@@ -326,7 +277,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             password_input.Text = "";
             home_address_input.Text = "";
             hospital_address_input.Text = "";
-            expertise_input.Text = "";
+            Specialization_combobox.SelectedItem = null;
             qualification_input.SelectedItem = null;
             location_input.SelectedItem = null;
             password_input.Enabled = true;
