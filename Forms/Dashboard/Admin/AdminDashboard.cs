@@ -57,7 +57,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
 
         private void staffBtn_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new StaffForm(), sender);
         }
 
         private void appoinmentsBtn_Click(object sender, EventArgs e)

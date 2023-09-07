@@ -82,6 +82,12 @@
     <Compile Include="Forms\Dashboard\Admin\PatientsForm.Designer.cs">
       <DependentUpon>PatientsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dashboard\Admin\StaffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Admin\StaffForm.Designer.cs">
+      <DependentUpon>StaffForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dashboard\Staff\StaffDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,7 @@
     <Compile Include="Models\AuthUser.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\StaffMemeber.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\Admin\PatientsForm.resx">
       <DependentUpon>PatientsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Admin\StaffForm.resx">
+      <DependentUpon>StaffForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\Staff\StaffDashboard.resx">
       <DependentUpon>StaffDashboard.cs</DependentUpon>
