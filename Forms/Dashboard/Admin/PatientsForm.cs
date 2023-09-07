@@ -152,37 +152,16 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         {
             string operationType = operation == "INSERT" ? "INSERT" : "UPDATE";
 
-            //INSERT QUERY
-            string insertQuery = "INSERT INTO Patients " +
-                "(first_name, last_name, email, contact_no, address, disease) " +
-                "VALUES (@first_name, @last_name, @email, @contact_no, @address, @disease)";
-            
-            //UPDATE QUERY
-            string updateQuery = "UPDATE Patients SET " +
-                "first_name = @first_name, " +
-                "last_name = @last_name, " +
-                "email = @email, " +
-                "contact_no = @contact_no, " +
-                "address = @address, " +
-                "disease = @disease " +
-                "WHERE id = @id";
-
             try
             {
                 SqlConnection sqlConnection = dBCon.SqlConnection;
                 sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand(operationType == "INSERT" ? insertQuery : updateQuery, sqlConnection);
-                sqlCommand.Parameters.AddWithValue("@first_name", patient.FirstName);
-                sqlCommand.Parameters.AddWithValue("@last_name", patient.LastName);
-                sqlCommand.Parameters.AddWithValue("@email", patient.Email);
-                sqlCommand.Parameters.AddWithValue("@contact_no", patient.PhoneNo);
-                sqlCommand.Parameters.AddWithValue("@address", patient.Address);
-                sqlCommand.Parameters.AddWithValue("@disease", patient.Disease);
+                SqlCommand patientTableCmd = patient.GetInsertCommand(sqlConnection);
                 if(operationType == "UPDATE")
                 {
-                    sqlCommand.Parameters.AddWithValue("@id", updateID);
+                    patientTableCmd = patient.GetUpdateCommand(sqlConnection, updateID);
                 }
-                sqlCommand.ExecuteNonQuery();
+                patientTableCmd.ExecuteNonQuery();
                 sqlConnection.Close();
             }catch(Exception ex)
             {
@@ -201,13 +180,12 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         //DELETE QUERY
         private bool DeleteQuery(Int64 deleteID)
         {
-            string deleteQuery = "DELETE FROM Patients WHERE id = @id";
             try
             {
                 SqlConnection sqlConnection = dBCon.SqlConnection;
                 sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand(deleteQuery, sqlConnection);
-                sqlCommand.Parameters.AddWithValue("@id", deleteID);
+                Patient patient = new Patient();
+                SqlCommand sqlCommand = patient.GetDeleteCommand(sqlConnection,deleteID);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
             }
