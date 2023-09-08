@@ -88,6 +88,12 @@
     <Compile Include="Forms\Dashboard\Admin\StaffForm.Designer.cs">
       <DependentUpon>StaffForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dashboard\Staff\DoctorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Staff\DoctorForm.Designer.cs">
+      <DependentUpon>DoctorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dashboard\Staff\StaffDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\Admin\StaffForm.resx">
       <DependentUpon>StaffForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Staff\DoctorForm.resx">
+      <DependentUpon>DoctorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\Staff\StaffDashboard.resx">
       <DependentUpon>StaffDashboard.cs</DependentUpon>
