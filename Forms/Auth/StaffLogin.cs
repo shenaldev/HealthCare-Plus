@@ -47,6 +47,7 @@ namespace HealthCare_Plus.Forms.Auth
                     sqlCon.Open();
                 }catch (Exception ex)
                 {
+                    Console.WriteLine(ex.Message);
                     MessageBox.Show("Server Error Try Again Later", "Error", default, MessageBoxIcon.Error);
                     return;
                 }
@@ -113,6 +114,12 @@ namespace HealthCare_Plus.Forms.Auth
             }
 
             return "valid";
+        }
+
+        private void StaffLoginForm_Load(object sender, EventArgs e)
+        {
+            email_input.Text = "k@mail.com";
+            password_input.Text = "password";
         }
     }
 }
