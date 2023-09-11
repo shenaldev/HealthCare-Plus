@@ -14,8 +14,17 @@ namespace HealthCare_Plus.Models
         private string firstName;
         public string role;
 
-        public string Email { get =>  email; set => email = value; }
-        public string FirstName { get  => firstName; set => firstName = value; }
+        public string Email
+        {
+            get => email;
+            set => email = value;
+        }
+        public string FirstName
+        {
+            get => firstName;
+            set => firstName = value;
+        }
+
         private AuthUser() { }
 
         public static AuthUser Instance
@@ -41,6 +50,5 @@ namespace HealthCare_Plus.Models
             GC.WaitForPendingFinalizers();
             MessageBox.Show("Logged Out Successfull!", "Success", default, MessageBoxIcon.Information);
         }
-
     }
 }

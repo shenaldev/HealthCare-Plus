@@ -45,7 +45,8 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
                 sqlDataAdapter.Fill(dataTable);
                 patientsDataGrid.DataSource = dataTable;
                 sqlConnection.Close();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -54,7 +55,8 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         //DATA GRID VIEW CELL CLICK HANDLER
         private void OnCellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == -1) return; // RETURN IF HEADER CLICKED
+            if (e.RowIndex == -1)
+                return; // RETURN IF HEADER CLICKED
 
             isPatientSelected = true;
             Update_btn.Enabled = true;
@@ -75,7 +77,14 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         private void Add_btn_Click(object sender, EventArgs e)
         {
             //PATIENT OBJECT
-            patient = new Patient(First_name_input.Text,Last_name_input.Text,Email_input.Text,Phone_no_input.Text,Address_input.Text,Disease_input.Text);
+            patient = new Patient(
+                First_name_input.Text,
+                Last_name_input.Text,
+                Email_input.Text,
+                Phone_no_input.Text,
+                Address_input.Text,
+                Disease_input.Text
+            );
 
             //VALIDATE PATIENT DATA
             bool isValid = Validation();
@@ -98,7 +107,14 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         private void Update_btn_Click(object sender, EventArgs e)
         {
             //PATIENT OBJECT
-            patient = new Patient(First_name_input.Text, Last_name_input.Text, Email_input.Text, Phone_no_input.Text, Address_input.Text, Disease_input.Text);
+            patient = new Patient(
+                First_name_input.Text,
+                Last_name_input.Text,
+                Email_input.Text,
+                Phone_no_input.Text,
+                Address_input.Text,
+                Disease_input.Text
+            );
 
             //VALIDATE PATIENT DATA
             bool isValid = Validation();
@@ -122,7 +138,12 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         {
             if (isPatientSelected)
             {
-                var confirmation = MessageBox.Show("Are You Sure You Want To Delete This Patient?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var confirmation = MessageBox.Show(
+                    "Are You Sure You Want To Delete This Patient?",
+                    "Confirm",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
                 if (confirmation == DialogResult.Yes)
                 {
                     bool sqlQueryStatus = DeleteQuery(selectedPatientID);
@@ -148,7 +169,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         }
 
         //INSERT AND UPDATE QUERY
-        private bool DBQuery(string operation,Int64 updateID = 0)
+        private bool DBQuery(string operation, Int64 updateID = 0)
         {
             string operationType = operation == "INSERT" ? "INSERT" : "UPDATE";
 
@@ -157,13 +178,14 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
                 SqlConnection sqlConnection = dBCon.SqlConnection;
                 sqlConnection.Open();
                 SqlCommand patientTableCmd = patient.GetInsertCommand(sqlConnection);
-                if(operationType == "UPDATE")
+                if (operationType == "UPDATE")
                 {
                     patientTableCmd = patient.GetUpdateCommand(sqlConnection, updateID);
                 }
                 patientTableCmd.ExecuteNonQuery();
                 sqlConnection.Close();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 // SHOW ERROR OF DUPLICATE EMAIL
@@ -185,7 +207,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
                 SqlConnection sqlConnection = dBCon.SqlConnection;
                 sqlConnection.Open();
                 Patient patient = new Patient();
-                SqlCommand sqlCommand = patient.GetDeleteCommand(sqlConnection,deleteID);
+                SqlCommand sqlCommand = patient.GetDeleteCommand(sqlConnection, deleteID);
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
             }
@@ -237,7 +259,5 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             Update_btn.Enabled = false;
             Delete_btn.Enabled = false;
         }
-
-       
     }
 }

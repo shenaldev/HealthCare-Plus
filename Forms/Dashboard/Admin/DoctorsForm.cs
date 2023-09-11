@@ -35,13 +35,13 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             {
                 DBCon dBCon = new DBCon();
                 SqlConnection sqlCon = dBCon.SqlConnection;
-                string query = "SELECT Users.id, Users.first_name, Users.last_name, Users.email, DoctorProfiles.qualification, DoctorProfiles.specialization, DoctorProfiles.contact_no, DoctorProfiles.location, DoctorProfiles.home_address,DoctorProfiles.hospital_address FROM Users INNER JOIN DoctorProfiles ON Users.id = DoctorProfiles.user_id";
+                string query =
+                    "SELECT Users.id, Users.first_name, Users.last_name, Users.email, DoctorProfiles.qualification, DoctorProfiles.specialization, DoctorProfiles.contact_no, DoctorProfiles.location, DoctorProfiles.home_address,DoctorProfiles.hospital_address FROM Users INNER JOIN DoctorProfiles ON Users.id = DoctorProfiles.user_id";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, sqlCon);
                 DataTable dataTabel = new DataTable();
                 adapter.Fill(dataTabel);
                 sqlCon.Close();
                 doctorsDataGridView.DataSource = dataTabel;
-
             }
             catch (Exception ex)
             {
@@ -53,7 +53,8 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         //DATA GRID VIEW CELL DOUBLE CLICK
         private void OnCellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex == -1) return; // RETURN IF HEADER CLICKED
+            if (e.RowIndex == -1)
+                return; // RETURN IF HEADER CLICKED
 
             isSelectedUser = true;
             //ENABLE UPDATE AND DELETE BUTTONS
@@ -79,7 +80,19 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         private void Add_doc_btn_Click(object sender, EventArgs e)
         {
             //DOCTOR OBJECT
-            doctor = new Doctor(first_name_input.Text, last_name_input.Text, email_input.Text, phone_no_input.Text, password_input.Text, home_address_input.Text, "doctor", hospital_address_input.Text, Specialization_combobox.Text, qualification_input.Text, location_input.Text);
+            doctor = new Doctor(
+                first_name_input.Text,
+                last_name_input.Text,
+                email_input.Text,
+                phone_no_input.Text,
+                password_input.Text,
+                home_address_input.Text,
+                "doctor",
+                hospital_address_input.Text,
+                Specialization_combobox.Text,
+                qualification_input.Text,
+                location_input.Text
+            );
 
             bool isValidationPassed = Validation();
             if (isValidationPassed)
@@ -87,7 +100,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
                 bool sqlQueryStatus = DBQuery("INSERT");
                 if (sqlQueryStatus)
                 {
-                    MessageBox.Show("Doctor Added Successfully", "Success", default,MessageBoxIcon.Information);
+                    MessageBox.Show("Doctor Added Successfully", "Success", default, MessageBoxIcon.Information);
                     LoadDoctorDataFromDB(); // REFRESH DATA GRID VIEW
                     ResetInputs();
                 }
@@ -102,7 +115,19 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         private void Update_doc_btn_Click(object sender, EventArgs e)
         {
             //DOCTOR OBJECT WITHOUT PASSWORD
-            doctor = new Doctor(first_name_input.Text, last_name_input.Text, email_input.Text, phone_no_input.Text, "none", home_address_input.Text, "doctor", hospital_address_input.Text, Specialization_combobox.Text, qualification_input.Text, location_input.Text);
+            doctor = new Doctor(
+                first_name_input.Text,
+                last_name_input.Text,
+                email_input.Text,
+                phone_no_input.Text,
+                "none",
+                home_address_input.Text,
+                "doctor",
+                hospital_address_input.Text,
+                Specialization_combobox.Text,
+                qualification_input.Text,
+                location_input.Text
+            );
 
             bool isValidationPassed = Validation("UPDATE");
             if (isValidationPassed)
@@ -127,7 +152,12 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         {
             if (isSelectedUser)
             {
-                var confirmation = MessageBox.Show("Are You Sure You Want To Delete This Doctor?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var confirmation = MessageBox.Show(
+                    "Are You Sure You Want To Delete This Doctor?",
+                    "Confirm",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
                 if (confirmation == DialogResult.Yes)
                 {
                     bool sqlQueryStatus = DBDeleteQuery(selectedUserID);
@@ -167,7 +197,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
 
                 //INSERT AND UPDATE USER TABLE QUERY
                 SqlCommand userTableCmd = doctor.GetInsertCommand(sqlCon);
-                if(operationType == "UPDATE")
+                if (operationType == "UPDATE")
                 {
                     userTableCmd = doctor.GetUpdateCommand(sqlCon, updateID);
                 }
@@ -176,7 +206,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
 
                 //INSERT AND UPDATE DOCTOR TABLE QUERY
                 SqlCommand doctorTableCmd = doctor.GetDocInsertCmd(sqlCon, userID);
-                if(operationType == "UPDATE")
+                if (operationType == "UPDATE")
                 {
                     doctorTableCmd = doctor.GetDocUpdateCmd(sqlCon, updateID);
                 }
@@ -187,7 +217,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             catch (Exception ex)
             {
                 //ROLLBACK TRANSACTION
-                if(sqlTransaction != null)
+                if (sqlTransaction != null)
                 {
                     sqlTransaction.Rollback();
                 }
@@ -203,12 +233,12 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             finally
             {
                 //CLOSE SQL CONNECTION
-                if(sqlCon.State == ConnectionState.Open)
+                if (sqlCon.State == ConnectionState.Open)
                 {
                     sqlCon.Close();
                 }
             }
-            
+
             return true;
         }
 
@@ -222,11 +252,12 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
                 sqlConnection.Open();
 
                 Doctor doctor = new Doctor();
-                SqlCommand deleteDoctor = doctor.GetDocDeleteCmd(sqlConnection,id);
+                SqlCommand deleteDoctor = doctor.GetDocDeleteCmd(sqlConnection, id);
                 SqlCommand deleteUser = doctor.GetDeleteCommand(sqlConnection, id);
                 deleteDoctor.ExecuteNonQuery();
                 deleteUser.ExecuteNonQuery();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return false;

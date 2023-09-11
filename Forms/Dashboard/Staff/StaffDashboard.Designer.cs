@@ -34,7 +34,7 @@
             this.reportsBtn = new System.Windows.Forms.Button();
             this.logout_btn = new System.Windows.Forms.Button();
             this.appointmentBtn = new System.Windows.Forms.Button();
-            this.staffBtn = new System.Windows.Forms.Button();
+            this.ScheduleBtn = new System.Windows.Forms.Button();
             this.patientsBtn = new System.Windows.Forms.Button();
             this.doctorsBtn = new System.Windows.Forms.Button();
             this.logoPanel = new System.Windows.Forms.Panel();
@@ -59,7 +59,7 @@
             this.navigationPanel.Controls.Add(this.reportsBtn);
             this.navigationPanel.Controls.Add(this.logout_btn);
             this.navigationPanel.Controls.Add(this.appointmentBtn);
-            this.navigationPanel.Controls.Add(this.staffBtn);
+            this.navigationPanel.Controls.Add(this.ScheduleBtn);
             this.navigationPanel.Controls.Add(this.patientsBtn);
             this.navigationPanel.Controls.Add(this.doctorsBtn);
             this.navigationPanel.Controls.Add(this.logoPanel);
@@ -151,27 +151,27 @@
             this.appointmentBtn.UseVisualStyleBackColor = false;
             this.appointmentBtn.Click += new System.EventHandler(this.appoinmentsBtn_Click);
             // 
-            // staffBtn
+            // ScheduleBtn
             // 
-            this.staffBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(36)))), ((int)(((byte)(77)))));
-            this.staffBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.staffBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.staffBtn.FlatAppearance.BorderSize = 0;
-            this.staffBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.staffBtn.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staffBtn.ForeColor = System.Drawing.Color.White;
-            this.staffBtn.Image = global::HealthCare_Plus.Properties.Resources.staff_icon;
-            this.staffBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.staffBtn.Location = new System.Drawing.Point(0, 248);
-            this.staffBtn.Name = "staffBtn";
-            this.staffBtn.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.staffBtn.Size = new System.Drawing.Size(200, 60);
-            this.staffBtn.TabIndex = 18;
-            this.staffBtn.Text = "Staff";
-            this.staffBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.staffBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.staffBtn.UseVisualStyleBackColor = false;
-            this.staffBtn.Click += new System.EventHandler(this.staffBtn_Click);
+            this.ScheduleBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(36)))), ((int)(((byte)(77)))));
+            this.ScheduleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ScheduleBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ScheduleBtn.FlatAppearance.BorderSize = 0;
+            this.ScheduleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScheduleBtn.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScheduleBtn.ForeColor = System.Drawing.Color.White;
+            this.ScheduleBtn.Image = global::HealthCare_Plus.Properties.Resources.staff_icon;
+            this.ScheduleBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ScheduleBtn.Location = new System.Drawing.Point(0, 248);
+            this.ScheduleBtn.Name = "ScheduleBtn";
+            this.ScheduleBtn.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.ScheduleBtn.Size = new System.Drawing.Size(200, 60);
+            this.ScheduleBtn.TabIndex = 18;
+            this.ScheduleBtn.Text = "Schedules";
+            this.ScheduleBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ScheduleBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ScheduleBtn.UseVisualStyleBackColor = false;
+            this.ScheduleBtn.Click += new System.EventHandler(this.SchedulesBtn_Click);
             // 
             // patientsBtn
             // 
@@ -343,7 +343,7 @@
         private System.Windows.Forms.Button reportsBtn;
         private System.Windows.Forms.Button logout_btn;
         private System.Windows.Forms.Button appointmentBtn;
-        private System.Windows.Forms.Button staffBtn;
+        private System.Windows.Forms.Button ScheduleBtn;
         private System.Windows.Forms.Button patientsBtn;
         private System.Windows.Forms.Button doctorsBtn;
         private System.Windows.Forms.Panel headerPanel;

@@ -33,8 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +51,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\Auth\AdminLogin.cs">
@@ -88,6 +96,12 @@
     <Compile Include="Forms\Dashboard\Admin\StaffForm.Designer.cs">
       <DependentUpon>StaffForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dashboard\Common\ScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Common\ScheduleForm.Designer.cs">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dashboard\Staff\DoctorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +123,7 @@
     <Compile Include="Models\AuthUser.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\StaffMemeber.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
@@ -118,9 +133,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SelectDoctorDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SelectDoctorDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Utils\DBCon.cs" />
     <Compile Include="Utils\Hash.cs" />
     <Compile Include="Utils\InputValidator.cs" />
+    <Compile Include="Utils\RoomUtils.cs" />
     <EmbeddedResource Include="Forms\Auth\AdminLogin.resx">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\Admin\StaffForm.resx">
       <DependentUpon>StaffForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Common\ScheduleForm.resx">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\Staff\DoctorForm.resx">
       <DependentUpon>DoctorForm.cs</DependentUpon>
@@ -165,6 +189,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SelectDoctorDataSet1.xsc">
+      <DependentUpon>SelectDoctorDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SelectDoctorDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SelectDoctorDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SelectDoctorDataSet1.xss">
+      <DependentUpon>SelectDoctorDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

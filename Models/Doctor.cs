@@ -10,23 +10,41 @@ namespace HealthCare_Plus.Models
         private string qualification;
         private string location;
 
-        public string HospitalAddress { get => hospital_address; set => hospital_address = value; }
-        public string Specialization { get => specialization; set => specialization = value; }
-        public string Qualification { get => qualification; set => qualification = value; }
-        public string Location { get => location; set => location = value; }
+        public string HospitalAddress
+        {
+            get => hospital_address;
+            set => hospital_address = value;
+        }
+        public string Specialization
+        {
+            get => specialization;
+            set => specialization = value;
+        }
+        public string Qualification
+        {
+            get => qualification;
+            set => qualification = value;
+        }
+        public string Location
+        {
+            get => location;
+            set => location = value;
+        }
 
         //QUERY STRINGS
-        private string insertDocQuery = "INSERT INTO DoctorProfiles " +
-                "(qualification, specialization, contact_no, location, home_address, hospital_address, user_id) " +
-                "VALUES (@qualification, @specialization, @contact_no, @location, @home_address, @hospital_address, @user_id)";
-        private string updateDocQuery = "UPDATE DoctorProfiles SET " +
-                    "qualification = @qualification, " +
-                    "specialization = @specialization, " +
-                    "contact_no = @contact_no, " +
-                    "location = @location, " +
-                    "home_address = @home_address, " +
-                    "hospital_address = @hospital_address " +
-                    "WHERE user_id = @user_id";
+        private string insertDocQuery =
+            "INSERT INTO DoctorProfiles "
+            + "(qualification, specialization, contact_no, location, home_address, hospital_address, user_id) "
+            + "VALUES (@qualification, @specialization, @contact_no, @location, @home_address, @hospital_address, @user_id)";
+        private string updateDocQuery =
+            "UPDATE DoctorProfiles SET "
+            + "qualification = @qualification, "
+            + "specialization = @specialization, "
+            + "contact_no = @contact_no, "
+            + "location = @location, "
+            + "home_address = @home_address, "
+            + "hospital_address = @hospital_address "
+            + "WHERE user_id = @user_id";
         private string deleteDocQuery = "DELETE FROM DoctorProfiles WHERE user_id = @user_id";
 
         public Doctor()
@@ -34,14 +52,19 @@ namespace HealthCare_Plus.Models
             //DEFAULT CONSTRUCTOR
         }
 
-        public Doctor(string first_name,
+        public Doctor(
+            string first_name,
             string last_name,
             string email,
-            string phone_no, 
+            string phone_no,
             string password,
             string address,
-            string role, 
-            string hospital_address,string specialization, string qualification, string location)
+            string role,
+            string hospital_address,
+            string specialization,
+            string qualification,
+            string location
+        )
             : base(first_name, last_name, email, phone_no, password, address, role)
         {
             this.hospital_address = hospital_address;
@@ -50,7 +73,7 @@ namespace HealthCare_Plus.Models
             this.location = location;
         }
 
-        public SqlCommand GetDocInsertCmd(SqlConnection connection,Int64 userID)
+        public SqlCommand GetDocInsertCmd(SqlConnection connection, Int64 userID)
         {
             SqlCommand sqlCommand = new SqlCommand(insertDocQuery, connection);
             sqlCommand.Parameters.AddWithValue("@qualification", qualification);
@@ -82,6 +105,5 @@ namespace HealthCare_Plus.Models
             sqlCommand.Parameters.AddWithValue("@user_id", userID);
             return sqlCommand;
         }
-
     }
 }

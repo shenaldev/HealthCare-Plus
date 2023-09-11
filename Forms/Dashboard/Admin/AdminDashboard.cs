@@ -21,7 +21,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
             //CHECK FOR AUTHORIZATION
-            if(authUser == null)
+            if (authUser == null)
             {
                 MessageBox.Show("You are not loged in", "Unathorized", default, MessageBoxIcon.Error);
                 return;
@@ -32,7 +32,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         }
 
         /**
-         * HANDLE USER LOGOUT -> DELETE AUTHUSER OBJECT AND REDIRECT TO HOMEPAGE 
+         * HANDLE USER LOGOUT -> DELETE AUTHUSER OBJECT AND REDIRECT TO HOMEPAGE
          */
         private void logout_btn_Click(object sender, EventArgs e)
         {
@@ -60,25 +60,16 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             OpenChildForm(new StaffForm(), sender);
         }
 
-        private void appoinmentsBtn_Click(object sender, EventArgs e)
-        {
+        private void appoinmentsBtn_Click(object sender, EventArgs e) { }
 
-        }
+        private void reportsBtn_Click(object sender, EventArgs e) { }
 
-        private void reportsBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void invoiceBtn_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void invoiceBtn_Click(object sender, EventArgs e) { }
 
         //CHANGE COLOR OF ACTIVE BUTTON
         private void ActiveButton(object btnSender)
         {
-            if(btnSender != null)
+            if (btnSender != null)
             {
                 if (currentButton != (Button)btnSender)
                 {
@@ -92,9 +83,9 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         //DIASABLE NAV BUTTON COLORS
         private void DisableButtons()
         {
-            foreach(Control btn in navigationPanel.Controls)
+            foreach (Control btn in navigationPanel.Controls)
             {
-                if(btn.Name != "logout_btn")
+                if (btn.Name != "logout_btn")
                 {
                     if (btn.GetType() == typeof(Button))
                     {
@@ -107,7 +98,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         //OPEN FORM RELATED TO BUTTON NAV
         private void OpenChildForm(Form form, object btnSender)
         {
-            if(activeForm != null)
+            if (activeForm != null)
             {
                 activeForm.Close();
             }
@@ -121,7 +112,5 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             form.BringToFront();
             form.Show();
         }
-
-        
     }
 }

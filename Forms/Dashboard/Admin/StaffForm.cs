@@ -38,10 +38,11 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             {
                 SqlConnection sqlConnection = dBCon.SqlConnection;
                 sqlConnection.Open();
-                string query = "SELECT Users.id, Users.first_name, Users.last_name, Users.email, Users.role, " +
-                    "StaffProfiles.contact_no, StaffProfiles.address " +
-                    "FROM Users LEFT JOIN StaffProfiles ON Users.id = StaffProfiles.user_id " +
-                    "WHERE Users.role = 'admin' OR Users.role = 'staff'";
+                string query =
+                    "SELECT Users.id, Users.first_name, Users.last_name, Users.email, Users.role, "
+                    + "StaffProfiles.contact_no, StaffProfiles.address "
+                    + "FROM Users LEFT JOIN StaffProfiles ON Users.id = StaffProfiles.user_id "
+                    + "WHERE Users.role = 'admin' OR Users.role = 'staff'";
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
                 DataTable dataTable = new DataTable();
@@ -59,7 +60,15 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         {
             string selectedRole = RoleComoboBox.Text.ToLower();
             //MEMEBER OBJECT
-            staffMemeber = new StaffMemeber(First_name_input.Text, Last_name_input.Text, Email_input.Text, Phone_no_input.Text, Password_input.Text, Address_input.Text, selectedRole);
+            staffMemeber = new StaffMemeber(
+                First_name_input.Text,
+                Last_name_input.Text,
+                Email_input.Text,
+                Phone_no_input.Text,
+                Password_input.Text,
+                Address_input.Text,
+                selectedRole
+            );
 
             //FORM VALIDATION
             bool isValid = Validation();
@@ -83,7 +92,15 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         {
             string selectedRole = RoleComoboBox.Text.ToLower();
             //MEMEBER OBJECT WITHOUT PASSWORD
-            staffMemeber = new StaffMemeber(First_name_input.Text, Last_name_input.Text, Email_input.Text, Phone_no_input.Text, "null", Address_input.Text, selectedRole);
+            staffMemeber = new StaffMemeber(
+                First_name_input.Text,
+                Last_name_input.Text,
+                Email_input.Text,
+                Phone_no_input.Text,
+                "null",
+                Address_input.Text,
+                selectedRole
+            );
 
             //FORM VALIDATION
             bool isValid = Validation("UPDATE");
@@ -107,7 +124,12 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         {
             if (isMemeberSelected)
             {
-                var confirmation = MessageBox.Show("Are You Sure You Want To Delete This Member?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var confirmation = MessageBox.Show(
+                    "Are You Sure You Want To Delete This Member?",
+                    "Confirm",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
                 if (confirmation == DialogResult.Yes)
                 {
                     bool sqlQueryStatus = DBDeleteQuery(selectedMemberID);
@@ -136,7 +158,8 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         //HANDLE DATA GRID VIEW CELL CLICK
         private void OnCellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == -1) return; // RETURN IF HEADER CLICKED
+            if (e.RowIndex == -1)
+                return; // RETURN IF HEADER CLICKED
 
             isMemeberSelected = true;
             Update_btn.Enabled = true;

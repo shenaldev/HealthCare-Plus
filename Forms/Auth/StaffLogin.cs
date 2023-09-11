@@ -45,7 +45,8 @@ namespace HealthCare_Plus.Forms.Auth
                 try
                 {
                     sqlCon.Open();
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                     MessageBox.Show("Server Error Try Again Later", "Error", default, MessageBoxIcon.Error);
@@ -67,7 +68,7 @@ namespace HealthCare_Plus.Forms.Auth
 
                     //CHECK FOR AUTHORIZTION {ROLE}
                     Console.WriteLine(role);
-                    if(role != "admin" && role != "staff")
+                    if (role != "admin" && role != "staff")
                     {
                         MessageBox.Show("You don't have access!", "Unauthorized", default, MessageBoxIcon.Error);
                         return;

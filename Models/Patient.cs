@@ -12,25 +12,51 @@ namespace HealthCare_Plus.Models
         private string address;
         private string disease;
 
-        public string FirstName { get => first_name; set => first_name = value; }
-        public string LastName { get => last_name; set => last_name = value; }
-        public string Email { get => email; set => email = value; }
-        public string PhoneNo { get => phone_no; set => phone_no = value; }
-        public string Address { get => address; set => address = value; }
-        public string Disease { get => disease; set => disease = value; }
+        public string FirstName
+        {
+            get => first_name;
+            set => first_name = value;
+        }
+        public string LastName
+        {
+            get => last_name;
+            set => last_name = value;
+        }
+        public string Email
+        {
+            get => email;
+            set => email = value;
+        }
+        public string PhoneNo
+        {
+            get => phone_no;
+            set => phone_no = value;
+        }
+        public string Address
+        {
+            get => address;
+            set => address = value;
+        }
+        public string Disease
+        {
+            get => disease;
+            set => disease = value;
+        }
 
         //QUERY VARIABLES
-        private string insertQuery = "INSERT INTO Patients " +
-                "(first_name, last_name, email, contact_no, address, disease) " +
-                "VALUES (@first_name, @last_name, @email, @contact_no, @address, @disease)";
-        private string updateQuery = "UPDATE Patients SET " +
-                "first_name = @first_name, " +
-                "last_name = @last_name, " +
-                "email = @email, " +
-                "contact_no = @contact_no, " +
-                "address = @address, " +
-                "disease = @disease " +
-                "WHERE id = @patient_id";
+        private string insertQuery =
+            "INSERT INTO Patients "
+            + "(first_name, last_name, email, contact_no, address, disease) "
+            + "VALUES (@first_name, @last_name, @email, @contact_no, @address, @disease)";
+        private string updateQuery =
+            "UPDATE Patients SET "
+            + "first_name = @first_name, "
+            + "last_name = @last_name, "
+            + "email = @email, "
+            + "contact_no = @contact_no, "
+            + "address = @address, "
+            + "disease = @disease "
+            + "WHERE id = @patient_id";
         private string deleteQuery = "DELETE FROM Patients WHERE id = @patient_id";
 
         public Patient()
@@ -38,7 +64,14 @@ namespace HealthCare_Plus.Models
             //DEFAULT CONSTRUCTOR
         }
 
-        public Patient(string first_name, string last_name, string email, string phone_no, string address, string disease)
+        public Patient(
+            string first_name,
+            string last_name,
+            string email,
+            string phone_no,
+            string address,
+            string disease
+        )
         {
             this.first_name = first_name;
             this.last_name = last_name;

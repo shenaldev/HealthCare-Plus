@@ -14,7 +14,8 @@ namespace HealthCare_Plus.Utils
         private string value;
         private string label;
 
-        public InputValidator(string value,string label) {
+        public InputValidator(string value, string label)
+        {
             this.value = value;
             this.label = label;
         }
@@ -26,7 +27,7 @@ namespace HealthCare_Plus.Utils
             {
                 return label + " is a required field";
             }
-            if(value.Length < 2)
+            if (value.Length < 2)
             {
                 return label + " must be at least 2 charactors";
             }
@@ -74,7 +75,7 @@ namespace HealthCare_Plus.Utils
             {
                 return "Phone number must be 10 charactors";
             }
-            if(value.Length < 10)
+            if (value.Length < 10)
             {
                 return "Phone number must be 10 charactors";
             }
@@ -84,6 +85,49 @@ namespace HealthCare_Plus.Utils
             {
                 return "Invalid phone number";
             }
+            return "valid";
+        }
+
+        // VALIDATE DATE INPUTS
+        public static string DateValidate(DateTime value, string label, string timeLine)
+        {
+            if (value == null)
+            {
+                return label + " is a required field";
+            }
+            if (timeLine == "future")
+            {
+                if (value < DateTime.Now)
+                {
+                    return label + " must be in the future date";
+                }
+            }
+            else
+            {
+                if (value > DateTime.Now)
+                {
+                    return label + " must be a past date";
+                }
+            }
+            return "valid";
+        }
+
+        //VALIDATE SELECTIONS
+        public static string SelectionValidate(string value, string label, bool validateZero = false)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                return label + " is a required field";
+            }
+
+            if (validateZero)
+            {
+                if (value == "0")
+                {
+                    return label + " is a required field";
+                }
+            }
+
             return "valid";
         }
     }

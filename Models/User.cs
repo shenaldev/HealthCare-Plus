@@ -19,33 +19,71 @@ namespace HealthCare_Plus.Models
         private string role;
 
         //QUERY VARIABLES
-        private string insertQuery = "INSERT INTO Users " +
-                "(first_name, last_name, email, password, role) " +
-                "output INSERTED.ID " +
-                "VALUES (@first_name, @last_name, @email, @password, @role);";
-        private string updateQuery = "UPDATE Users SET " +
-                    "first_name = @first_name, " +
-                    "last_name = @last_name, " +
-                    "email = @email, " +
-                    "role = @role " +
-                    "WHERE id = @user_id;";
+        private string insertQuery =
+            "INSERT INTO Users "
+            + "(first_name, last_name, email, password, role) "
+            + "output INSERTED.ID "
+            + "VALUES (@first_name, @last_name, @email, @password, @role);";
+        private string updateQuery =
+            "UPDATE Users SET "
+            + "first_name = @first_name, "
+            + "last_name = @last_name, "
+            + "email = @email, "
+            + "role = @role "
+            + "WHERE id = @user_id;";
         private string deleteQuery = "DELETE FROM Users WHERE id = @user_id";
 
-        public string FirstName { get => first_name; set => first_name = value; }
-        public string LastName { get => last_name; set => last_name = value; }
-        public string Email { get => email; set => email = value; }
-        public string PhoneNumber { get => phone_no; set => phone_no = value; }
-        public string Password { get => password; set => password = value; }
-        public string Address { get => address; set => address = value; }
-        public string Role { get => role; set => role = value; }
+        public string FirstName
+        {
+            get => first_name;
+            set => first_name = value;
+        }
+        public string LastName
+        {
+            get => last_name;
+            set => last_name = value;
+        }
+        public string Email
+        {
+            get => email;
+            set => email = value;
+        }
+        public string PhoneNumber
+        {
+            get => phone_no;
+            set => phone_no = value;
+        }
+        public string Password
+        {
+            get => password;
+            set => password = value;
+        }
+        public string Address
+        {
+            get => address;
+            set => address = value;
+        }
+        public string Role
+        {
+            get => role;
+            set => role = value;
+        }
 
         public User()
         {
             //DEFATULT CONSTRUCTOR
         }
 
-        public User(string first_name, string last_name, string email, string phone_no, string password, 
-            string address, string role) {
+        public User(
+            string first_name,
+            string last_name,
+            string email,
+            string phone_no,
+            string password,
+            string address,
+            string role
+        )
+        {
             this.first_name = first_name;
             this.last_name = last_name;
             this.email = email;

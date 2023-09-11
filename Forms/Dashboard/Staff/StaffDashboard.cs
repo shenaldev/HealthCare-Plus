@@ -1,8 +1,10 @@
 ﻿using HealthCare_Plus.Forms.Dashboard.Staff;
+using HealthCare_Plus.Forms.Dashboard.Admin;
 using HealthCare_Plus.Models;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using HealthCare_Plus.Forms.Dashboard.Common;
 
 namespace HealthCare_Plus.Forms.Dashboard
 {
@@ -12,6 +14,7 @@ namespace HealthCare_Plus.Forms.Dashboard
         private AuthUser authUser = AuthUser.Instance;
         private Button currentButton;
         private Form activeForm;
+
         public StaffDashboard()
         {
             InitializeComponent();
@@ -31,7 +34,7 @@ namespace HealthCare_Plus.Forms.Dashboard
         }
 
         /**
-         * HANDLE USER LOGOUT -> DELETE AUTHUSER OBJECT AND REDIRECT TO HOMEPAGE 
+         * HANDLE USER LOGOUT -> DELETE AUTHUSER OBJECT AND REDIRECT TO HOMEPAGE
          */
         private void logout_btn_Click(object sender, EventArgs e)
         {
@@ -51,28 +54,19 @@ namespace HealthCare_Plus.Forms.Dashboard
 
         private void patientsBtn_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Patients");
+            OpenChildForm(new PatientsForm(), sender);
         }
 
-        private void staffBtn_Click(object sender, EventArgs e)
+        private void SchedulesBtn_Click(object sender, EventArgs e)
         {
-            
+            OpenChildForm(new ScheduleForm(), sender);
         }
 
-        private void appoinmentsBtn_Click(object sender, EventArgs e)
-        {
+        private void appoinmentsBtn_Click(object sender, EventArgs e) { }
 
-        }
+        private void reportsBtn_Click(object sender, EventArgs e) { }
 
-        private void reportsBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void invoiceBtn_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void invoiceBtn_Click(object sender, EventArgs e) { }
 
         //CHANGE COLOR OF ACTIVE BUTTON
         private void ActiveButton(object btnSender)

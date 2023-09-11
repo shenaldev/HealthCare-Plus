@@ -14,7 +14,8 @@ namespace HealthCare_Plus.Forms.Dashboard.Staff
         private string EmailText = null;
         private string SpecializationText = null;
         private string LocationText = null;
-        private string selectQuery = "SELECT Users.id, Users.first_name, Users.last_name, Users.email, DoctorProfiles.qualification, DoctorProfiles.specialization, DoctorProfiles.contact_no, DoctorProfiles.location, DoctorProfiles.home_address,DoctorProfiles.hospital_address FROM Users INNER JOIN DoctorProfiles ON Users.id = DoctorProfiles.user_id";
+        private string selectQuery =
+            "SELECT Users.id, Users.first_name, Users.last_name, Users.email, DoctorProfiles.qualification, DoctorProfiles.specialization, DoctorProfiles.contact_no, DoctorProfiles.location, DoctorProfiles.home_address,DoctorProfiles.hospital_address FROM Users INNER JOIN DoctorProfiles ON Users.id = DoctorProfiles.user_id";
 
         public DoctorForm()
         {
@@ -32,7 +33,12 @@ namespace HealthCare_Plus.Forms.Dashboard.Staff
             SetInputValues();
 
             //CHECK IF SEARCH TERM IS EMPTY
-            if (string.IsNullOrEmpty(NameText) && string.IsNullOrEmpty(EmailText) && string.IsNullOrEmpty(SpecializationText) && string.IsNullOrEmpty(LocationText))
+            if (
+                string.IsNullOrEmpty(NameText)
+                && string.IsNullOrEmpty(EmailText)
+                && string.IsNullOrEmpty(SpecializationText)
+                && string.IsNullOrEmpty(LocationText)
+            )
             {
                 MessageBox.Show("Please enter a search term", "Empty Search", default, MessageBoxIcon.Error);
                 return;
@@ -81,7 +87,6 @@ namespace HealthCare_Plus.Forms.Dashboard.Staff
                 if (!string.IsNullOrEmpty(LocationText))
                 {
                     adapter.SelectCommand.Parameters.AddWithValue("@location", "%" + LocationText + "%");
-
                 }
                 DataTable dataTabel = new DataTable();
                 adapter.Fill(dataTabel);
@@ -122,7 +127,6 @@ namespace HealthCare_Plus.Forms.Dashboard.Staff
                 adapter.Fill(dataTabel);
                 sqlCon.Close();
                 doctorGridView.DataSource = dataTabel;
-
             }
             catch (Exception ex)
             {
