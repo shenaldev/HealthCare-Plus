@@ -96,6 +96,12 @@
     <Compile Include="Forms\Dashboard\Admin\StaffForm.Designer.cs">
       <DependentUpon>StaffForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dashboard\Common\AppoinmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Common\AppoinmentForm.Designer.cs">
+      <DependentUpon>AppoinmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dashboard\Common\ScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,11 @@
     </Compile>
     <Compile Include="Forms\Dashboard\Staff\StaffDashboard.Designer.cs">
       <DependentUpon>StaffDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HealthcareplusDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HealthcareplusDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -163,6 +174,9 @@
     <EmbeddedResource Include="Forms\Dashboard\Admin\StaffForm.resx">
       <DependentUpon>StaffForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Common\AppoinmentForm.resx">
+      <DependentUpon>AppoinmentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\Common\ScheduleForm.resx">
       <DependentUpon>ScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +194,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="HealthcareplusDataSet.xsc">
+      <DependentUpon>HealthcareplusDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HealthcareplusDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HealthcareplusDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HealthcareplusDataSet.xss">
+      <DependentUpon>HealthcareplusDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

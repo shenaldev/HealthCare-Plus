@@ -62,7 +62,10 @@ namespace HealthCare_Plus.Forms.Dashboard
             OpenChildForm(new ScheduleForm(), sender);
         }
 
-        private void appoinmentsBtn_Click(object sender, EventArgs e) { }
+        private void appoinmentsBtn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AppoinmentForm(), sender);
+        }
 
         private void reportsBtn_Click(object sender, EventArgs e) { }
 
