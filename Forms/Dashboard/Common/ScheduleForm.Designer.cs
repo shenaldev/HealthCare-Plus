@@ -98,13 +98,13 @@
             // 
             // Search_btn
             // 
-            this.Search_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Search_btn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Search_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(208)))), ((int)(((byte)(104)))));
             this.Search_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Search_btn.FlatAppearance.BorderSize = 0;
             this.Search_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Search_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search_btn.Location = new System.Drawing.Point(792, 36);
+            this.Search_btn.Location = new System.Drawing.Point(793, 36);
             this.Search_btn.Name = "Search_btn";
             this.Search_btn.Size = new System.Drawing.Size(80, 30);
             this.Search_btn.TabIndex = 34;
@@ -114,9 +114,9 @@
             // 
             // searchDateInput
             // 
-            this.searchDateInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchDateInput.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.searchDateInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.searchDateInput.Location = new System.Drawing.Point(619, 46);
+            this.searchDateInput.Location = new System.Drawing.Point(620, 46);
             this.searchDateInput.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.searchDateInput.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.searchDateInput.Name = "searchDateInput";
@@ -125,10 +125,10 @@
             // 
             // search_date_label
             // 
-            this.search_date_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.search_date_label.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.search_date_label.AutoSize = true;
             this.search_date_label.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_date_label.Location = new System.Drawing.Point(565, 46);
+            this.search_date_label.Location = new System.Drawing.Point(566, 46);
             this.search_date_label.Name = "search_date_label";
             this.search_date_label.Size = new System.Drawing.Size(47, 20);
             this.search_date_label.TabIndex = 36;
@@ -136,24 +136,24 @@
             // 
             // searchLocationInput
             // 
-            this.searchLocationInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchLocationInput.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.searchLocationInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.searchLocationInput.FormattingEnabled = true;
             this.searchLocationInput.Items.AddRange(new object[] {
             "Kandy",
             "Colombo"});
-            this.searchLocationInput.Location = new System.Drawing.Point(392, 46);
+            this.searchLocationInput.Location = new System.Drawing.Point(393, 46);
             this.searchLocationInput.Name = "searchLocationInput";
             this.searchLocationInput.Size = new System.Drawing.Size(152, 21);
             this.searchLocationInput.TabIndex = 34;
             // 
             // search_doc_label
             // 
-            this.search_doc_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.search_doc_label.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.search_doc_label.AutoSize = true;
             this.search_doc_label.Cursor = System.Windows.Forms.Cursors.Default;
             this.search_doc_label.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_doc_label.Location = new System.Drawing.Point(11, 46);
+            this.search_doc_label.Location = new System.Drawing.Point(12, 46);
             this.search_doc_label.Name = "search_doc_label";
             this.search_doc_label.Size = new System.Drawing.Size(109, 20);
             this.search_doc_label.TabIndex = 11;
@@ -161,10 +161,10 @@
             // 
             // search_location_label
             // 
-            this.search_location_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.search_location_label.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.search_location_label.AutoSize = true;
             this.search_location_label.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_location_label.Location = new System.Drawing.Point(315, 46);
+            this.search_location_label.Location = new System.Drawing.Point(316, 46);
             this.search_location_label.Name = "search_location_label";
             this.search_location_label.Size = new System.Drawing.Size(74, 20);
             this.search_location_label.TabIndex = 35;
@@ -172,10 +172,10 @@
             // 
             // searchDocInput
             // 
-            this.searchDocInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchDocInput.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.searchDocInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchDocInput.Font = new System.Drawing.Font("Montserrat Medium", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchDocInput.Location = new System.Drawing.Point(126, 46);
+            this.searchDocInput.Location = new System.Drawing.Point(127, 46);
             this.searchDocInput.MaxLength = 300;
             this.searchDocInput.MinimumSize = new System.Drawing.Size(2, 21);
             this.searchDocInput.Name = "searchDocInput";
@@ -184,8 +184,7 @@
             // 
             // search_by_label
             // 
-            this.search_by_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.search_by_label.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.search_by_label.AutoSize = true;
             this.search_by_label.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search_by_label.ForeColor = System.Drawing.Color.DarkSlateBlue;
