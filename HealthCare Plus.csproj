@@ -96,11 +96,23 @@
     <Compile Include="Forms\Dashboard\Admin\StaffForm.Designer.cs">
       <DependentUpon>StaffForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dashboard\Common\AddAppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Common\AddAppointmentForm.Designer.cs">
+      <DependentUpon>AddAppointmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dashboard\Common\AppoinmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Dashboard\Common\AppoinmentForm.Designer.cs">
       <DependentUpon>AppoinmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Common\PaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard\Common\PaymentForm.Designer.cs">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dashboard\Common\ScheduleForm.cs">
       <SubType>Form</SubType>
@@ -144,6 +156,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ScheduleDataSet.cs">
+      <DependentUpon>ScheduleDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ScheduleDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SelectDoctorDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -174,8 +194,14 @@
     <EmbeddedResource Include="Forms\Dashboard\Admin\StaffForm.resx">
       <DependentUpon>StaffForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Common\AddAppointmentForm.resx">
+      <DependentUpon>AddAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\Common\AppoinmentForm.resx">
       <DependentUpon>AppoinmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard\Common\PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard\Common\ScheduleForm.resx">
       <DependentUpon>ScheduleForm.cs</DependentUpon>
@@ -214,6 +240,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ScheduleDataSet.xsc">
+      <DependentUpon>ScheduleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ScheduleDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ScheduleDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ScheduleDataSet.xss">
+      <DependentUpon>ScheduleDataSet.xsd</DependentUpon>
+    </None>
     <None Include="SelectDoctorDataSet1.xsc">
       <DependentUpon>SelectDoctorDataSet1.xsd</DependentUpon>
     </None>

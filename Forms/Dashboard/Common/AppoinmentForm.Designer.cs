@@ -29,39 +29,39 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TopPanel = new System.Windows.Forms.Panel();
-            this.BodyPanel = new System.Windows.Forms.Panel();
-            this.Title_label = new System.Windows.Forms.Label();
-            this.Update_btn = new System.Windows.Forms.Button();
-            this.Add_btn = new System.Windows.Forms.Button();
-            this.View_invoice_btn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.appointment_selected_label = new System.Windows.Forms.Label();
+            this.select_notice_label = new System.Windows.Forms.Label();
             this.SearchPanel = new System.Windows.Forms.Panel();
+            this.Search_patient_input = new System.Windows.Forms.ComboBox();
+            this.patientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.healthcareplusDataSet = new HealthCare_Plus.HealthcareplusDataSet();
+            this.Search_doc_input = new System.Windows.Forms.ComboBox();
+            this.selectDoctorDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.selectDoctorDataSet = new HealthCare_Plus.SelectDoctorDataSet();
             this.Search_btn = new System.Windows.Forms.Button();
             this.search_date_input = new System.Windows.Forms.DateTimePicker();
             this.search_date_label = new System.Windows.Forms.Label();
             this.search_doc_label = new System.Windows.Forms.Label();
             this.search_location_label = new System.Windows.Forms.Label();
             this.search_by_label = new System.Windows.Forms.Label();
-            this.Search_doc_input = new System.Windows.Forms.ComboBox();
-            this.selectDoctorDataSet = new HealthCare_Plus.SelectDoctorDataSet();
-            this.selectDoctorDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.usersTableAdapter = new HealthCare_Plus.SelectDoctorDataSetTableAdapters.UsersTableAdapter();
-            this.Search_patient_input = new System.Windows.Forms.ComboBox();
-            this.healthcareplusDataSet = new HealthCare_Plus.HealthcareplusDataSet();
-            this.patientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.patientsTableAdapter = new HealthCare_Plus.HealthcareplusDataSetTableAdapters.PatientsTableAdapter();
-            this.select_notice_label = new System.Windows.Forms.Label();
-            this.appointment_selected_label = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.View_invoice_btn = new System.Windows.Forms.Button();
+            this.Update_btn = new System.Windows.Forms.Button();
+            this.Add_btn = new System.Windows.Forms.Button();
+            this.Title_label = new System.Windows.Forms.Label();
+            this.BodyPanel = new System.Windows.Forms.Panel();
             this.AppointmentsGridView = new System.Windows.Forms.DataGridView();
+            this.usersTableAdapter = new HealthCare_Plus.SelectDoctorDataSetTableAdapters.UsersTableAdapter();
+            this.patientsTableAdapter = new HealthCare_Plus.HealthcareplusDataSetTableAdapters.PatientsTableAdapter();
             this.TopPanel.SuspendLayout();
-            this.BodyPanel.SuspendLayout();
             this.SearchPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.selectDoctorDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.selectDoctorDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.healthcareplusDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.healthcareplusDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selectDoctorDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selectDoctorDataSet)).BeginInit();
+            this.BodyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentsGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,73 +81,38 @@
             this.TopPanel.Size = new System.Drawing.Size(884, 267);
             this.TopPanel.TabIndex = 0;
             // 
-            // BodyPanel
+            // label2
             // 
-            this.BodyPanel.Controls.Add(this.AppointmentsGridView);
-            this.BodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BodyPanel.Location = new System.Drawing.Point(0, 267);
-            this.BodyPanel.Name = "BodyPanel";
-            this.BodyPanel.Size = new System.Drawing.Size(884, 183);
-            this.BodyPanel.TabIndex = 1;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(502, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 18);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "None";
             // 
-            // Title_label
+            // appointment_selected_label
             // 
-            this.Title_label.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Title_label.AutoSize = true;
-            this.Title_label.Font = new System.Drawing.Font("Montserrat SemiBold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title_label.Location = new System.Drawing.Point(350, 9);
-            this.Title_label.Name = "Title_label";
-            this.Title_label.Size = new System.Drawing.Size(185, 21);
-            this.Title_label.TabIndex = 0;
-            this.Title_label.Text = "Manage Appointments";
+            this.appointment_selected_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.appointment_selected_label.AutoSize = true;
+            this.appointment_selected_label.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appointment_selected_label.Location = new System.Drawing.Point(330, 67);
+            this.appointment_selected_label.Name = "appointment_selected_label";
+            this.appointment_selected_label.Size = new System.Drawing.Size(166, 18);
+            this.appointment_selected_label.TabIndex = 1;
+            this.appointment_selected_label.Text = "Selected Appointment:";
             // 
-            // Update_btn
+            // select_notice_label
             // 
-            this.Update_btn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Update_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(255)))), ((int)(((byte)(81)))));
-            this.Update_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Update_btn.Enabled = false;
-            this.Update_btn.FlatAppearance.BorderSize = 0;
-            this.Update_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Update_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Update_btn.Location = new System.Drawing.Point(387, 140);
-            this.Update_btn.Name = "Update_btn";
-            this.Update_btn.Size = new System.Drawing.Size(110, 30);
-            this.Update_btn.TabIndex = 21;
-            this.Update_btn.Text = "Update";
-            this.Update_btn.UseVisualStyleBackColor = false;
-            // 
-            // Add_btn
-            // 
-            this.Add_btn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Add_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(208)))), ((int)(((byte)(104)))));
-            this.Add_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Add_btn.FlatAppearance.BorderSize = 0;
-            this.Add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Add_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add_btn.Location = new System.Drawing.Point(271, 140);
-            this.Add_btn.Name = "Add_btn";
-            this.Add_btn.Size = new System.Drawing.Size(110, 30);
-            this.Add_btn.TabIndex = 20;
-            this.Add_btn.Text = "Add";
-            this.Add_btn.UseVisualStyleBackColor = false;
-            // 
-            // View_invoice_btn
-            // 
-            this.View_invoice_btn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.View_invoice_btn.BackColor = System.Drawing.Color.SlateBlue;
-            this.View_invoice_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.View_invoice_btn.Enabled = false;
-            this.View_invoice_btn.FlatAppearance.BorderSize = 0;
-            this.View_invoice_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.View_invoice_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.View_invoice_btn.ForeColor = System.Drawing.SystemColors.Info;
-            this.View_invoice_btn.Location = new System.Drawing.Point(503, 140);
-            this.View_invoice_btn.Name = "View_invoice_btn";
-            this.View_invoice_btn.Size = new System.Drawing.Size(110, 30);
-            this.View_invoice_btn.TabIndex = 22;
-            this.View_invoice_btn.Text = "View Invoice";
-            this.View_invoice_btn.UseVisualStyleBackColor = false;
+            this.select_notice_label.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.select_notice_label.AutoSize = true;
+            this.select_notice_label.Font = new System.Drawing.Font("Montserrat SemiBold", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.select_notice_label.Location = new System.Drawing.Point(291, 96);
+            this.select_notice_label.Name = "select_notice_label";
+            this.select_notice_label.Size = new System.Drawing.Size(303, 15);
+            this.select_notice_label.TabIndex = 3;
+            this.select_notice_label.Text = "Select an appointment for update and view invoice";
             // 
             // SearchPanel
             // 
@@ -165,6 +130,52 @@
             this.SearchPanel.Name = "SearchPanel";
             this.SearchPanel.Size = new System.Drawing.Size(884, 80);
             this.SearchPanel.TabIndex = 23;
+            // 
+            // Search_patient_input
+            // 
+            this.Search_patient_input.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Search_patient_input.DataSource = this.patientsBindingSource;
+            this.Search_patient_input.DisplayMember = "contact_no";
+            this.Search_patient_input.FormattingEnabled = true;
+            this.Search_patient_input.Location = new System.Drawing.Point(362, 46);
+            this.Search_patient_input.Name = "Search_patient_input";
+            this.Search_patient_input.Size = new System.Drawing.Size(160, 21);
+            this.Search_patient_input.TabIndex = 36;
+            this.Search_patient_input.ValueMember = "id";
+            // 
+            // patientsBindingSource
+            // 
+            this.patientsBindingSource.DataMember = "Patients";
+            this.patientsBindingSource.DataSource = this.healthcareplusDataSet;
+            // 
+            // healthcareplusDataSet
+            // 
+            this.healthcareplusDataSet.DataSetName = "HealthcareplusDataSet";
+            this.healthcareplusDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // Search_doc_input
+            // 
+            this.Search_doc_input.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Search_doc_input.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.Search_doc_input.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.Search_doc_input.DataSource = this.selectDoctorDataSetBindingSource;
+            this.Search_doc_input.DisplayMember = "first_name";
+            this.Search_doc_input.FormattingEnabled = true;
+            this.Search_doc_input.Location = new System.Drawing.Point(105, 46);
+            this.Search_doc_input.Name = "Search_doc_input";
+            this.Search_doc_input.Size = new System.Drawing.Size(163, 21);
+            this.Search_doc_input.TabIndex = 35;
+            this.Search_doc_input.ValueMember = "id";
+            // 
+            // selectDoctorDataSetBindingSource
+            // 
+            this.selectDoctorDataSetBindingSource.DataMember = "Users";
+            this.selectDoctorDataSetBindingSource.DataSource = this.selectDoctorDataSet;
+            // 
+            // selectDoctorDataSet
+            // 
+            this.selectDoctorDataSet.DataSetName = "SelectDoctorDataSet";
+            this.selectDoctorDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Search_btn
             // 
@@ -238,92 +249,76 @@
             this.search_by_label.TabIndex = 5;
             this.search_by_label.Text = "Search By:";
             // 
-            // Search_doc_input
+            // View_invoice_btn
             // 
-            this.Search_doc_input.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Search_doc_input.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.Search_doc_input.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.Search_doc_input.DataSource = this.selectDoctorDataSetBindingSource;
-            this.Search_doc_input.DisplayMember = "first_name";
-            this.Search_doc_input.FormattingEnabled = true;
-            this.Search_doc_input.Location = new System.Drawing.Point(105, 46);
-            this.Search_doc_input.Name = "Search_doc_input";
-            this.Search_doc_input.Size = new System.Drawing.Size(163, 21);
-            this.Search_doc_input.TabIndex = 35;
-            this.Search_doc_input.ValueMember = "id";
+            this.View_invoice_btn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.View_invoice_btn.BackColor = System.Drawing.Color.SlateBlue;
+            this.View_invoice_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.View_invoice_btn.Enabled = false;
+            this.View_invoice_btn.FlatAppearance.BorderSize = 0;
+            this.View_invoice_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.View_invoice_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.View_invoice_btn.ForeColor = System.Drawing.SystemColors.Info;
+            this.View_invoice_btn.Location = new System.Drawing.Point(503, 140);
+            this.View_invoice_btn.Name = "View_invoice_btn";
+            this.View_invoice_btn.Size = new System.Drawing.Size(110, 30);
+            this.View_invoice_btn.TabIndex = 22;
+            this.View_invoice_btn.Text = "View Invoice";
+            this.View_invoice_btn.UseVisualStyleBackColor = false;
+            this.View_invoice_btn.Click += new System.EventHandler(this.View_invoice_btn_Click);
             // 
-            // selectDoctorDataSet
+            // Update_btn
             // 
-            this.selectDoctorDataSet.DataSetName = "SelectDoctorDataSet";
-            this.selectDoctorDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.Update_btn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Update_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(255)))), ((int)(((byte)(81)))));
+            this.Update_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Update_btn.Enabled = false;
+            this.Update_btn.FlatAppearance.BorderSize = 0;
+            this.Update_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Update_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Update_btn.Location = new System.Drawing.Point(387, 140);
+            this.Update_btn.Name = "Update_btn";
+            this.Update_btn.Size = new System.Drawing.Size(110, 30);
+            this.Update_btn.TabIndex = 21;
+            this.Update_btn.Text = "Update";
+            this.Update_btn.UseVisualStyleBackColor = false;
+            this.Update_btn.Click += new System.EventHandler(this.Update_btn_Click);
             // 
-            // selectDoctorDataSetBindingSource
+            // Add_btn
             // 
-            this.selectDoctorDataSetBindingSource.DataMember = "Users";
-            this.selectDoctorDataSetBindingSource.DataSource = this.selectDoctorDataSet;
+            this.Add_btn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Add_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(208)))), ((int)(((byte)(104)))));
+            this.Add_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Add_btn.FlatAppearance.BorderSize = 0;
+            this.Add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Add_btn.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add_btn.Location = new System.Drawing.Point(271, 140);
+            this.Add_btn.Name = "Add_btn";
+            this.Add_btn.Size = new System.Drawing.Size(110, 30);
+            this.Add_btn.TabIndex = 20;
+            this.Add_btn.Text = "Add";
+            this.Add_btn.UseVisualStyleBackColor = false;
+            this.Add_btn.Click += new System.EventHandler(this.Add_btn_Click);
             // 
-            // usersTableAdapter
+            // Title_label
             // 
-            this.usersTableAdapter.ClearBeforeFill = true;
+            this.Title_label.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Title_label.AutoSize = true;
+            this.Title_label.Font = new System.Drawing.Font("Montserrat SemiBold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title_label.Location = new System.Drawing.Point(350, 9);
+            this.Title_label.Name = "Title_label";
+            this.Title_label.Size = new System.Drawing.Size(185, 21);
+            this.Title_label.TabIndex = 0;
+            this.Title_label.Text = "Manage Appointments";
             // 
-            // Search_patient_input
+            // BodyPanel
             // 
-            this.Search_patient_input.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.Search_patient_input.DataSource = this.patientsBindingSource;
-            this.Search_patient_input.DisplayMember = "contact_no";
-            this.Search_patient_input.FormattingEnabled = true;
-            this.Search_patient_input.Location = new System.Drawing.Point(362, 46);
-            this.Search_patient_input.Name = "Search_patient_input";
-            this.Search_patient_input.Size = new System.Drawing.Size(160, 21);
-            this.Search_patient_input.TabIndex = 36;
-            this.Search_patient_input.ValueMember = "id";
-            // 
-            // healthcareplusDataSet
-            // 
-            this.healthcareplusDataSet.DataSetName = "HealthcareplusDataSet";
-            this.healthcareplusDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // patientsBindingSource
-            // 
-            this.patientsBindingSource.DataMember = "Patients";
-            this.patientsBindingSource.DataSource = this.healthcareplusDataSet;
-            // 
-            // patientsTableAdapter
-            // 
-            this.patientsTableAdapter.ClearBeforeFill = true;
-            // 
-            // select_notice_label
-            // 
-            this.select_notice_label.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.select_notice_label.AutoSize = true;
-            this.select_notice_label.Font = new System.Drawing.Font("Montserrat SemiBold", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.select_notice_label.Location = new System.Drawing.Point(291, 96);
-            this.select_notice_label.Name = "select_notice_label";
-            this.select_notice_label.Size = new System.Drawing.Size(303, 15);
-            this.select_notice_label.TabIndex = 3;
-            this.select_notice_label.Text = "Select an appointment for update and view invoice";
-            // 
-            // appointment_selected_label
-            // 
-            this.appointment_selected_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.appointment_selected_label.AutoSize = true;
-            this.appointment_selected_label.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appointment_selected_label.Location = new System.Drawing.Point(330, 67);
-            this.appointment_selected_label.Name = "appointment_selected_label";
-            this.appointment_selected_label.Size = new System.Drawing.Size(166, 18);
-            this.appointment_selected_label.TabIndex = 1;
-            this.appointment_selected_label.Text = "Selected Appointment:";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(502, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "None";
+            this.BodyPanel.Controls.Add(this.AppointmentsGridView);
+            this.BodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BodyPanel.Location = new System.Drawing.Point(0, 267);
+            this.BodyPanel.Name = "BodyPanel";
+            this.BodyPanel.Size = new System.Drawing.Size(884, 183);
+            this.BodyPanel.TabIndex = 1;
             // 
             // AppointmentsGridView
             // 
@@ -332,15 +327,15 @@
             this.AppointmentsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AppointmentsGridView.BackgroundColor = System.Drawing.Color.LightGray;
             this.AppointmentsGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(211)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppointmentsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(211)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AppointmentsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.AppointmentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AppointmentsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AppointmentsGridView.EnableHeadersVisualStyles = false;
@@ -350,6 +345,14 @@
             this.AppointmentsGridView.ReadOnly = true;
             this.AppointmentsGridView.Size = new System.Drawing.Size(884, 183);
             this.AppointmentsGridView.TabIndex = 6;
+            // 
+            // usersTableAdapter
+            // 
+            this.usersTableAdapter.ClearBeforeFill = true;
+            // 
+            // patientsTableAdapter
+            // 
+            this.patientsTableAdapter.ClearBeforeFill = true;
             // 
             // AppoinmentForm
             // 
@@ -363,13 +366,13 @@
             this.Load += new System.EventHandler(this.AppoinmentForm_Load);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
-            this.BodyPanel.ResumeLayout(false);
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.selectDoctorDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.selectDoctorDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.healthcareplusDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.healthcareplusDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selectDoctorDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selectDoctorDataSet)).EndInit();
+            this.BodyPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentsGridView)).EndInit();
             this.ResumeLayout(false);
 
