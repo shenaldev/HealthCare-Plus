@@ -130,5 +130,21 @@ namespace HealthCare_Plus.Utils
 
             return "valid";
         }
+
+        // VALIDATE NUMBERS
+        public static string NumberValidate(string value, string label)
+        {
+            if (String.IsNullOrEmpty(value))
+            {
+                return label + " is a required field";
+            }
+            string numberPattern = @"^(\d+)$";
+            Regex regex = new Regex(numberPattern);
+            if (!regex.IsMatch(value))
+            {
+                return label + " must be a number";
+            }
+            return "valid";
+        }
     }
 }
