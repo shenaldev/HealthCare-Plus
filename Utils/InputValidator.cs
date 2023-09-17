@@ -120,6 +120,16 @@ namespace HealthCare_Plus.Utils
                 return label + " is a required field";
             }
 
+            //VALIDATE INVALID NUMBER
+            bool isValidNumber = int.TryParse(value, out int result);
+            if (isValidNumber)
+            {
+                if (result < 0)
+                {
+                    return label + " invalid selection";
+                }
+            }
+
             if (validateZero)
             {
                 if (value == "0")
@@ -134,10 +144,20 @@ namespace HealthCare_Plus.Utils
         // VALIDATE NUMBERS
         public static string NumberValidate(string value, string label)
         {
-            if (String.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(value))
             {
                 return label + " is a required field";
             }
+
+            bool isValidNumber = int.TryParse(value, out int result);
+            if (isValidNumber)
+            {
+                if (result < 0)
+                {
+                    return label + " invalid number";
+                }
+            }
+
             string numberPattern = @"^(\d+)$";
             Regex regex = new Regex(numberPattern);
             if (!regex.IsMatch(value))

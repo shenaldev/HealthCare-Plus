@@ -1,4 +1,5 @@
-﻿using HealthCare_Plus.Utils;
+﻿using HealthCare_Plus.Models;
+using HealthCare_Plus.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,6 +13,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
         //VARIABLES
         DBCon dBCon = new DBCon();
         Int64 selectedDoctorID;
+        Appointment appointment;
         DataTable ChargesDataTable = new DataTable();
         int ChargesID = 1;
         int deleteChargeID;
@@ -44,7 +46,6 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
         //HANDLE DOCTOR CHANGE AND LOAD SCHEDULES
         private void OnDoctorChangeHandler(object sender, EventArgs e)
         {
-            Select_Doc.Items.Clear();
             if (Select_Doc.SelectedValue != null)
             {
                 selectedDoctorID = Int64.Parse(Select_Doc.SelectedValue.ToString());
@@ -124,14 +125,25 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
                 return;
             }
 
-            float total = 0;
-            foreach (DataRow row in ChargesDataTable.Rows)
-            {
-                total += float.Parse(row["amount"].ToString());
-            }
+            Int64 appointmentID = MakeAppointment();
+            if (appointmentID == -2)
+                return; // VALIDATION ERROR RETURN
 
-            PaymentForm paymentForm = new PaymentForm(total);
-            paymentForm.Show();
+            if (appointmentID != -1)
+            {
+                float total = 0;
+                foreach (DataRow row in ChargesDataTable.Rows)
+                {
+                    total += float.Parse(row["amount"].ToString());
+                }
+
+                PaymentForm paymentForm = new PaymentForm(total, appointmentID);
+                paymentForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Something went wrong", "Error", default, MessageBoxIcon.Error);
+            }
         }
 
         //ON CHARGE DOUBLE CLICK HANDLER
@@ -145,6 +157,80 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
             deleteChargeID = Int32.Parse(ChargesGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
             ChargeForInput.Text = ChargesGridView.Rows[e.RowIndex].Cells[1].Value.ToString();
             AmountInput.Text = ChargesGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+        }
+
+        /*MAKE APPOINTMENT TO DATABASE
+         * @return int appointment id
+         */
+        private Int64 MakeAppointment()
+        {
+            //APPOINTMENT OBJECT
+            int ApptNumber = string.IsNullOrEmpty(ApptNumberInput.Text) ? -1 : int.Parse(ApptNumberInput.Text);
+            appointment = new Appointment(
+                ApptNumber,
+                "unpaid",
+                Int64.Parse(Select_Schedule.SelectedValue.ToString()),
+                Int64.Parse(Select_Patient.SelectedValue.ToString())
+            );
+
+            //VALIDATE FORM INPUTS
+            bool isValid = ValidateApptInputs();
+            if (!isValid)
+            {
+                return -2; //VALIDATION ERROR
+            }
+
+            string chargesQuery =
+                "INSERT INTO Appointment_Charges (title, amount, appointment_id) "
+                + "VALUES (@title, @amount, @appointment_id)";
+
+            SqlConnection sqlCon = dBCon.SqlConnection;
+            try
+            {
+                sqlCon.Open();
+                SqlCommand cmd = appointment.GetInsertCmd(sqlCon);
+                Int64 appointmentID = Convert.ToInt64(cmd.ExecuteScalar());
+
+                foreach (DataRow row in ChargesDataTable.Rows)
+                {
+                    SqlCommand chargesCmd = new SqlCommand(chargesQuery, sqlCon);
+                    chargesCmd.Parameters.AddWithValue("@title", row["title"].ToString());
+                    chargesCmd.Parameters.AddWithValue("@amount", row["amount"].ToString());
+                    chargesCmd.Parameters.AddWithValue("@appointment_id", appointmentID.ToString());
+                    chargesCmd.ExecuteNonQuery();
+                }
+
+                sqlCon.Close();
+                return appointmentID;
+            }
+            catch (Exception ex)
+            {
+                sqlCon.Close();
+                Console.WriteLine(ex.Message);
+                return -1;
+            }
+        }
+
+        private bool ValidateApptInputs()
+        {
+            List<string> errors = new List<string>
+            {
+                InputValidator.SelectionValidate(appointment.PatientID.ToString(), "Patient"),
+                InputValidator.SelectionValidate(appointment.ScheduelID.ToString(), "Schedule"),
+                InputValidator.NumberValidate(appointment.AppointmentNo.ToString(), "Appointment Number")
+            };
+
+            //ACTIVE ERRORS INTO ARRAY
+            string[] activeErrors = errors.FindAll(err => err != "valid").ToArray();
+
+            if (activeErrors.Length == 0)
+            {
+                return true;
+            }
+            //SHOW ERRORS
+            MessageBox.Show(string.Join("\n", activeErrors), "Validation Error", default, MessageBoxIcon.Error);
+
+            return false;
         }
 
         /*VALIDATE CHARGE INPUTS

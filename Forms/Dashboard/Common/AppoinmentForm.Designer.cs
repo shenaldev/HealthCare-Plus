@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TopPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.selected_apt_no = new System.Windows.Forms.Label();
             this.appointment_selected_label = new System.Windows.Forms.Label();
             this.select_notice_label = new System.Windows.Forms.Label();
             this.SearchPanel = new System.Windows.Forms.Panel();
@@ -67,7 +67,7 @@
             // 
             // TopPanel
             // 
-            this.TopPanel.Controls.Add(this.label2);
+            this.TopPanel.Controls.Add(this.selected_apt_no);
             this.TopPanel.Controls.Add(this.appointment_selected_label);
             this.TopPanel.Controls.Add(this.select_notice_label);
             this.TopPanel.Controls.Add(this.SearchPanel);
@@ -81,16 +81,16 @@
             this.TopPanel.Size = new System.Drawing.Size(884, 267);
             this.TopPanel.TabIndex = 0;
             // 
-            // label2
+            // selected_apt_no
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(502, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 18);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "None";
+            this.selected_apt_no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.selected_apt_no.AutoSize = true;
+            this.selected_apt_no.Font = new System.Drawing.Font("Montserrat SemiBold", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selected_apt_no.Location = new System.Drawing.Point(502, 67);
+            this.selected_apt_no.Name = "selected_apt_no";
+            this.selected_apt_no.Size = new System.Drawing.Size(44, 18);
+            this.selected_apt_no.TabIndex = 2;
+            this.selected_apt_no.Text = "None";
             // 
             // appointment_selected_label
             // 
@@ -327,15 +327,15 @@
             this.AppointmentsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AppointmentsGridView.BackgroundColor = System.Drawing.Color.LightGray;
             this.AppointmentsGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(211)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppointmentsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(211)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AppointmentsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.AppointmentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AppointmentsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AppointmentsGridView.EnableHeadersVisualStyles = false;
@@ -345,6 +345,7 @@
             this.AppointmentsGridView.ReadOnly = true;
             this.AppointmentsGridView.Size = new System.Drawing.Size(884, 183);
             this.AppointmentsGridView.TabIndex = 6;
+            this.AppointmentsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnGridViewCellDubleClick);
             // 
             // usersTableAdapter
             // 
@@ -403,7 +404,7 @@
         private HealthcareplusDataSetTableAdapters.PatientsTableAdapter patientsTableAdapter;
         private System.Windows.Forms.Label appointment_selected_label;
         private System.Windows.Forms.Label select_notice_label;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label selected_apt_no;
         private System.Windows.Forms.DataGridView AppointmentsGridView;
     }
 }

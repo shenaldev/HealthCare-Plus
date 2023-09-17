@@ -60,6 +60,8 @@
             this.BodyTopPanel = new System.Windows.Forms.Panel();
             this.BodyBottomPanel = new System.Windows.Forms.Panel();
             this.BodyCenterPanel = new System.Windows.Forms.Panel();
+            this.ApptNumberLabel = new System.Windows.Forms.Label();
+            this.ApptNumberInput = new System.Windows.Forms.TextBox();
             this.HeaderPanel.SuspendLayout();
             this.BodyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ChargesGridView)).BeginInit();
@@ -68,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.healthcareplusDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectDoctorDataSet)).BeginInit();
+            this.BodyTopPanel.SuspendLayout();
             this.BodyBottomPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,10 +109,6 @@
             this.BodyPanel.Controls.Add(this.BottomPanel);
             this.BodyPanel.Controls.Add(this.Select_Schedule);
             this.BodyPanel.Controls.Add(this.Select_Schedule_label);
-            this.BodyPanel.Controls.Add(this.Select_Patient);
-            this.BodyPanel.Controls.Add(this.Select_Doc);
-            this.BodyPanel.Controls.Add(this.search_doc_label);
-            this.BodyPanel.Controls.Add(this.search_location_label);
             this.BodyPanel.Controls.Add(this.BodyTopPanel);
             this.BodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BodyPanel.Location = new System.Drawing.Point(0, 65);
@@ -183,7 +182,7 @@
             this.Select_Patient.DataSource = this.patientsBindingSource;
             this.Select_Patient.DisplayMember = "contact_no";
             this.Select_Patient.FormattingEnabled = true;
-            this.Select_Patient.Location = new System.Drawing.Point(523, 19);
+            this.Select_Patient.Location = new System.Drawing.Point(423, 17);
             this.Select_Patient.Name = "Select_Patient";
             this.Select_Patient.Size = new System.Drawing.Size(204, 21);
             this.Select_Patient.TabIndex = 21;
@@ -208,7 +207,7 @@
             this.Select_Doc.DisplayMember = "first_name";
             this.Select_Doc.DropDownWidth = 204;
             this.Select_Doc.FormattingEnabled = true;
-            this.Select_Doc.Location = new System.Drawing.Point(226, 19);
+            this.Select_Doc.Location = new System.Drawing.Point(126, 17);
             this.Select_Doc.Name = "Select_Doc";
             this.Select_Doc.Size = new System.Drawing.Size(200, 21);
             this.Select_Doc.TabIndex = 20;
@@ -231,7 +230,7 @@
             this.search_doc_label.AutoSize = true;
             this.search_doc_label.Cursor = System.Windows.Forms.Cursors.Default;
             this.search_doc_label.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_doc_label.Location = new System.Drawing.Point(158, 19);
+            this.search_doc_label.Location = new System.Drawing.Point(58, 17);
             this.search_doc_label.Name = "search_doc_label";
             this.search_doc_label.Size = new System.Drawing.Size(62, 20);
             this.search_doc_label.TabIndex = 10;
@@ -242,7 +241,7 @@
             this.search_location_label.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.search_location_label.AutoSize = true;
             this.search_location_label.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_location_label.Location = new System.Drawing.Point(452, 19);
+            this.search_location_label.Location = new System.Drawing.Point(352, 17);
             this.search_location_label.Name = "search_location_label";
             this.search_location_label.Size = new System.Drawing.Size(65, 20);
             this.search_location_label.TabIndex = 11;
@@ -396,6 +395,12 @@
             // BodyTopPanel
             // 
             this.BodyTopPanel.BackColor = System.Drawing.Color.Transparent;
+            this.BodyTopPanel.Controls.Add(this.ApptNumberInput);
+            this.BodyTopPanel.Controls.Add(this.ApptNumberLabel);
+            this.BodyTopPanel.Controls.Add(this.Select_Patient);
+            this.BodyTopPanel.Controls.Add(this.search_location_label);
+            this.BodyTopPanel.Controls.Add(this.search_doc_label);
+            this.BodyTopPanel.Controls.Add(this.Select_Doc);
             this.BodyTopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.BodyTopPanel.Location = new System.Drawing.Point(0, 0);
             this.BodyTopPanel.Name = "BodyTopPanel";
@@ -421,6 +426,25 @@
             this.BodyCenterPanel.Size = new System.Drawing.Size(884, 128);
             this.BodyCenterPanel.TabIndex = 35;
             // 
+            // ApptNumberLabel
+            // 
+            this.ApptNumberLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ApptNumberLabel.AutoSize = true;
+            this.ApptNumberLabel.Font = new System.Drawing.Font("Montserrat Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApptNumberLabel.Location = new System.Drawing.Point(650, 17);
+            this.ApptNumberLabel.Name = "ApptNumberLabel";
+            this.ApptNumberLabel.Size = new System.Drawing.Size(72, 20);
+            this.ApptNumberLabel.TabIndex = 22;
+            this.ApptNumberLabel.Text = "Number:";
+            // 
+            // ApptNumberInput
+            // 
+            this.ApptNumberInput.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ApptNumberInput.Location = new System.Drawing.Point(728, 17);
+            this.ApptNumberInput.Name = "ApptNumberInput";
+            this.ApptNumberInput.Size = new System.Drawing.Size(98, 20);
+            this.ApptNumberInput.TabIndex = 36;
+            // 
             // AddAppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,6 +465,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.healthcareplusDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectDoctorDataSet)).EndInit();
+            this.BodyTopPanel.ResumeLayout(false);
+            this.BodyTopPanel.PerformLayout();
             this.BodyBottomPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -477,5 +503,7 @@
         private System.Windows.Forms.Panel BodyTopPanel;
         private System.Windows.Forms.Panel BodyBottomPanel;
         private System.Windows.Forms.Panel BodyCenterPanel;
+        private System.Windows.Forms.TextBox ApptNumberInput;
+        private System.Windows.Forms.Label ApptNumberLabel;
     }
 }

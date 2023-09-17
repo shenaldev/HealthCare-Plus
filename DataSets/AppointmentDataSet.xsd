@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="HealthcareplusConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HealthcareplusConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HealthCare_Plus.Properties.Settings.GlobalReference.Default.HealthcareplusConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HealthcareplusConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        Appointments.appt_number, Appointments.payment_status, Patients.first_name + ' ' + Patients.last_name AS Patient, Schedules.location, Schedules.room, Schedules.start_date, 
+                         Users.first_name + ' ' + Users.last_name AS Doctor, Payments.payment_method, Payments.total, Payments.balance, Appointments.created_at
+FROM            Appointments INNER JOIN
+                         Patients ON Appointments.patient_id = Patients.id INNER JOIN
+                         Payments ON Appointments.id = Payments.appointment_id INNER JOIN
+                         Schedules ON Appointments.schedule_id = Schedules.id INNER JOIN
+                         Users ON Schedules.doctor_id = Users.id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="appt_number" DataSetColumn="appt_number" />
+              <Mapping SourceColumn="payment_status" DataSetColumn="payment_status" />
+              <Mapping SourceColumn="Patient" DataSetColumn="Patient" />
+              <Mapping SourceColumn="location" DataSetColumn="location" />
+              <Mapping SourceColumn="room" DataSetColumn="room" />
+              <Mapping SourceColumn="start_date" DataSetColumn="start_date" />
+              <Mapping SourceColumn="Doctor" DataSetColumn="Doctor" />
+              <Mapping SourceColumn="payment_method" DataSetColumn="payment_method" />
+              <Mapping SourceColumn="total" DataSetColumn="total" />
+              <Mapping SourceColumn="balance" DataSetColumn="balance" />
+              <Mapping SourceColumn="created_at" DataSetColumn="created_at" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSet1" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_UserTableName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="appt_number" msprop:Generator_ColumnPropNameInRow="appt_number" msprop:Generator_ColumnPropNameInTable="appt_numberColumn" msprop:Generator_ColumnVarNameInTable="columnappt_number" msprop:Generator_UserColumnName="appt_number" type="xs:int" />
+              <xs:element name="payment_status" msprop:Generator_ColumnPropNameInRow="payment_status" msprop:Generator_ColumnPropNameInTable="payment_statusColumn" msprop:Generator_ColumnVarNameInTable="columnpayment_status" msprop:Generator_UserColumnName="payment_status">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Patient" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Patient" msprop:Generator_ColumnPropNameInTable="PatientColumn" msprop:Generator_ColumnVarNameInTable="columnPatient" msprop:Generator_UserColumnName="Patient" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="301" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="location" msprop:Generator_ColumnPropNameInRow="location" msprop:Generator_ColumnPropNameInTable="locationColumn" msprop:Generator_ColumnVarNameInTable="columnlocation" msprop:Generator_UserColumnName="location">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="room" msprop:Generator_ColumnPropNameInRow="room" msprop:Generator_ColumnPropNameInTable="roomColumn" msprop:Generator_ColumnVarNameInTable="columnroom" msprop:Generator_UserColumnName="room" type="xs:unsignedByte" />
+              <xs:element name="start_date" msprop:Generator_ColumnPropNameInRow="start_date" msprop:Generator_ColumnPropNameInTable="start_dateColumn" msprop:Generator_ColumnVarNameInTable="columnstart_date" msprop:Generator_UserColumnName="start_date" type="xs:dateTime" />
+              <xs:element name="Doctor" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Doctor" msprop:Generator_ColumnPropNameInTable="DoctorColumn" msprop:Generator_ColumnVarNameInTable="columnDoctor" msprop:Generator_UserColumnName="Doctor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="301" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="payment_method" msprop:Generator_ColumnPropNameInRow="payment_method" msprop:Generator_ColumnPropNameInTable="payment_methodColumn" msprop:Generator_ColumnVarNameInTable="columnpayment_method" msprop:Generator_UserColumnName="payment_method">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="total" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_UserColumnName="total" type="xs:double" />
+              <xs:element name="balance" msprop:Generator_ColumnPropNameInRow="balance" msprop:Generator_ColumnPropNameInTable="balanceColumn" msprop:Generator_ColumnVarNameInTable="columnbalance" msprop:Generator_UserColumnName="balance" type="xs:double" minOccurs="0" />
+              <xs:element name="created_at" msprop:Generator_ColumnPropNameInRow="created_at" msprop:Generator_ColumnPropNameInTable="created_atColumn" msprop:Generator_ColumnVarNameInTable="columncreated_at" msprop:Generator_UserColumnName="created_at" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -102,6 +102,7 @@
             this.MakePaymentBtn.TabIndex = 33;
             this.MakePaymentBtn.Text = "Make Payment";
             this.MakePaymentBtn.UseVisualStyleBackColor = false;
+            this.MakePaymentBtn.Click += new System.EventHandler(this.MakePaymentBtn_Click);
             // 
             // BalanceAmount
             // 
