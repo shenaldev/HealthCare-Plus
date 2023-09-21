@@ -230,6 +230,7 @@
       <DependentUpon>SelectDoctorDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Utils\CCValidation.cs" />
     <Compile Include="Utils\DBCon.cs" />
     <Compile Include="Utils\Hash.cs" />
     <Compile Include="Utils\InputValidator.cs" />

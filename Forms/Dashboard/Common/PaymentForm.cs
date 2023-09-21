@@ -1,6 +1,8 @@
-﻿using HealthCare_Plus.Models;
+﻿using HealthCare_Plus.Forms.Dashboard.Reports;
+using HealthCare_Plus.Models;
 using HealthCare_Plus.Utils;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -20,12 +22,15 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
             InitializeComponent();
             this.total = total;
             this.appointmentID = appointmentID;
+            CardPaymentPanel.Hide();
 
             //SET LABEL VALUES
             TotalAmount.Text = "RS: " + total.ToString();
             TotalAmountMid.Text = "RS: " + total.ToString();
             BalanceAmount.Text = "";
         }
+
+        private void PaymentForm_Load(object sender, EventArgs e) { }
 
         private void OnCashSelect(object sender, EventArgs e)
         {
@@ -73,9 +78,10 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
                 SqlCommand updateApptCmd = new SqlCommand(updateApptQuery, sqlCon);
                 updateApptCmd.Parameters.AddWithValue("@id", appointmentID);
                 updateApptCmd.ExecuteNonQuery();
-
                 sqlCon.Close();
+
                 MessageBox.Show("Payment Success", "Success", default, MessageBoxIcon.Information);
+                InvoiceView invoice = new InvoiceView(appointmentID.ToString());
                 this.Close();
             }
             catch (Exception ex)
@@ -91,27 +97,20 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
         {
             if (method == "cash")
             {
-                CashLabel.Visible = true;
-                CashInput.Visible = true;
-                TotalLableMid.Visible = true;
-                TotalAmountMid.Visible = true;
-                BalanceLabel.Visible = true;
-                BalanceAmount.Visible = true;
+                CardPaymentPanel.Hide();
+                CashPaymentPanel.Show();
             }
             else
             {
-                CashLabel.Visible = false;
-                CashInput.Visible = false;
-                TotalLableMid.Visible = false;
-                TotalAmountMid.Visible = false;
-                BalanceLabel.Visible = false;
-                BalanceAmount.Visible = false;
+                CashPaymentPanel.Hide();
+                CardPaymentPanel.Show();
             }
         }
 
         //VALIDATE FROM INPUT
         private bool ValidateForm()
         {
+            //CASH FORM VALIDATION
             if (selectedPaymentMethod == "cash")
             {
                 if (string.IsNullOrEmpty(CashInput.Text))
@@ -128,6 +127,30 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
                         return false;
                     }
                 }
+            }
+
+            //CARD FORM VALIDATION
+            if (selectedPaymentMethod == "card")
+            {
+                List<string> errors = new List<string>
+                {
+                    InputValidator.TextValidate(NameInput.Text, "Name on card"),
+                    CCValidation.CardNubmerValidate(CardNumberInput.Text),
+                    CCValidation.ExpDateValidate(ExpDateInput.Text),
+                    CCValidation.CVVNumberValidate(CVVInput.Text)
+                };
+
+                //ACTIVE ERRORS INTO ARRAY
+                string[] activeErrors = errors.FindAll(err => err != "valid").ToArray();
+
+                if (activeErrors.Length == 0)
+                {
+                    return true;
+                }
+                //SHOW ERRORS
+                MessageBox.Show(string.Join("\n", activeErrors), "Validation Error", default, MessageBoxIcon.Error);
+
+                return false;
             }
             return true;
         }
