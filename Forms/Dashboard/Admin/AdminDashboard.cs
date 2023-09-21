@@ -1,4 +1,5 @@
-﻿using HealthCare_Plus.Models;
+﻿using HealthCare_Plus.Forms.Dashboard.Common;
+using HealthCare_Plus.Models;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -60,9 +61,15 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             OpenChildForm(new StaffForm(), sender);
         }
 
-        private void appoinmentsBtn_Click(object sender, EventArgs e) { }
+        private void appoinmentsBtn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AppoinmentForm(), sender);
+        }
 
-        private void reportsBtn_Click(object sender, EventArgs e) { }
+        private void reportsBtn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ReportsForm(), sender);
+        }
 
         private void invoiceBtn_Click(object sender, EventArgs e) { }
 
