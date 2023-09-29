@@ -82,6 +82,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
 
                 MessageBox.Show("Payment Success", "Success", default, MessageBoxIcon.Information);
                 InvoiceView invoice = new InvoiceView(appointmentID.ToString());
+                invoice.Show();
                 this.Close();
             }
             catch (Exception ex)

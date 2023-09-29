@@ -15,6 +15,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
         Int64 selectedDoctorID;
         Appointment appointment;
         DataTable ChargesDataTable = new DataTable();
+        PaymentForm paymentForm;
         int ChargesID = 1;
         int deleteChargeID;
 
@@ -51,6 +52,30 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
                 selectedDoctorID = Int64.Parse(Select_Doc.SelectedValue.ToString());
             }
             LoadSchedules(selectedDoctorID);
+        }
+
+        //ON SCHEDULE CHANGE ASSIGN APPOINTMENT NUMBER
+        private void OnScheduleChange(object sender, EventArgs e)
+        {
+            string query = "SELECT COUNT(*) FROM Appointments WHERE schedule_id = @schedule_id";
+            SqlConnection sqlCon = dBCon.SqlConnection;
+            try
+            {
+                sqlCon.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(query, sqlCon);
+                adapter.SelectCommand.Parameters.AddWithValue("@schedule_id", Select_Schedule.SelectedValue.ToString());
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                sqlCon.Close();
+
+                int count = Int32.Parse(dataTable.Rows[0][0].ToString());
+                ApptNumberInput.Text = (count + 1).ToString();
+            }
+            catch (Exception ex)
+            {
+                sqlCon.Close();
+                Console.WriteLine(ex.Message);
+            }
         }
 
         /*LOAD SCHEDULES FROM DATABASE
@@ -137,7 +162,8 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
                     total += float.Parse(row["amount"].ToString());
                 }
 
-                PaymentForm paymentForm = new PaymentForm(total, appointmentID);
+                paymentForm = new PaymentForm(total, appointmentID);
+                paymentForm.FormClosed += (s, args) => PaymentFormClosed(args);
                 paymentForm.Show();
             }
             else
@@ -209,6 +235,13 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
                 Console.WriteLine(ex.Message);
                 return -1;
             }
+        }
+
+        //HIDE THIS FORM ON PAYMENT DONE
+        private void PaymentFormClosed(FormClosedEventArgs args)
+        {
+            MessageBox.Show("Appointment Added Sccessfuly", "Success", default, MessageBoxIcon.Information);
+            this.Hide();
         }
 
         private bool ValidateApptInputs()
