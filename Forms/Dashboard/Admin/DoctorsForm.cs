@@ -13,6 +13,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         //VARIABLES
         Doctor doctor;
         Int64 selectedUserID;
+        DBCon dBCon = new DBCon();
         bool isSelectedUser = false;
 
         public DoctorsForm()
@@ -31,10 +32,9 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         //LOAD DOCTOR DATA INTO DATAGRIDVIEW
         private void LoadDoctorDataFromDB()
         {
+            SqlConnection sqlCon = dBCon.SqlConnection;
             try
             {
-                DBCon dBCon = new DBCon();
-                SqlConnection sqlCon = dBCon.SqlConnection;
                 string query =
                     "SELECT Users.id, Users.first_name, Users.last_name, Users.email, DoctorProfiles.qualification, DoctorProfiles.specialization, DoctorProfiles.contact_no, DoctorProfiles.location, DoctorProfiles.home_address,DoctorProfiles.hospital_address FROM Users INNER JOIN DoctorProfiles ON Users.id = DoctorProfiles.user_id";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, sqlCon);
@@ -45,6 +45,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             }
             catch (Exception ex)
             {
+                sqlCon.Close();
                 Console.WriteLine(ex.Message);
                 return;
             }
@@ -185,13 +186,10 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         private bool DBQuery(string operation, Int64 updateID = 0)
         {
             string operationType = operation == "INSERT" ? "INSERT" : "UPDATE";
-            SqlConnection sqlCon = null;
+            SqlConnection sqlCon = dBCon.SqlConnection;
             SqlTransaction sqlTransaction = null;
-
             try
             {
-                DBCon dBCon = new DBCon();
-                sqlCon = dBCon.SqlConnection;
                 sqlCon.Open();
                 sqlTransaction = sqlCon.BeginTransaction(); // TRANSACTION START
 
@@ -221,12 +219,16 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
                 {
                     sqlTransaction.Rollback();
                 }
-
+                sqlCon.Close();
                 Console.WriteLine(ex.Message);
                 // SHOW ERROR OF DUPLICATE EMAIL
                 if (ex.Message.Contains("Unique_Email"))
                 {
                     MessageBox.Show("Email Already Exists", "Validation Error", default, MessageBoxIcon.Error);
+                }
+                if (ex.Message.Contains("CK_Contact_No"))
+                {
+                    MessageBox.Show("Contact No Already Exists", "Validation Error", default, MessageBoxIcon.Error);
                 }
                 return false;
             }
@@ -245,20 +247,20 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         //DELETE QUERY
         private bool DBDeleteQuery(Int64 id)
         {
+            SqlConnection sqlConnection = dBCon.SqlConnection;
             try
             {
-                DBCon dBCon = new DBCon();
-                SqlConnection sqlConnection = dBCon.SqlConnection;
                 sqlConnection.Open();
-
                 Doctor doctor = new Doctor();
                 SqlCommand deleteDoctor = doctor.GetDocDeleteCmd(sqlConnection, id);
                 SqlCommand deleteUser = doctor.GetDeleteCommand(sqlConnection, id);
                 deleteDoctor.ExecuteNonQuery();
                 deleteUser.ExecuteNonQuery();
+                sqlConnection.Close();
             }
             catch (Exception ex)
             {
+                sqlConnection.Close();
                 Console.WriteLine(ex.Message);
                 return false;
             }

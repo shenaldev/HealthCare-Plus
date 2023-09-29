@@ -64,19 +64,27 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         private void GenerateReport(string query, string datSetName, string reportPath)
         {
             SqlConnection sqlCon = dBCon.SqlConnection;
-            sqlCon.Open();
-            SqlCommand cmd = new SqlCommand(query, sqlCon);
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-            DataTable dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-            sqlCon.Close();
+            try
+            {
+                sqlCon.Open();
+                SqlCommand cmd = new SqlCommand(query, sqlCon);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                sqlCon.Close();
 
-            reportViewer.LocalReport.DataSources.Clear();
-            ReportDataSource reportDataSource = new ReportDataSource(datSetName, dataTable);
-            reportViewer.LocalReport.DataSources.Add(reportDataSource);
-            reportViewer.LocalReport.ReportEmbeddedResource = reportViewer.LocalReport.ReportEmbeddedResource =
-                reportPath;
-            reportViewer.RefreshReport();
+                reportViewer.LocalReport.DataSources.Clear();
+                ReportDataSource reportDataSource = new ReportDataSource(datSetName, dataTable);
+                reportViewer.LocalReport.DataSources.Add(reportDataSource);
+                reportViewer.LocalReport.ReportEmbeddedResource = reportViewer.LocalReport.ReportEmbeddedResource =
+                    reportPath;
+                reportViewer.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+                sqlCon.Close();
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

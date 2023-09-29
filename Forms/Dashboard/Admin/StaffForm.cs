@@ -34,9 +34,9 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         //LOAD STAFF DATA FROM DATABASE AND DISPLAY IT IN DATAGRIDVIEW
         private void LoadStaffData()
         {
+            SqlConnection sqlConnection = dBCon.SqlConnection;
             try
             {
-                SqlConnection sqlConnection = dBCon.SqlConnection;
                 sqlConnection.Open();
                 string query =
                     "SELECT Users.id, Users.first_name, Users.last_name, Users.email, Users.role, "
@@ -52,6 +52,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             }
             catch (Exception ex)
             {
+                sqlConnection.Close();
                 Console.WriteLine("loadStaffData():  " + ex.Message);
             }
         }
@@ -191,13 +192,11 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         private bool DBQuery(string operation, Int64 updateID = 0)
         {
             string operationType = operation == "INSERT" ? "INSERT" : "UPDATE";
-            SqlConnection sqlCon = null;
+            SqlConnection sqlCon = dBCon.SqlConnection;
             SqlTransaction sqlTransaction = null;
 
             try
             {
-                DBCon dBCon = new DBCon();
-                sqlCon = dBCon.SqlConnection;
                 sqlCon.Open();
                 sqlTransaction = sqlCon.BeginTransaction(); // TRANSACTION START
 
@@ -225,12 +224,16 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             {
                 //ROLLBACK TRANSACTION
                 sqlTransaction?.Rollback();
-
+                sqlCon.Close();
                 Console.WriteLine("DBQuery(): ", ex.Message);
                 // SHOW ERROR OF DUPLICATE EMAIL
                 if (ex.Message.Contains("Unique_Email"))
                 {
                     MessageBox.Show("Email Already Exists", "Validation Error", default, MessageBoxIcon.Error);
+                }
+                if (ex.Message.Contains("CK_StaffProfile_ContactNo"))
+                {
+                    MessageBox.Show("Contact No Already Exists", "Validation Error", default, MessageBoxIcon.Error);
                 }
                 return false;
             }
@@ -249,19 +252,20 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         //DELETE QUERY
         private bool DBDeleteQuery(Int64 id)
         {
+            SqlConnection sqlConnection = dBCon.SqlConnection;
             try
             {
-                DBCon dBCon = new DBCon();
                 StaffMemeber staffMemeber = new StaffMemeber();
-                SqlConnection sqlConnection = dBCon.SqlConnection;
                 sqlConnection.Open();
                 SqlCommand deleteStaffProfileCmd = staffMemeber.GetStaffDeleteCommand(sqlConnection, id);
                 SqlCommand deleteUserCmd = staffMemeber.GetDeleteCommand(sqlConnection, id);
                 deleteStaffProfileCmd.ExecuteNonQuery();
                 deleteUserCmd.ExecuteNonQuery();
+                sqlConnection.Close();
             }
             catch (Exception ex)
             {
+                sqlConnection.Close();
                 Console.WriteLine(ex.Message);
                 return false;
             }

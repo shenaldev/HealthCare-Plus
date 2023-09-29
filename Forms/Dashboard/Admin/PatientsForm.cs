@@ -173,9 +173,9 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         {
             string operationType = operation == "INSERT" ? "INSERT" : "UPDATE";
 
+            SqlConnection sqlConnection = dBCon.SqlConnection;
             try
             {
-                SqlConnection sqlConnection = dBCon.SqlConnection;
                 sqlConnection.Open();
                 SqlCommand patientTableCmd = patient.GetInsertCommand(sqlConnection);
                 if (operationType == "UPDATE")
@@ -187,11 +187,16 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             }
             catch (Exception ex)
             {
+                sqlConnection.Close();
                 Console.WriteLine(ex.Message);
                 // SHOW ERROR OF DUPLICATE EMAIL
                 if (ex.Message.Contains("Unique_Email"))
                 {
                     MessageBox.Show("Email Already Exists", "Validation Error", default, MessageBoxIcon.Error);
+                }
+                if (ex.Message.Contains("CK_Patients_ContactNo"))
+                {
+                    MessageBox.Show("Contact No Already Exists", "Validation Error", default, MessageBoxIcon.Error);
                 }
                 return false;
             }
@@ -202,9 +207,9 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
         //DELETE QUERY
         private bool DeleteQuery(Int64 deleteID)
         {
+            SqlConnection sqlConnection = dBCon.SqlConnection;
             try
             {
-                SqlConnection sqlConnection = dBCon.SqlConnection;
                 sqlConnection.Open();
                 Patient patient = new Patient();
                 SqlCommand sqlCommand = patient.GetDeleteCommand(sqlConnection, deleteID);
@@ -213,6 +218,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Admin
             }
             catch (Exception ex)
             {
+                sqlConnection.Close();
                 Console.WriteLine(ex.Message);
                 return false;
             }
