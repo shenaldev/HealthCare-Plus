@@ -42,7 +42,7 @@
             this.selectDoctorDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.selectDoctorDataSet = new HealthCare_Plus.SelectDoctorDataSet();
             this.Search_btn = new System.Windows.Forms.Button();
-            this.search_date_input = new System.Windows.Forms.DateTimePicker();
+            this.Search_date_input = new System.Windows.Forms.DateTimePicker();
             this.search_date_label = new System.Windows.Forms.Label();
             this.search_doc_label = new System.Windows.Forms.Label();
             this.search_location_label = new System.Windows.Forms.Label();
@@ -120,7 +120,7 @@
             this.SearchPanel.Controls.Add(this.Search_patient_input);
             this.SearchPanel.Controls.Add(this.Search_doc_input);
             this.SearchPanel.Controls.Add(this.Search_btn);
-            this.SearchPanel.Controls.Add(this.search_date_input);
+            this.SearchPanel.Controls.Add(this.Search_date_input);
             this.SearchPanel.Controls.Add(this.search_date_label);
             this.SearchPanel.Controls.Add(this.search_doc_label);
             this.SearchPanel.Controls.Add(this.search_location_label);
@@ -191,17 +191,18 @@
             this.Search_btn.TabIndex = 38;
             this.Search_btn.Text = "Search";
             this.Search_btn.UseVisualStyleBackColor = false;
+            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
             // 
-            // search_date_input
+            // Search_date_input
             // 
-            this.search_date_input.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.search_date_input.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.search_date_input.Location = new System.Drawing.Point(595, 46);
-            this.search_date_input.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
-            this.search_date_input.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.search_date_input.Name = "search_date_input";
-            this.search_date_input.Size = new System.Drawing.Size(142, 20);
-            this.search_date_input.TabIndex = 37;
+            this.Search_date_input.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Search_date_input.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Search_date_input.Location = new System.Drawing.Point(595, 46);
+            this.Search_date_input.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.Search_date_input.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.Search_date_input.Name = "Search_date_input";
+            this.Search_date_input.Size = new System.Drawing.Size(142, 20);
+            this.Search_date_input.TabIndex = 37;
             // 
             // search_date_label
             // 
@@ -389,7 +390,7 @@
         private System.Windows.Forms.Button Add_btn;
         private System.Windows.Forms.Panel SearchPanel;
         private System.Windows.Forms.Button Search_btn;
-        private System.Windows.Forms.DateTimePicker search_date_input;
+        private System.Windows.Forms.DateTimePicker Search_date_input;
         private System.Windows.Forms.Label search_date_label;
         private System.Windows.Forms.Label search_doc_label;
         private System.Windows.Forms.Label search_location_label;
