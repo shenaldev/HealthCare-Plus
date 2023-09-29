@@ -279,7 +279,7 @@
             // 
             // endDateInput
             // 
-            this.endDateInput.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.endDateInput.CustomFormat = "MM/dd/yyyy hh:mm tt";
             this.endDateInput.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.endDateInput.Location = new System.Drawing.Point(260, 101);
             this.endDateInput.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
@@ -327,7 +327,7 @@
             // 
             // startDate_input
             // 
-            this.startDate_input.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            this.startDate_input.CustomFormat = "MM/dd/yyyy hh:mm tt ";
             this.startDate_input.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.startDate_input.Location = new System.Drawing.Point(31, 101);
             this.startDate_input.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
@@ -335,7 +335,7 @@
             this.startDate_input.Name = "startDate_input";
             this.startDate_input.Size = new System.Drawing.Size(213, 20);
             this.startDate_input.TabIndex = 13;
-            this.startDate_input.Value = new System.DateTime(2023, 9, 8, 10, 53, 18, 0);
+            this.startDate_input.Value = new System.DateTime(2023, 9, 8, 10, 53, 0, 0);
             // 
             // date_time_label
             // 

@@ -41,7 +41,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         //HANDLE DOCTOR CHANGE AND LOAD SCHEDULES
@@ -242,7 +242,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
         private void PaymentFormClosed(FormClosedEventArgs args)
         {
             MessageBox.Show("Appointment Added Sccessfuly", "Success", default, MessageBoxIcon.Information);
-            this.Hide();
+            this.Close();
         }
 
         private bool ValidateApptInputs()

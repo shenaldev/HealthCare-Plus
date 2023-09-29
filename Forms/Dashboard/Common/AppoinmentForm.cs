@@ -44,6 +44,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
             addAppointmentForm.Dock = DockStyle.Fill;
             Parent.Controls.Add(addAppointmentForm);
             addAppointmentForm.BringToFront();
+            addAppointmentForm.FormClosed += (s, args) => addAppointmentFormClosed(args); // CLOSE EVENT
             addAppointmentForm.Show();
         }
 
@@ -53,6 +54,12 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
         {
             InvoiceView invoiceView = new InvoiceView(selectedAppt.ToString());
             invoiceView.Show();
+        }
+
+        //REFETCH DATA WHEN ADD APPOINTMENT FORM CLOSED
+        private void addAppointmentFormClosed(FormClosedEventArgs args)
+        {
+            LoadAppointments();
         }
 
         private void OnGridViewCellDubleClick(object sender, DataGridViewCellEventArgs e)
@@ -95,7 +102,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
             string patientID = Search_patient_input.SelectedValue.ToString();
             string date = Search_date_input.Value.ToString("yyyy-MM-dd");
 
-            string query = selectQuery + "WHERE CONVERT(varchar(30),sch.start_date,126) LIKE @start_date";
+            string query = selectQuery + " WHERE CONVERT(varchar(30),sch.start_date,126) LIKE @start_date";
 
             if (doctorID != "0")
                 query += " AND Users.id = @doctor_id";

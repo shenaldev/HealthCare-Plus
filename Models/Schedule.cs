@@ -51,7 +51,6 @@ namespace HealthCare_Plus.Models
             + "room = @room, "
             + "start_date = @start_date, "
             + "end_date = @end_date "
-            + "updated_at = @updated_at "
             + "WHERE id = @id";
         private string deleteQuery = "DELETE FROM Schedules WHERE id = @id";
 
@@ -91,7 +90,6 @@ namespace HealthCare_Plus.Models
             sqlCommand.Parameters.AddWithValue("@room", roomNo);
             sqlCommand.Parameters.AddWithValue("@start_date", startDateTime);
             sqlCommand.Parameters.AddWithValue("@end_date", endDateTime);
-            sqlCommand.Parameters.AddWithValue("@updated_at", timeNow);
             sqlCommand.Parameters.AddWithValue("@id", id);
             return sqlCommand;
         }
