@@ -116,11 +116,5 @@ namespace HealthCare_Plus.Forms.Auth
 
             return "valid";
         }
-
-        private void StaffLoginForm_Load(object sender, EventArgs e)
-        {
-            email_input.Text = "k@mail.com";
-            password_input.Text = "password";
-        }
     }
 }

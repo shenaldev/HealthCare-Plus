@@ -1,5 +1,4 @@
-﻿using HealthCare_Plus.Forms.Dashboard;
-using HealthCare_Plus.Forms.Dashboard.Admin;
+﻿using HealthCare_Plus.Forms.Dashboard.Admin;
 using HealthCare_Plus.Models;
 using HealthCare_Plus.Utils;
 using System;
@@ -17,8 +16,6 @@ namespace HealthCare_Plus.Forms.Auth
         public AdminLoginForm()
         {
             InitializeComponent();
-            email_input.Text = "admin@healthplus.com";
-            password_input.Text = "password";
         }
 
         private void login_btn_Click(object sender, EventArgs e)
@@ -44,6 +41,7 @@ namespace HealthCare_Plus.Forms.Auth
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.Message);
                     MessageBox.Show("Server Error Try Again Later", "Error", default, MessageBoxIcon.Error);
                     return;
                 }
