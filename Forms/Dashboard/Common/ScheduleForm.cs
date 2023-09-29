@@ -176,9 +176,9 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
                 baseQuery += "AND Schedules.location LIKE @location ";
             }
 
+            SqlConnection sqlCon = dBCon.SqlConnection;
             try
             {
-                SqlConnection sqlCon = dBCon.SqlConnection;
                 sqlCon.Open();
 
                 //EXECUTE SEARCH COMMAND AND FILL DATA TABLE
@@ -212,6 +212,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
             }
             catch (Exception ex)
             {
+                sqlCon.Close();
                 Console.WriteLine(ex.Message);
             }
         }
@@ -244,9 +245,9 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
         //LOAD SCHEDULES INTO DATA GRID VIEW
         private void LoadSchedules()
         {
+            SqlConnection sqlConnection = dBCon.SqlConnection;
             try
             {
-                SqlConnection sqlConnection = dBCon.SqlConnection;
                 sqlConnection.Open();
                 string query =
                     "SELECT Schedules.id, Users.first_name + ' ' + Users.last_name as doctor,Schedules.location, Schedules.room, Schedules.start_date, Schedules.end_date "
@@ -261,6 +262,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
             }
             catch (Exception ex)
             {
+                sqlConnection.Close();
                 Console.WriteLine(ex.Message);
             }
         }
@@ -269,12 +271,9 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
         private bool DBQuery(string operation, Int64 updateID = 0)
         {
             string operationType = operation == "INSERT" ? "INSERT" : "UPDATE";
-            SqlConnection sqlCon = null;
-
+            SqlConnection sqlCon = dBCon.SqlConnection;
             try
             {
-                DBCon dBCon = new DBCon();
-                sqlCon = dBCon.SqlConnection;
                 sqlCon.Open();
 
                 if (operationType == "INSERT")
@@ -303,9 +302,9 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
         //DELETE QUERY
         private bool DeleteQuery(Int64 id)
         {
+            SqlConnection sqlConnection = dBCon.SqlConnection;
             try
             {
-                SqlConnection sqlConnection = dBCon.SqlConnection;
                 sqlConnection.Open();
                 Schedule schedule = new Schedule();
                 SqlCommand sqlCommand = schedule.GetDeleteCmd(sqlConnection, id);
@@ -314,6 +313,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
             }
             catch (Exception ex)
             {
+                sqlConnection.Close();
                 Console.WriteLine(ex.Message);
                 return false;
             }

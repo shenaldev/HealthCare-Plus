@@ -63,10 +63,10 @@ namespace HealthCare_Plus.Forms.Dashboard.Staff
                 searchQuery += " AND location LIKE @location";
             }
 
+            DBCon dBCon = new DBCon();
+            SqlConnection sqlCon = dBCon.SqlConnection;
             try
             {
-                DBCon dBCon = new DBCon();
-                SqlConnection sqlCon = dBCon.SqlConnection;
                 sqlCon.Open();
 
                 //EXECUTE SEARCH COMMAND AND FILL DATA TABLE
@@ -103,6 +103,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Staff
             }
             catch (Exception ex)
             {
+                sqlCon.Close();
                 Console.WriteLine(ex.Message);
                 return;
             }
@@ -117,10 +118,10 @@ namespace HealthCare_Plus.Forms.Dashboard.Staff
         //LOAD DOCTORS DATA INTO GRID VIEW
         private void LoadDoctorsData()
         {
+            DBCon dBCon = new DBCon();
+            SqlConnection sqlCon = dBCon.SqlConnection;
             try
             {
-                DBCon dBCon = new DBCon();
-                SqlConnection sqlCon = dBCon.SqlConnection;
                 sqlCon.Open();
                 SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, sqlCon);
                 DataTable dataTabel = new DataTable();
@@ -130,6 +131,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Staff
             }
             catch (Exception ex)
             {
+                sqlCon.Close();
                 Console.WriteLine(ex.Message);
                 return;
             }

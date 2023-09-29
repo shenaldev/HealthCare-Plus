@@ -11,13 +11,13 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
     public partial class AddAppointmentForm : Form
     {
         //VARIABLES
-        DBCon dBCon = new DBCon();
-        Int64 selectedDoctorID;
-        Appointment appointment;
-        DataTable ChargesDataTable = new DataTable();
-        PaymentForm paymentForm;
-        int ChargesID = 1;
-        int deleteChargeID;
+        private DBCon dBCon = new DBCon();
+        private Int64 selectedDoctorID;
+        private Appointment appointment;
+        private DataTable ChargesDataTable = new DataTable();
+        private PaymentForm paymentForm;
+        private int ChargesID = 1;
+        private int deleteChargeID;
 
         public AddAppointmentForm()
         {
@@ -92,9 +92,9 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
                 + "WHERE Schedules.doctor_id = @doctor_id "
                 + "ORDER BY Schedules.id DESC";
 
+            SqlConnection sqlCon = dBCon.SqlConnection;
             try
             {
-                SqlConnection sqlCon = dBCon.SqlConnection;
                 sqlCon.Open();
                 SqlDataAdapter adapter = new SqlDataAdapter(query, sqlCon);
                 adapter.SelectCommand.Parameters.AddWithValue("@doctor_id", doctor_id);
@@ -110,6 +110,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
             }
             catch (Exception ex)
             {
+                sqlCon.Close();
                 Console.WriteLine(ex.Message);
             }
         }

@@ -83,6 +83,7 @@ namespace HealthCare_Plus.Forms.Dashboard.Common
             }
             catch (Exception ex)
             {
+                sqlCon.Close();
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("Server Error", "Error", default, MessageBoxIcon.Error);
             }
