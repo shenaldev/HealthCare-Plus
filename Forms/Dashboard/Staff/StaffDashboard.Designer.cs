@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffDashboard));
             this.navigationPanel = new System.Windows.Forms.Panel();
-            this.invoiceBtn = new System.Windows.Forms.Button();
-            this.reportsBtn = new System.Windows.Forms.Button();
             this.logout_btn = new System.Windows.Forms.Button();
             this.appointmentBtn = new System.Windows.Forms.Button();
             this.ScheduleBtn = new System.Windows.Forms.Button();
@@ -55,8 +53,6 @@
             // navigationPanel
             // 
             this.navigationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(36)))), ((int)(((byte)(77)))));
-            this.navigationPanel.Controls.Add(this.invoiceBtn);
-            this.navigationPanel.Controls.Add(this.reportsBtn);
             this.navigationPanel.Controls.Add(this.logout_btn);
             this.navigationPanel.Controls.Add(this.appointmentBtn);
             this.navigationPanel.Controls.Add(this.ScheduleBtn);
@@ -68,50 +64,6 @@
             this.navigationPanel.Name = "navigationPanel";
             this.navigationPanel.Size = new System.Drawing.Size(200, 611);
             this.navigationPanel.TabIndex = 0;
-            // 
-            // invoiceBtn
-            // 
-            this.invoiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(36)))), ((int)(((byte)(77)))));
-            this.invoiceBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.invoiceBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.invoiceBtn.FlatAppearance.BorderSize = 0;
-            this.invoiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.invoiceBtn.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invoiceBtn.ForeColor = System.Drawing.Color.White;
-            this.invoiceBtn.Image = ((System.Drawing.Image)(resources.GetObject("invoiceBtn.Image")));
-            this.invoiceBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.invoiceBtn.Location = new System.Drawing.Point(0, 428);
-            this.invoiceBtn.Name = "invoiceBtn";
-            this.invoiceBtn.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.invoiceBtn.Size = new System.Drawing.Size(200, 60);
-            this.invoiceBtn.TabIndex = 21;
-            this.invoiceBtn.Text = "Invoice";
-            this.invoiceBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.invoiceBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.invoiceBtn.UseVisualStyleBackColor = false;
-            this.invoiceBtn.Click += new System.EventHandler(this.invoiceBtn_Click);
-            // 
-            // reportsBtn
-            // 
-            this.reportsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(36)))), ((int)(((byte)(77)))));
-            this.reportsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reportsBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.reportsBtn.FlatAppearance.BorderSize = 0;
-            this.reportsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reportsBtn.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportsBtn.ForeColor = System.Drawing.Color.White;
-            this.reportsBtn.Image = ((System.Drawing.Image)(resources.GetObject("reportsBtn.Image")));
-            this.reportsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reportsBtn.Location = new System.Drawing.Point(0, 368);
-            this.reportsBtn.Name = "reportsBtn";
-            this.reportsBtn.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.reportsBtn.Size = new System.Drawing.Size(200, 60);
-            this.reportsBtn.TabIndex = 20;
-            this.reportsBtn.Text = "Reports";
-            this.reportsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reportsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.reportsBtn.UseVisualStyleBackColor = false;
-            this.reportsBtn.Click += new System.EventHandler(this.reportsBtn_Click);
             // 
             // logout_btn
             // 
@@ -339,8 +291,6 @@
         private System.Windows.Forms.Panel logoPanel;
         private System.Windows.Forms.Label app_name_label;
         private System.Windows.Forms.PictureBox logoImage;
-        private System.Windows.Forms.Button invoiceBtn;
-        private System.Windows.Forms.Button reportsBtn;
         private System.Windows.Forms.Button logout_btn;
         private System.Windows.Forms.Button appointmentBtn;
         private System.Windows.Forms.Button ScheduleBtn;
