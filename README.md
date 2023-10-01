@@ -47,16 +47,24 @@ password: j@lmd45!k`
 
 ## System Demo
 
-[Login Page](https://i.imgur.com/TgHIJH2.png)
+![Login Page](https://i.imgur.com/TgHIJH2.png)
 
-Admin Dashboard
-[Imgur](https://i.imgur.com/uJMJ0on.png)
-[Imgur](https://i.imgur.com/lxiXsn6.png)
-[Imgur](https://i.imgur.com/fvMEBYO.png)
+#### Admin Dashboard
 
-Staff Dashboard
-[Imgur](https://i.imgur.com/OwGTsM7.png)
-[Imgur](https://i.imgur.com/D6RJNxl.png)
-[Imgur](https://i.imgur.com/NLWz7Nb.png)
-[Imgur](https://i.imgur.com/WTpglVE.png)
-[Imgur](https://i.imgur.com/7BcaraH.png)
+![Screenshot 1](https://i.imgur.com/uJMJ0on.png)
+
+![Screenshot 2](https://i.imgur.com/lxiXsn6.png)
+
+![Screenshot 3](https://i.imgur.com/fvMEBYO.png)
+
+#### Staff Dashboard
+
+![Imgur](https://i.imgur.com/OwGTsM7.png)
+
+![Imgur](https://i.imgur.com/D6RJNxl.png)
+
+![Imgur](https://i.imgur.com/NLWz7Nb.png)
+
+![Imgur](https://i.imgur.com/WTpglVE.png)
+
+![Imgur](https://i.imgur.com/7BcaraH.png)
