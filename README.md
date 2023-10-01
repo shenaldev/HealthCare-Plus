@@ -68,3 +68,9 @@ password: j@lmd45!k`
 ![Imgur](https://i.imgur.com/WTpglVE.png)
 
 ![Imgur](https://i.imgur.com/7BcaraH.png)
+
+## License
+
+This project is released under the [MIT License](LICENSE), with the following clarification:
+
+**Non-Commercial Use Only:** This software is provided for non-commercial purposes. You are free to use, modify, and distribute the software as long as it is not used for commercial activities. For commercial use or licensing inquiries, please contact the project maintainers.
