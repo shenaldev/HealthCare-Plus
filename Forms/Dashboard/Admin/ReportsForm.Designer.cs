@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.Title_label = new System.Windows.Forms.Label();
             this.DoctorsReportBtn = new System.Windows.Forms.Button();
             this.PatientsReportBtn = new System.Windows.Forms.Button();
@@ -46,9 +46,9 @@
             this.Title_label.Font = new System.Drawing.Font("Montserrat SemiBold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Title_label.Location = new System.Drawing.Point(371, 18);
             this.Title_label.Name = "Title_label";
-            this.Title_label.Size = new System.Drawing.Size(142, 21);
+            this.Title_label.Size = new System.Drawing.Size(143, 21);
             this.Title_label.TabIndex = 1;
-            this.Title_label.Text = "Renerate Reports";
+            this.Title_label.Text = "Generate Reports";
             // 
             // DoctorsReportBtn
             // 
@@ -118,9 +118,9 @@
             // reportsView
             // 
             this.reportsView.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource2.Name = "DoctorsDataSet";
-            reportDataSource2.Value = null;
-            this.reportsView.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "DoctorsDataSet";
+            reportDataSource1.Value = null;
+            this.reportsView.LocalReport.DataSources.Add(reportDataSource1);
             this.reportsView.LocalReport.ReportEmbeddedResource = "HealthCare_Plus.Forms.Dashboard.Reports.DoctorsReport.rdlc";
             this.reportsView.Location = new System.Drawing.Point(0, 0);
             this.reportsView.Name = "reportsView";

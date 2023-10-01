@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace HealthCare_Plus {
+namespace HealthCare_Plus.DataSets {
     
     
     /// <summary>
@@ -812,7 +812,7 @@ namespace HealthCare_Plus {
         }
     }
 }
-namespace HealthCare_Plus.PaymentsDataSetTableAdapters {
+namespace HealthCare_Plus.DataSets.PaymentsDataSetTableAdapters {
     
     
     /// <summary>

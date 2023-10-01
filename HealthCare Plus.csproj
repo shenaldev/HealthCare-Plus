@@ -12,6 +12,25 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Shenal\Documents\Visual Studio 2022\Apps\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>https://www.shenaldev.com</SupportUrl>
+    <ProductName>Healthcare Plus</ProductName>
+    <PublisherName>Shenal Dev</PublisherName>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +50,27 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>77A921E946A09310D380110FD1569F68382F1A2E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>HealthCare Plus_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>medicine.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -90,10 +130,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DoctorsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\PatientsDataSet.cs">
+      <DependentUpon>PatientsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\PatientsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PatientsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\SelectDoctorDataSet.cs">
+      <DependentUpon>SelectDoctorDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Forms\Auth\AdminLogin.cs">
       <SubType>Form</SubType>
@@ -185,7 +231,7 @@
     <Compile Include="Forms\Dashboard\Staff\StaffDashboard.Designer.cs">
       <DependentUpon>StaffDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="HealthcareplusDataSet.Designer.cs">
+    <Compile Include="DataSets\HealthcareplusDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HealthcareplusDataSet.xsd</DependentUpon>
@@ -204,7 +250,7 @@
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\StaffMemeber.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="PaymentsDataSet.Designer.cs">
+    <Compile Include="DataSets\PaymentsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PaymentsDataSet.xsd</DependentUpon>
@@ -216,18 +262,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ScheduleDataSet.cs">
+    <Compile Include="DataSets\ScheduleDataSet.cs">
       <DependentUpon>ScheduleDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ScheduleDataSet.Designer.cs">
+    <Compile Include="DataSets\ScheduleDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ScheduleDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SelectDoctorDataSet1.Designer.cs">
+    <Compile Include="DataSets\SelectDoctorDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SelectDoctorDataSet1.xsd</DependentUpon>
+      <DependentUpon>SelectDoctorDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utils\CCValidation.cs" />
@@ -336,29 +382,31 @@
     <None Include="DataSets\PatientsDataSet.xss">
       <DependentUpon>PatientsDataSet.xsd</DependentUpon>
     </None>
-    <None Include="HealthcareplusDataSet.xsc">
+    <None Include="HealthCare Plus_TemporaryKey.pfx" />
+    <None Include="DataSets\HealthcareplusDataSet.xsc">
       <DependentUpon>HealthcareplusDataSet.xsd</DependentUpon>
     </None>
-    <None Include="HealthcareplusDataSet.xsd">
+    <None Include="DataSets\HealthcareplusDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>HealthcareplusDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="HealthcareplusDataSet.xss">
+    <None Include="DataSets\HealthcareplusDataSet.xss">
       <DependentUpon>HealthcareplusDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="PaymentsDataSet.xsc">
+    <None Include="DataSets\PaymentsDataSet.xsc">
       <DependentUpon>PaymentsDataSet.xsd</DependentUpon>
     </None>
-    <None Include="PaymentsDataSet.xsd">
+    <None Include="DataSets\PaymentsDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>PaymentsDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="PaymentsDataSet.xss">
+    <None Include="DataSets\PaymentsDataSet.xss">
       <DependentUpon>PaymentsDataSet.xsd</DependentUpon>
     </None>
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -368,27 +416,27 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="ScheduleDataSet.xsc">
+    <None Include="DataSets\ScheduleDataSet.xsc">
       <DependentUpon>ScheduleDataSet.xsd</DependentUpon>
     </None>
-    <None Include="ScheduleDataSet.xsd">
+    <None Include="DataSets\ScheduleDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ScheduleDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="ScheduleDataSet.xss">
+    <None Include="DataSets\ScheduleDataSet.xss">
       <DependentUpon>ScheduleDataSet.xsd</DependentUpon>
     </None>
-    <None Include="SelectDoctorDataSet1.xsc">
-      <DependentUpon>SelectDoctorDataSet1.xsd</DependentUpon>
+    <None Include="DataSets\SelectDoctorDataSet.xsc">
+      <DependentUpon>SelectDoctorDataSet.xsd</DependentUpon>
     </None>
-    <None Include="SelectDoctorDataSet1.xsd">
+    <None Include="DataSets\SelectDoctorDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SelectDoctorDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>SelectDoctorDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="SelectDoctorDataSet1.xss">
-      <DependentUpon>SelectDoctorDataSet1.xsd</DependentUpon>
+    <None Include="DataSets\SelectDoctorDataSet.xss">
+      <DependentUpon>SelectDoctorDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -419,6 +467,7 @@
     <None Include="Resources\appoinment_icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="medicine.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -432,6 +481,18 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

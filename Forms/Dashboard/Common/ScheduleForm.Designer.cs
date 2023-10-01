@@ -55,11 +55,11 @@
             this.Location_label = new System.Windows.Forms.Label();
             this.doctor_input = new System.Windows.Forms.ComboBox();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.selectDoctorDataSet = new HealthCare_Plus.SelectDoctorDataSet();
+            this.selectDoctorDataSet = new HealthCare_Plus.DataSets.SelectDoctorDataSet();
             this.doctor_label = new System.Windows.Forms.Label();
             this.BodyPanel = new System.Windows.Forms.Panel();
             this.ScheduleDataGridView = new System.Windows.Forms.DataGridView();
-            this.usersTableAdapter = new HealthCare_Plus.SelectDoctorDataSetTableAdapters.UsersTableAdapter();
+            this.usersTableAdapter = new HealthCare_Plus.DataSets.SelectDoctorDataSetTableAdapters.UsersTableAdapter();
             this.TopPanel.SuspendLayout();
             this.SearchPanel.SuspendLayout();
             this.CrudPanel.SuspendLayout();
@@ -473,9 +473,9 @@
         private System.Windows.Forms.Panel SearchPanel;
         private System.Windows.Forms.Panel CrudPanel;
         private System.Windows.Forms.ComboBox doctor_input;
-        private SelectDoctorDataSet selectDoctorDataSet;
+        private DataSets.SelectDoctorDataSet selectDoctorDataSet;
         private System.Windows.Forms.BindingSource usersBindingSource;
-        private SelectDoctorDataSetTableAdapters.UsersTableAdapter usersTableAdapter;
+        private DataSets.SelectDoctorDataSetTableAdapters.UsersTableAdapter usersTableAdapter;
         private System.Windows.Forms.Label Location_label;
         private System.Windows.Forms.DataGridView ScheduleDataGridView;
         private System.Windows.Forms.ComboBox location_input;

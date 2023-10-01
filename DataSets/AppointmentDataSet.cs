@@ -1,8 +1,4 @@
 ﻿namespace HealthCare_Plus.DataSets
 {
-
-
-    public partial class DataSet1
-    {
-    }
+    public partial class AppointmentDataSet { }
 }

@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace HealthCare_Plus {
+namespace HealthCare_Plus.DataSets {
     
     
     /// <summary>
@@ -20,17 +20,17 @@ namespace HealthCare_Plus {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("HealthcareplusDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("ScheduleDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class HealthcareplusDataSet : global::System.Data.DataSet {
+    public partial class ScheduleDataSet : global::System.Data.DataSet {
         
-        private PatientsDataTable tablePatients;
+        private SchedulesDataTable tableSchedules;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public HealthcareplusDataSet() {
+        public ScheduleDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace HealthCare_Plus {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected HealthcareplusDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected ScheduleDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace HealthCare_Plus {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Patients"] != null)) {
-                    base.Tables.Add(new PatientsDataTable(ds.Tables["Patients"]));
+                if ((ds.Tables["Schedules"] != null)) {
+                    base.Tables.Add(new SchedulesDataTable(ds.Tables["Schedules"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace HealthCare_Plus {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public PatientsDataTable Patients {
+        public SchedulesDataTable Schedules {
             get {
-                return this.tablePatients;
+                return this.tableSchedules;
             }
         }
         
@@ -127,7 +127,7 @@ namespace HealthCare_Plus {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            HealthcareplusDataSet cln = ((HealthcareplusDataSet)(base.Clone()));
+            ScheduleDataSet cln = ((ScheduleDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace HealthCare_Plus {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Patients"] != null)) {
-                    base.Tables.Add(new PatientsDataTable(ds.Tables["Patients"]));
+                if ((ds.Tables["Schedules"] != null)) {
+                    base.Tables.Add(new SchedulesDataTable(ds.Tables["Schedules"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace HealthCare_Plus {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablePatients = ((PatientsDataTable)(base.Tables["Patients"]));
+            this.tableSchedules = ((SchedulesDataTable)(base.Tables["Schedules"]));
             if ((initTable == true)) {
-                if ((this.tablePatients != null)) {
-                    this.tablePatients.InitVars();
+                if ((this.tableSchedules != null)) {
+                    this.tableSchedules.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace HealthCare_Plus {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "HealthcareplusDataSet";
+            this.DataSetName = "ScheduleDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/HealthcareplusDataSet.xsd";
+            this.Namespace = "http://tempuri.org/ScheduleDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablePatients = new PatientsDataTable();
-            base.Tables.Add(this.tablePatients);
+            this.tableSchedules = new SchedulesDataTable();
+            base.Tables.Add(this.tableSchedules);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializePatients() {
+        private bool ShouldSerializeSchedules() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace HealthCare_Plus {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            HealthcareplusDataSet ds = new HealthcareplusDataSet();
+            ScheduleDataSet ds = new ScheduleDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,23 +270,23 @@ namespace HealthCare_Plus {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void PatientsRowChangeEventHandler(object sender, PatientsRowChangeEvent e);
+        public delegate void SchedulesRowChangeEventHandler(object sender, SchedulesRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class PatientsDataTable : global::System.Data.TypedTableBase<PatientsRow> {
+        public partial class SchedulesDataTable : global::System.Data.TypedTableBase<SchedulesRow> {
             
             private global::System.Data.DataColumn columnid;
             
-            private global::System.Data.DataColumn columncontact_no;
+            private global::System.Data.DataColumn columndetails;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PatientsDataTable() {
-                this.TableName = "Patients";
+            public SchedulesDataTable() {
+                this.TableName = "Schedules";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -294,7 +294,7 @@ namespace HealthCare_Plus {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal PatientsDataTable(global::System.Data.DataTable table) {
+            internal SchedulesDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -311,7 +311,7 @@ namespace HealthCare_Plus {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected PatientsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected SchedulesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -326,9 +326,9 @@ namespace HealthCare_Plus {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn contact_noColumn {
+            public global::System.Data.DataColumn detailsColumn {
                 get {
-                    return this.columncontact_no;
+                    return this.columndetails;
                 }
             }
             
@@ -343,53 +343,53 @@ namespace HealthCare_Plus {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PatientsRow this[int index] {
+            public SchedulesRow this[int index] {
                 get {
-                    return ((PatientsRow)(this.Rows[index]));
+                    return ((SchedulesRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event PatientsRowChangeEventHandler PatientsRowChanging;
+            public event SchedulesRowChangeEventHandler SchedulesRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event PatientsRowChangeEventHandler PatientsRowChanged;
+            public event SchedulesRowChangeEventHandler SchedulesRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event PatientsRowChangeEventHandler PatientsRowDeleting;
+            public event SchedulesRowChangeEventHandler SchedulesRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event PatientsRowChangeEventHandler PatientsRowDeleted;
+            public event SchedulesRowChangeEventHandler SchedulesRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddPatientsRow(PatientsRow row) {
+            public void AddSchedulesRow(SchedulesRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PatientsRow AddPatientsRow(string contact_no) {
-                PatientsRow rowPatientsRow = ((PatientsRow)(this.NewRow()));
+            public SchedulesRow AddSchedulesRow(string details) {
+                SchedulesRow rowSchedulesRow = ((SchedulesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        contact_no};
-                rowPatientsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowPatientsRow);
-                return rowPatientsRow;
+                        details};
+                rowSchedulesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSchedulesRow);
+                return rowSchedulesRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PatientsRow FindByid(long id) {
-                return ((PatientsRow)(this.Rows.Find(new object[] {
+            public SchedulesRow FindByid(long id) {
+                return ((SchedulesRow)(this.Rows.Find(new object[] {
                             id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                PatientsDataTable cln = ((PatientsDataTable)(base.Clone()));
+                SchedulesDataTable cln = ((SchedulesDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -397,14 +397,14 @@ namespace HealthCare_Plus {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new PatientsDataTable();
+                return new SchedulesDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnid = base.Columns["id"];
-                this.columncontact_no = base.Columns["contact_no"];
+                this.columndetails = base.Columns["details"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -412,8 +412,8 @@ namespace HealthCare_Plus {
             private void InitClass() {
                 this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
-                this.columncontact_no = new global::System.Data.DataColumn("contact_no", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncontact_no);
+                this.columndetails = new global::System.Data.DataColumn("details", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndetails);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -422,34 +422,34 @@ namespace HealthCare_Plus {
                 this.columnid.AllowDBNull = false;
                 this.columnid.ReadOnly = true;
                 this.columnid.Unique = true;
-                this.columncontact_no.AllowDBNull = false;
-                this.columncontact_no.MaxLength = 12;
+                this.columndetails.ReadOnly = true;
+                this.columndetails.MaxLength = 389;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PatientsRow NewPatientsRow() {
-                return ((PatientsRow)(this.NewRow()));
+            public SchedulesRow NewSchedulesRow() {
+                return ((SchedulesRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new PatientsRow(builder);
+                return new SchedulesRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(PatientsRow);
+                return typeof(SchedulesRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.PatientsRowChanged != null)) {
-                    this.PatientsRowChanged(this, new PatientsRowChangeEvent(((PatientsRow)(e.Row)), e.Action));
+                if ((this.SchedulesRowChanged != null)) {
+                    this.SchedulesRowChanged(this, new SchedulesRowChangeEvent(((SchedulesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -457,8 +457,8 @@ namespace HealthCare_Plus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.PatientsRowChanging != null)) {
-                    this.PatientsRowChanging(this, new PatientsRowChangeEvent(((PatientsRow)(e.Row)), e.Action));
+                if ((this.SchedulesRowChanging != null)) {
+                    this.SchedulesRowChanging(this, new SchedulesRowChangeEvent(((SchedulesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -466,8 +466,8 @@ namespace HealthCare_Plus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.PatientsRowDeleted != null)) {
-                    this.PatientsRowDeleted(this, new PatientsRowChangeEvent(((PatientsRow)(e.Row)), e.Action));
+                if ((this.SchedulesRowDeleted != null)) {
+                    this.SchedulesRowDeleted(this, new SchedulesRowChangeEvent(((SchedulesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -475,14 +475,14 @@ namespace HealthCare_Plus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.PatientsRowDeleting != null)) {
-                    this.PatientsRowDeleting(this, new PatientsRowChangeEvent(((PatientsRow)(e.Row)), e.Action));
+                if ((this.SchedulesRowDeleting != null)) {
+                    this.SchedulesRowDeleting(this, new SchedulesRowChangeEvent(((SchedulesRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemovePatientsRow(PatientsRow row) {
+            public void RemoveSchedulesRow(SchedulesRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -491,7 +491,7 @@ namespace HealthCare_Plus {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                HealthcareplusDataSet ds = new HealthcareplusDataSet();
+                ScheduleDataSet ds = new ScheduleDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -509,7 +509,7 @@ namespace HealthCare_Plus {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "PatientsDataTable";
+                attribute2.FixedValue = "SchedulesDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -553,37 +553,54 @@ namespace HealthCare_Plus {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class PatientsRow : global::System.Data.DataRow {
+        public partial class SchedulesRow : global::System.Data.DataRow {
             
-            private PatientsDataTable tablePatients;
+            private SchedulesDataTable tableSchedules;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal PatientsRow(global::System.Data.DataRowBuilder rb) : 
+            internal SchedulesRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablePatients = ((PatientsDataTable)(this.Table));
+                this.tableSchedules = ((SchedulesDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public long id {
                 get {
-                    return ((long)(this[this.tablePatients.idColumn]));
+                    return ((long)(this[this.tableSchedules.idColumn]));
                 }
                 set {
-                    this[this.tablePatients.idColumn] = value;
+                    this[this.tableSchedules.idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string contact_no {
+            public string details {
                 get {
-                    return ((string)(this[this.tablePatients.contact_noColumn]));
+                    try {
+                        return ((string)(this[this.tableSchedules.detailsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'details\' in table \'Schedules\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tablePatients.contact_noColumn] = value;
+                    this[this.tableSchedules.detailsColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsdetailsNull() {
+                return this.IsNull(this.tableSchedules.detailsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetdetailsNull() {
+                this[this.tableSchedules.detailsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -591,22 +608,22 @@ namespace HealthCare_Plus {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class PatientsRowChangeEvent : global::System.EventArgs {
+        public class SchedulesRowChangeEvent : global::System.EventArgs {
             
-            private PatientsRow eventRow;
+            private SchedulesRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PatientsRowChangeEvent(PatientsRow row, global::System.Data.DataRowAction action) {
+            public SchedulesRowChangeEvent(SchedulesRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public PatientsRow Row {
+            public SchedulesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -622,7 +639,7 @@ namespace HealthCare_Plus {
         }
     }
 }
-namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
+namespace HealthCare_Plus.DataSets.ScheduleDataSetTableAdapters {
     
     
     /// <summary>
@@ -634,7 +651,7 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class PatientsTableAdapter : global::System.ComponentModel.Component {
+    public partial class SchedulesTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -648,7 +665,7 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public PatientsTableAdapter() {
+        public SchedulesTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -745,26 +762,35 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Patients";
+            tableMapping.DataSetTable = "Schedules";
             tableMapping.ColumnMappings.Add("id", "id");
-            tableMapping.ColumnMappings.Add("contact_no", "contact_no");
+            tableMapping.ColumnMappings.Add("details", "details");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Patients] WHERE (([id] = @Original_id) AND ([contact_no] = @Or" +
-                "iginal_contact_no))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Schedules] WHERE (([id] = @Original_id) AND ([doctor_id] = @Or" +
+                "iginal_doctor_id) AND ([location] = @Original_location) AND ([room] = @Original_" +
+                "room) AND ([start_date] = @Original_start_date))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_contact_no", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contact_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_doctor_id", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "doctor_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_location", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "location", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_room", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "room", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_start_date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "start_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Patients] SET [contact_no] = @contact_no WHERE (([id] = @Original_i" +
-                "d) AND ([contact_no] = @Original_contact_no));\r\nSELECT id, contact_no FROM Patie" +
-                "nts WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Schedules] SET [doctor_id] = @doctor_id, [location] = @location, [room] = @room, [start_date] = @start_date WHERE (([id] = @Original_id) AND ([doctor_id] = @Original_doctor_id) AND ([location] = @Original_location) AND ([room] = @Original_room) AND ([start_date] = @Original_start_date));
+SELECT id, doctor_id, location, room, start_date FROM Schedules WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contact_no", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contact_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@doctor_id", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "doctor_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@location", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "location", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@room", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "room", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@start_date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "start_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_contact_no", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contact_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_doctor_id", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "doctor_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_location", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "location", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_room", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "room", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_start_date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "start_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -781,7 +807,10 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, contact_no FROM dbo.Patients";
+            this._commandCollection[0].CommandText = @"SELECT        Schedules.id, Users.first_name + ' ' + Users.last_name + ' Room ' + CAST(Schedules.room AS varchar(10)) + ' ' + Schedules.location + ' ' + CAST(Schedules.start_date AS varchar(20)) AS details
+FROM            Schedules INNER JOIN
+                         Users ON Schedules.doctor_id = Users.id
+ORDER BY Schedules.id DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -789,7 +818,7 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(HealthcareplusDataSet.PatientsDataTable dataTable) {
+        public virtual int Fill(ScheduleDataSet.SchedulesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -802,9 +831,9 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual HealthcareplusDataSet.PatientsDataTable GetData() {
+        public virtual ScheduleDataSet.SchedulesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HealthcareplusDataSet.PatientsDataTable dataTable = new HealthcareplusDataSet.PatientsDataTable();
+            ScheduleDataSet.SchedulesDataTable dataTable = new ScheduleDataSet.SchedulesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -812,15 +841,15 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HealthcareplusDataSet.PatientsDataTable dataTable) {
+        public virtual int Update(ScheduleDataSet.SchedulesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HealthcareplusDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Patients");
+        public virtual int Update(ScheduleDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "Schedules");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -842,14 +871,17 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(long Original_id, string Original_contact_no) {
+        public virtual int Delete(long Original_id, long Original_doctor_id, string Original_location, byte Original_room, System.DateTime Original_start_date) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
-            if ((Original_contact_no == null)) {
-                throw new global::System.ArgumentNullException("Original_contact_no");
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((long)(Original_doctor_id));
+            if ((Original_location == null)) {
+                throw new global::System.ArgumentNullException("Original_location");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_contact_no));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_location));
             }
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((byte)(Original_room));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_start_date));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -870,21 +902,27 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string contact_no, long Original_id, string Original_contact_no, long id) {
-            if ((contact_no == null)) {
-                throw new global::System.ArgumentNullException("contact_no");
+        public virtual int Update(long doctor_id, string location, byte room, System.DateTime start_date, long Original_id, long Original_doctor_id, string Original_location, byte Original_room, System.DateTime Original_start_date, long id) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(doctor_id));
+            if ((location == null)) {
+                throw new global::System.ArgumentNullException("location");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(contact_no));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(location));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(Original_id));
-            if ((Original_contact_no == null)) {
-                throw new global::System.ArgumentNullException("Original_contact_no");
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((byte)(room));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(start_date));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((long)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((long)(Original_doctor_id));
+            if ((Original_location == null)) {
+                throw new global::System.ArgumentNullException("Original_location");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_contact_no));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_location));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(id));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((byte)(Original_room));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_start_date));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((long)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -905,8 +943,8 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string contact_no, long Original_id, string Original_contact_no) {
-            return this.Update(contact_no, Original_id, Original_contact_no, Original_id);
+        public virtual int Update(long doctor_id, string location, byte room, System.DateTime start_date, long Original_id, long Original_doctor_id, string Original_location, byte Original_room, System.DateTime Original_start_date) {
+            return this.Update(doctor_id, location, room, start_date, Original_id, Original_doctor_id, Original_location, Original_room, Original_start_date, Original_id);
         }
     }
     
@@ -922,7 +960,7 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private PatientsTableAdapter _patientsTableAdapter;
+        private SchedulesTableAdapter _schedulesTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -944,12 +982,12 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public PatientsTableAdapter PatientsTableAdapter {
+        public SchedulesTableAdapter SchedulesTableAdapter {
             get {
-                return this._patientsTableAdapter;
+                return this._schedulesTableAdapter;
             }
             set {
-                this._patientsTableAdapter = value;
+                this._schedulesTableAdapter = value;
             }
         }
         
@@ -972,9 +1010,9 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._patientsTableAdapter != null) 
-                            && (this._patientsTableAdapter.Connection != null))) {
-                    return this._patientsTableAdapter.Connection;
+                if (((this._schedulesTableAdapter != null) 
+                            && (this._schedulesTableAdapter.Connection != null))) {
+                    return this._schedulesTableAdapter.Connection;
                 }
                 return null;
             }
@@ -989,7 +1027,7 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._patientsTableAdapter != null)) {
+                if ((this._schedulesTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1001,14 +1039,14 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(HealthcareplusDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(ScheduleDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._patientsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Patients.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._schedulesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Schedules.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._patientsTableAdapter.Update(updatedRows));
+                    result = (result + this._schedulesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1020,13 +1058,13 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(HealthcareplusDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(ScheduleDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._patientsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Patients.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._schedulesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Schedules.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._patientsTableAdapter.Update(addedRows));
+                    result = (result + this._schedulesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1038,13 +1076,13 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(HealthcareplusDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(ScheduleDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._patientsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Patients.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._schedulesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Schedules.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._patientsTableAdapter.Update(deletedRows));
+                    result = (result + this._schedulesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1080,15 +1118,15 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(HealthcareplusDataSet dataSet) {
+        public virtual int UpdateAll(ScheduleDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._patientsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._patientsTableAdapter.Connection) == false))) {
+            if (((this._schedulesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._schedulesTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1124,13 +1162,13 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._patientsTableAdapter != null)) {
-                    revertConnections.Add(this._patientsTableAdapter, this._patientsTableAdapter.Connection);
-                    this._patientsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._patientsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._patientsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._patientsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._patientsTableAdapter.Adapter);
+                if ((this._schedulesTableAdapter != null)) {
+                    revertConnections.Add(this._schedulesTableAdapter, this._schedulesTableAdapter.Connection);
+                    this._schedulesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._schedulesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._schedulesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._schedulesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._schedulesTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1191,9 +1229,9 @@ namespace HealthCare_Plus.HealthcareplusDataSetTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._patientsTableAdapter != null)) {
-                    this._patientsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._patientsTableAdapter]));
-                    this._patientsTableAdapter.Transaction = null;
+                if ((this._schedulesTableAdapter != null)) {
+                    this._schedulesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._schedulesTableAdapter]));
+                    this._schedulesTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
